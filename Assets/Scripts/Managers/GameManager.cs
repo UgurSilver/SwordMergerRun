@@ -32,10 +32,10 @@ public class GameManager : MonoBehaviour
             DataManager.ResetData(datas);
         }
 
-        if (Input.GetMouseButtonDown(0) && !isFirstTouch)
+      /*  if (Input.GetMouseButtonDown(0) && !isFirstTouch)
         {
             StartGame();
-        }
+        }*/
     }
 
     public void StartGame() //Start game events

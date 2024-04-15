@@ -31,12 +31,12 @@ public class UIManager : MonoBehaviour
 
     public void SetMoneyText()
     {
-        moneyText.text = "$" + GameManager.Instance.datas.money.ToString();
+        //moneyText.text = "$" + GameManager.Instance.datas.money.ToString();
     }
 
     private void SetLevelText()
     {
-        levelText.text = "Level " + GameManager.Instance.datas.level.ToString();
+        //levelText.text = "Level " + GameManager.Instance.datas.level.ToString();
     }
 
     #region Win&Fail
