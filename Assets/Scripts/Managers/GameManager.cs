@@ -7,22 +7,41 @@ public class GameManager : MonoBehaviour
 {
     #region Variables for General
     public static GameManager Instance;
+    private CameraManager cameraManager;
+    private UIManager uiManager;
     #endregion
 
     #region Variables for GamePlay
     public Datas datas;
     [HideInInspector] public bool isGame, isFirstTouch;
-    public int gameMoney;
+    public int earnedMoney;
+    public int totalMoney;
+    #endregion
+
+    #region Variables for MergeScene
+    public bool isMergeScene;
+    public GameObject mergePanel;
+    public MergepanelController mergepanelController;
     #endregion
 
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
 
         DataManager.LoadData(datas);
+        totalMoney = datas.money;
+    }
+
+    private void Start()
+    {
+        cameraManager = CameraManager.Instance;
+        uiManager = UIManager.Instance;
+
+        if (isMergeScene)
+            openMergeScene();
     }
 
     void Update()
@@ -38,6 +57,19 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+    #region MergeEvents
+    private void openMergeScene()
+    {
+        cameraManager.SetMergePos();
+        mergePanel.SetActive(true);
+        uiManager.mergePanel.SetActive(true);
+    }
+    private void CloseMergeScene()
+    {
+
+    }
+    #endregion
+
     public void StartGame() //Start game events
     {
         if (!isFirstTouch)
@@ -49,6 +81,8 @@ public class GameManager : MonoBehaviour
             //SupersonicWisdom.Api.NotifyLevelStarted(datas.level, null);
         }
     }
+
+    #region Poolings
 
     public void UseFx(Vector3 pos, Transform parent,Color color) //particle
     {
@@ -72,4 +106,5 @@ public class GameManager : MonoBehaviour
 
         tempBullet.SetActive(true);
     }
+    #endregion
 }

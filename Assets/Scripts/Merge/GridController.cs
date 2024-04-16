@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    public int isFilled;
+    public bool isFilled;
     public int level;
 }

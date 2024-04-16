@@ -6,6 +6,12 @@ public class MergeBuyButton : MonoBehaviour
 {
    public void MergeBuy()
     {
-        print("Buy");
+        GameManager.Instance.datas.money -= GameManager.Instance.datas.mergePrice;
+        GameManager.Instance.datas.mergeCount++;
+
+
+        UIManager.Instance.SetMoneyText();
+        UIManager.Instance.SetMergeValues();
+        DataManager.SaveData(GameManager.Instance.datas);
     }
 }

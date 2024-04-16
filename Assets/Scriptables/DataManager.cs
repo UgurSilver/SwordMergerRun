@@ -29,9 +29,16 @@ public class DataManager
         Debug.Log("ResetData");
         PlayerPrefs.DeleteAll();
         
+        //Level
         gameData.level = 1;
         gameData.sceneLevel = 1;
-        gameData.money = 0;
+        gameData.money = 500;
+
+        //Merge
+        gameData.mergePrice=20;
+        gameData.mergeLevel=1;
+        gameData.mergeCount=0;
+        gameData.mergeImage=null;
 
         SaveData(gameData);
     }

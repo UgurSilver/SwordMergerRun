@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     #region Variables for General
     public static UIManager Instance;
+    private GameManager gameManager;
     #endregion
 
     #region Variables for Game
@@ -15,29 +16,66 @@ public class UIManager : MonoBehaviour
     public GameObject winPanel, failPanel;
     #endregion
 
+    #region Variables for merge
+    public GameObject mergePanel;
+    public TMPro.TextMeshProUGUI mergePriceText, mergeLevelText, MergeCountText;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
 
     }
     void Start()
     {
+        gameManager = GameManager.Instance;
         SetMoneyText();
         SetLevelText();
+        SetMergeValues();
     }
 
     public void SetMoneyText()
     {
-        //moneyText.text = "$" + GameManager.Instance.datas.money.ToString();
+        moneyText.text = "$" + gameManager.datas.money.ToString();
     }
 
     private void SetLevelText()
     {
-        //levelText.text = "Level " + GameManager.Instance.datas.level.ToString();
+        levelText.text = "Level " + gameManager.datas.level.ToString();
     }
+
+    #region Merge
+
+    public void SetMergeValues()
+    {
+        SetMergePrice();
+        SetMergeLevel();
+        SetMergeCount();
+        SetMergeImage();
+    }
+    public void SetMergePrice()
+    {
+        mergePriceText.text = gameManager.datas.mergePrice.ToString();
+    }
+
+    public void SetMergeLevel()
+    {
+        mergeLevelText.text = gameManager.datas.mergeLevel.ToString();
+    }
+
+    public void SetMergeCount()
+    {
+        MergeCountText.text = gameManager.datas.mergeCount.ToString()+"/"+gameManager.mergepanelController.maxBuyCount;
+    }
+
+    public void SetMergeImage()
+    {
+
+    }
+    #endregion
 
     #region Win&Fail
     private void CloseCanvas()

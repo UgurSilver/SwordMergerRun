@@ -18,18 +18,21 @@ public class CameraManager : MonoBehaviour
     public bool isFollow = true;
     #endregion
 
+    private Transform startMergePos, startRunnerPos;
+
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
 
+        startMergePos = GameObject.FindGameObjectWithTag("StartMergePos").transform;
     }
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        targetDistance = transform.position - target.transform.position;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        //targetDistance = transform.position - target.transform.position;
     }
 
     void LateUpdate()
@@ -37,6 +40,20 @@ public class CameraManager : MonoBehaviour
         if (isFollow)
             FollowTarget();
     }
+
+    #region SetPos
+
+    public void SetMergePos()
+    {
+        transform.position = startMergePos.position;
+        transform.rotation = startMergePos.rotation;
+    }
+
+    public void SetRunnerPos()
+    {
+
+    }
+    #endregion
 
     #region Follow
     private void FollowTarget()
