@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   sceneLevel: 1
-  money: 500
+  money: 480
+  mergePrice: 20
+  mergeLevel: 1
+  mergeCount: 1
+  mergeImage: {fileID: 0}
+  gridLevels: 000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000

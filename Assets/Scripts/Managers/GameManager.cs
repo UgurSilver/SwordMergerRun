@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 {
     #region Variables for General
     public static GameManager Instance;
-    private CameraManager cameraManager;
-    private UIManager uiManager;
     #endregion
 
     #region Variables for GamePlay
@@ -37,8 +35,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        cameraManager = CameraManager.Instance;
-        uiManager = UIManager.Instance;
 
         if (isMergeScene)
             openMergeScene();
@@ -51,18 +47,18 @@ public class GameManager : MonoBehaviour
             DataManager.ResetData(datas);
         }
 
-      /*  if (Input.GetMouseButtonDown(0) && !isFirstTouch)
-        {
-            StartGame();
-        }*/
+        /*  if (Input.GetMouseButtonDown(0) && !isFirstTouch)
+          {
+              StartGame();
+          }*/
     }
 
     #region MergeEvents
     private void openMergeScene()
     {
-        cameraManager.SetMergePos();
+        CameraManager.Instance.SetMergePos();
         mergePanel.SetActive(true);
-        uiManager.mergePanel.SetActive(true);
+        UIManager.Instance.mergePanel.SetActive(true);
     }
     private void CloseMergeScene()
     {
@@ -84,27 +80,38 @@ public class GameManager : MonoBehaviour
 
     #region Poolings
 
-    public void UseFx(Vector3 pos, Transform parent,Color color) //particle
+    public GameObject UseSword(Vector3 pos, Transform parent,Vector3 scale,Quaternion rotation)
     {
-        GameObject tempBullet = PoolingManager.Instance?.UseFx();
-        tempBullet.transform.SetParent(parent);
-        tempBullet.transform.position = pos - Vector3.up * 0.99f;
-        tempBullet.transform.localScale = new Vector3(10, 10, 10);
-
-        ParticleSystem.MainModule settings = tempBullet.GetComponent<ParticleSystem>().main;
-        settings.startColor = color;
-
-        //Close transparentcy
-        /*
-        ParticleSystem ps = tempBullet.GetComponent<ParticleSystem>();
-        var col = ps.colorOverLifetime;
-        col.enabled = false;
-        */
-
-        tempBullet.transform.rotation = Quaternion.Euler(90, 0, 0);
-        //tempBulletSplash.transform.position -= tempBulletSplash.transform.forward*0.4f;
-
-        tempBullet.SetActive(true);
+        GameObject tempSword = PoolingManager.Instance.UseSword();
+        tempSword.transform.SetParent(parent);
+        tempSword.transform.position = pos;
+        tempSword.transform.localScale = scale;
+        tempSword.transform.rotation = rotation;
+        tempSword.SetActive(true);
+        return tempSword;
     }
+
+    /* public void UseFx(Vector3 pos, Transform parent,Color color) //particle
+     {
+         GameObject tempBullet = PoolingManager.Instance?.UseFx();
+         tempBullet.transform.SetParent(parent);
+         tempBullet.transform.position = pos - Vector3.up * 0.99f;
+         tempBullet.transform.localScale = new Vector3(10, 10, 10);
+
+         ParticleSystem.MainModule settings = tempBullet.GetComponent<ParticleSystem>().main;
+         settings.startColor = color;
+
+         //Close transparentcy
+         *//*
+         ParticleSystem ps = tempBullet.GetComponent<ParticleSystem>();
+         var col = ps.colorOverLifetime;
+         col.enabled = false;
+         *//*
+
+         tempBullet.transform.rotation = Quaternion.Euler(90, 0, 0);
+         //tempBulletSplash.transform.position -= tempBulletSplash.transform.forward*0.4f;
+
+         tempBullet.SetActive(true);
+     }*/
     #endregion
 }

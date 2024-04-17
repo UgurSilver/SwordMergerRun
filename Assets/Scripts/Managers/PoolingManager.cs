@@ -8,53 +8,52 @@ public class PoolingManager : MonoBehaviour
     public static PoolingManager Instance;
     #endregion
 
-
-    #region Variables for Fx
-    public GameObject fx;
-    private GameObject tempfx;
-    public Queue<GameObject> fxQue = new();
-    public int fxCount;
+    #region Variables for sword
+    public GameObject sword;
+    private GameObject tempSword;
+    public Queue<GameObject> swordQue = new();
+    public int swordCount;
     #endregion
 
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
     }
 
     private void Start()
     {
-        FxPooling();
+        SwordPooling();
     }
 
     #region Bullet Pooling Events
-    private void FxPooling()
+    private void SwordPooling()
     {
-        for (int i = 0; i < fxCount; i++)
+        for (int i = 0; i < swordCount; i++)
         {
-            tempfx = Instantiate(fx);
-            tempfx.transform.SetParent(transform.GetChild(0)); //Bullet Parent
-            tempfx.transform.localPosition = Vector3.zero;
+            tempSword = Instantiate(sword);
+            tempSword.transform.SetParent(transform.GetChild(0)); //Bullet Parent
+            tempSword.transform.localPosition = Vector3.zero;
 
-            fxQue.Enqueue(tempfx);
+            swordQue.Enqueue(tempSword);
         }
     }
 
-    public GameObject UseFx()
+    public GameObject UseSword()
     {
-        if (fxQue.Count <= 1)
-            FxPooling();
-        return fxQue.Dequeue();
+        if (swordQue.Count <= 1)
+            SwordPooling();
+        return swordQue.Dequeue();
     }
 
-    public void ReplacingFx(GameObject go)
+    public void ReplacingSword(GameObject go)
     {
         go.SetActive(false);
         go.transform.SetParent(transform.GetChild(0)); //Bullet Parent
         go.transform.localPosition = Vector3.zero;
-        fxQue.Enqueue(go);
+        swordQue.Enqueue(go);
     }
     #endregion
 }

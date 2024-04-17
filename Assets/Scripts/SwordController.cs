@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SwordController : MonoBehaviour
 {
-    public TMPro.TextMeshPro levelText;
+    public int level;
 
     private void OnEnable()
     {
-        SetLeveltext();
+        SetParentLevel();
     }
 
-    private void SetLeveltext()
+    public void SetParentLevel()
     {
-        levelText.text = transform.GetSiblingIndex().ToString();
+        transform.parent.GetComponent<SwordParentController>().level = level;
+
     }
+
 }

@@ -26,8 +26,8 @@ public class FxController : MonoBehaviour
 
     private void ReplacePool()
     {
-        if (fxType.Equals(FxType.HitFx))
-            PoolingManager.Instance?.ReplacingFx(this.gameObject);
+        //if (fxType.Equals(FxType.HitFx))
+        //    PoolingManager.Instance?.ReplacingFx(this.gameObject);
 
     }
 

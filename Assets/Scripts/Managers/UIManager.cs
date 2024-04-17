@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using SupersonicWisdomSDK;
 
 public class UIManager : MonoBehaviour
 {
     #region Variables for General
     public static UIManager Instance;
-    private GameManager gameManager;
+    public MergeBuyButton mergeBuyButton;
+
     #endregion
 
     #region Variables for Game
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
     #region Variables for merge
     public GameObject mergePanel;
     public TMPro.TextMeshProUGUI mergePriceText, mergeLevelText, MergeCountText;
+    public Image mergeWeaponImage;
     #endregion
 
     private void Awake()
@@ -31,7 +34,6 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-        gameManager = GameManager.Instance;
         SetMoneyText();
         SetLevelText();
         SetMergeValues();
@@ -39,12 +41,12 @@ public class UIManager : MonoBehaviour
 
     public void SetMoneyText()
     {
-        moneyText.text = "$" + gameManager.datas.money.ToString();
+        moneyText.text = "$" + GameManager.Instance.datas.money.ToString();
     }
 
     private void SetLevelText()
     {
-        levelText.text = "Level " + gameManager.datas.level.ToString();
+        levelText.text = "Level " + GameManager.Instance.datas.level.ToString();
     }
 
     #region Merge
@@ -58,22 +60,22 @@ public class UIManager : MonoBehaviour
     }
     public void SetMergePrice()
     {
-        mergePriceText.text = gameManager.datas.mergePrice.ToString();
+        mergePriceText.text = GameManager.Instance.datas.mergePrice.ToString();
     }
 
     public void SetMergeLevel()
     {
-        mergeLevelText.text = gameManager.datas.mergeLevel.ToString();
+        mergeLevelText.text = GameManager.Instance.datas.mergeLevel.ToString();
     }
 
     public void SetMergeCount()
     {
-        MergeCountText.text = gameManager.datas.mergeCount.ToString()+"/"+gameManager.mergepanelController.maxBuyCount;
+        MergeCountText.text = GameManager.Instance.datas.mergeCount.ToString()+"/"+ GameManager.Instance.mergepanelController.maxBuyCount;
     }
 
     public void SetMergeImage()
     {
-
+        mergeWeaponImage.sprite = GameManager.Instance.mergepanelController.swordIcons[GameManager.Instance.datas.mergeLevel - 1];
     }
     #endregion
 

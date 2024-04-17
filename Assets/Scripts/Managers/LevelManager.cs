@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
     }

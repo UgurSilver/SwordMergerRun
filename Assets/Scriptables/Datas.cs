@@ -19,4 +19,5 @@ public class Datas : ScriptableObject
 
     [Header("Grid")]
     public int[] gridLevels;
+
 }
