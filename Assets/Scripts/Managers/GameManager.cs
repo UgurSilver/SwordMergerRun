@@ -87,6 +87,11 @@ public class GameManager : MonoBehaviour
         tempSword.transform.position = pos;
         tempSword.transform.localScale = scale;
         tempSword.transform.rotation = rotation;
+
+        for (int i = 0; i < tempSword.transform.childCount; i++)
+        {
+            tempSword.transform.GetChild(i).gameObject.SetActive(false);
+        }
         tempSword.SetActive(true);
         return tempSword;
     }

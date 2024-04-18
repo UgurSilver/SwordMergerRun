@@ -494,6 +494,10 @@ MonoBehaviour:
     _prefab: Assets/Prefabs/Canvas.prefab
   - _gameObject: {fileID: 1930270323963187089}
     _prefab: Assets/Prefabs/GameManager.prefab
+  - _gameObject: {fileID: 1930270323963187090}
+    _prefab: Assets/Models/Merge_Table.fbx
+  - _gameObject: {fileID: 1930270323963187089}
+    _prefab: Assets/Prefabs/GameManager.prefab
   - _gameObject: {fileID: 1487279770}
     _prefab: Assets/Prefabs/Grid.prefab
   - _gameObject: {fileID: 989868370}
@@ -524,6 +528,8 @@ MonoBehaviour:
     _prefab: Assets/Prefabs/Grid.prefab
   - _gameObject: {fileID: 1564733710}
     _prefab: Assets/Prefabs/Grid.prefab
+  - _gameObject: {fileID: 1930270323963187089}
+    _prefab: Assets/Prefabs/GameManager.prefab
   - _gameObject: {fileID: 1568717585485851395}
     _prefab: Assets/Prefabs/PoolingManager.prefab
   - _gameObject: {fileID: 6883349138533339393}
@@ -978,6 +984,11 @@ Transform:
 --- !u!1 &1930270323963187089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 693936265520592024, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
+  m_PrefabInstance: {fileID: 1930270323963187087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930270323963187090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7583900819694661642, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
   m_PrefabInstance: {fileID: 1930270323963187087}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5656843508293157302

@@ -15,7 +15,7 @@ public class MergepanelController : MonoBehaviour
     public bool isFilled;
 
     public bool isMoving;
-    public Transform movingSword;
+    public Transform movingSword,mergedSword;
     public GridController movingSwordGrid;
     private GridController tempGrid;
     public float resetTime;
@@ -52,6 +52,8 @@ public class MergepanelController : MonoBehaviour
             grids[i].level = GameManager.Instance.datas.gridLevels[i];
             DataManager.SaveData(GameManager.Instance.datas);
         }
+
+        CameraManager.Instance.SetOrthographic();
     }
 
 
@@ -147,11 +149,41 @@ public class MergepanelController : MonoBehaviour
                 {
                     if (tempGrid.isFilled) //if temp grid is filled
                     {
-                        //Leveli farkli ise
-                        movingSword.DOLocalMove(Vector3.zero, resetTime);
-                        movingSwordGrid.WaitResetInteractable(resetTime);
-                        movingSword = null;
-                        movingSwordGrid = null;
+                      
+                        if (tempGrid.level != movingSwordGrid.level)   //Leveli farkli ise
+                        {
+                            movingSword.DOLocalMove(Vector3.zero, resetTime);
+                            movingSwordGrid.WaitResetInteractable(resetTime);
+                            movingSword = null;
+                            movingSwordGrid = null;
+                        }
+                        else //Level ayni ise Merge
+                        {
+                            if (movingSwordGrid.level < swordIcons.Count)//Son Level degil ise
+                            {
+                                movingSword.GetComponent<SwordParentController>().ReplacePool();
+                                movingSword = null;
+
+                                movingSwordGrid.isFilled = false;
+                                movingSwordGrid.isInteractable = true;
+                                movingSwordGrid.level = 0;
+                                movingSwordGrid = null;
+
+                                tempGrid.transform.GetChild(1).GetComponent<SwordParentController>().ReplacePool();
+                                tempGrid.level++;
+                                mergedSword = GameManager.Instance.UseSword(tempGrid.transform.position, tempGrid.transform, Vector3.one * 0.2f, Quaternion.Euler(0, -45, 0)).transform;
+                                mergedSword.GetChild(tempGrid.level - 1).gameObject.SetActive(true);
+                            }
+
+                            else //Son level ise
+                            {
+                                movingSword.DOLocalMove(Vector3.zero, resetTime);
+                                movingSwordGrid.WaitResetInteractable(resetTime);
+                                movingSword = null;
+                                movingSwordGrid = null;
+                            }
+                           
+                        }
                         //Level ayni ise merge olacak
                     }
 

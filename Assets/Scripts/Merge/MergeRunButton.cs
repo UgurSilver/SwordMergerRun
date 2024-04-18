@@ -6,6 +6,6 @@ public class MergeRunButton : MonoBehaviour
 {
     public void MergeRun()
     {
-        print("Run");
+        CameraManager.Instance.SetPerspective();
     }
 }

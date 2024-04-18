@@ -41,6 +41,17 @@ public class CameraManager : MonoBehaviour
             FollowTarget();
     }
 
+    public void SetOrthographic()
+    {
+        Camera.main.orthographic = true;
+    }
+
+    public void SetPerspective()
+    {
+        Camera.main.orthographic = false;
+
+    }
+
     #region SetPos
 
     public void SetMergePos()
