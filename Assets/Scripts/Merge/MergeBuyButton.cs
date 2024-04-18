@@ -32,10 +32,11 @@ public class MergeBuyButton : MonoBehaviour
         GameManager.Instance.mergepanelController.SelectGrid();
         selectedGrid = GameManager.Instance.mergepanelController.selectedGrid;
         selectedGrid.level = GameManager.Instance.datas.mergeLevel;
+        selectedGrid.SetLevelText();
         selectedGrid.isFilled = true;
 
         //SwordEvents
-        tempSword = GameManager.Instance.UseSword(selectedGrid.transform.position, selectedGrid.transform, Vector3.one*0.2f, Quaternion.Euler(0,-45,0)).transform;
+        tempSword = GameManager.Instance.UseSword(selectedGrid.transform.position, selectedGrid.transform, Vector3.one*0.15f, Quaternion.Euler(0,-45,0)).transform;
         tempSword.GetChild(GameManager.Instance.datas.mergeLevel - 1).gameObject.SetActive(true);
         tempSword.GetComponent<SwordParentController>().level = GameManager.Instance.datas.mergeLevel;
 

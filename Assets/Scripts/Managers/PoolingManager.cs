@@ -34,7 +34,7 @@ public class PoolingManager : MonoBehaviour
         for (int i = 0; i < swordCount; i++)
         {
             tempSword = Instantiate(sword);
-            tempSword.transform.SetParent(transform.GetChild(0)); //Bullet Parent
+            tempSword.transform.SetParent(transform.GetChild(0)); //Sword Parent
             tempSword.transform.localPosition = Vector3.zero;
 
             swordQue.Enqueue(tempSword);
@@ -51,7 +51,7 @@ public class PoolingManager : MonoBehaviour
     public void ReplacingSword(GameObject go)
     {
         go.SetActive(false);
-        go.transform.SetParent(transform.GetChild(0)); //Bullet Parent
+        go.transform.SetParent(transform.GetChild(0)); //Sword Parent
         go.transform.localPosition = Vector3.zero;
         swordQue.Enqueue(go);
     }

@@ -1593,6 +1593,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b57c214063e94fc46a649800d8dd9b87, type: 3}
   - {fileID: 21300000, guid: cce3a9bf6164d4a4c8f5199a5c478681, type: 3}
   - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
   selectedGrid: {fileID: 0}
   isFilled: 0
   isMoving: 0

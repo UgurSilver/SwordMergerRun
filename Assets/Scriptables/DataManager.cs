@@ -30,14 +30,14 @@ public class DataManager
         PlayerPrefs.DeleteAll();
 
         //Level
-        gameData.level = 1;
-        gameData.sceneLevel = 1;
-        gameData.money = 500;
+        gameData.level = 1; //1
+        gameData.sceneLevel = 1; //1
+        gameData.money = 5000;
 
         //Merge
         gameData.mergePrice = 20;
-        gameData.mergeLevel = 1;
-        gameData.mergeCount = 0;
+        gameData.mergeLevel = 1; //1
+        gameData.mergeCount = 0; //0
         gameData.mergeImage = null;
 
         //Grid

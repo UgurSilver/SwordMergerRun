@@ -15,7 +15,7 @@ public class MergepanelController : MonoBehaviour
     public bool isFilled;
 
     public bool isMoving;
-    public Transform movingSword,mergedSword;
+    public Transform movingSword, mergedSword;
     public GridController movingSwordGrid;
     private GridController tempGrid;
     public float resetTime;
@@ -44,12 +44,13 @@ public class MergepanelController : MonoBehaviour
             else
             {
                 Transform tempSword;
-                tempSword = GameManager.Instance.UseSword(grids[i].transform.position, grids[i].transform, Vector3.one * 0.2f, Quaternion.Euler(0, -45, 0)).transform;
+                tempSword = GameManager.Instance.UseSword(grids[i].transform.position, grids[i].transform, Vector3.one * 0.15f, Quaternion.Euler(0, -45, 0)).transform;
                 tempSword.GetChild(GameManager.Instance.datas.gridLevels[i] - 1).gameObject.SetActive(true);
                 grids[i].isFilled = true;
             }
             grids[i].isInteractable = true;
             grids[i].level = GameManager.Instance.datas.gridLevels[i];
+            grids[i].SetLevelText();
             DataManager.SaveData(GameManager.Instance.datas);
         }
 
@@ -110,7 +111,7 @@ public class MergepanelController : MonoBehaviour
             {
                 if (tempGrid.isFilled && tempGrid.isInteractable)
                 {
-                    movingSword = tempGrid.transform.GetChild(1);
+                    movingSword = tempGrid.transform.GetChild(tempGrid.transform.childCount - 1);
                     movingSwordGrid = tempGrid;
                     movingSwordGrid.isInteractable = false;
                     isMoving = true;
@@ -138,53 +139,67 @@ public class MergepanelController : MonoBehaviour
             if (isMoving)
             {
                 isMoving = false;
-                if (tempGrid is null)//if tempGrid is nul
+                if (tempGrid is null)//Hedef grid degil ise
                 {
                     movingSword.DOLocalMove(Vector3.zero, resetTime);
                     movingSwordGrid.WaitResetInteractable(resetTime);
                     movingSword = null;
                     movingSwordGrid = null;
                 }
-                else //if temp grid is not null
+                else //Hedef grid ise
                 {
-                    if (tempGrid.isFilled) //if temp grid is filled
+                    if (tempGrid.isFilled) //Hedef grid dolu ise
                     {
-                      
-                        if (tempGrid.level != movingSwordGrid.level)   //Leveli farkli ise
+
+                        if (tempGrid.level != movingSwordGrid.level) //Hedef grid ile level farkli ise
                         {
                             movingSword.DOLocalMove(Vector3.zero, resetTime);
                             movingSwordGrid.WaitResetInteractable(resetTime);
                             movingSword = null;
                             movingSwordGrid = null;
                         }
-                        else //Level ayni ise Merge
+                        else //hedef grid ile level ayni ise Merge
                         {
-                            if (movingSwordGrid.level < swordIcons.Count)//Son Level degil ise
-                            {
-                                movingSword.GetComponent<SwordParentController>().ReplacePool();
-                                movingSword = null;
-
-                                movingSwordGrid.isFilled = false;
-                                movingSwordGrid.isInteractable = true;
-                                movingSwordGrid.level = 0;
-                                movingSwordGrid = null;
-
-                                tempGrid.transform.GetChild(1).GetComponent<SwordParentController>().ReplacePool();
-                                tempGrid.level++;
-                                mergedSword = GameManager.Instance.UseSword(tempGrid.transform.position, tempGrid.transform, Vector3.one * 0.2f, Quaternion.Euler(0, -45, 0)).transform;
-                                mergedSword.GetChild(tempGrid.level - 1).gameObject.SetActive(true);
-                            }
-
-                            else //Son level ise
+                            if (movingSwordGrid== tempGrid) //Kendi gridi ise
                             {
                                 movingSword.DOLocalMove(Vector3.zero, resetTime);
                                 movingSwordGrid.WaitResetInteractable(resetTime);
                                 movingSword = null;
                                 movingSwordGrid = null;
                             }
-                           
+                            else //Kendi gridi degil ise
+                            {
+                                if (movingSwordGrid.level < swordIcons.Count)//Son Level degil ise
+                                {
+                                    movingSword.GetComponent<SwordParentController>().ReplacePool();
+                                    movingSword = null;
+
+                                    movingSwordGrid.isFilled = false;
+                                    movingSwordGrid.isInteractable = true;
+                                    movingSwordGrid.level = 0;
+                                    movingSwordGrid.SetLevelText();
+                                    movingSwordGrid = null;
+
+                                    tempGrid.transform.GetChild(tempGrid.transform.childCount - 1).GetComponent<SwordParentController>().ReplacePool();
+                                    tempGrid.level++;
+                                    tempGrid.SetLevelText();
+                                    mergedSword = GameManager.Instance.UseSword(tempGrid.transform.position, tempGrid.transform, Vector3.one * 0.15f, Quaternion.Euler(0, -45, 0)).transform;
+                                    mergedSword.GetChild(tempGrid.level - 1).gameObject.SetActive(true);
+
+                                    UIManager.Instance.mergeBuyButton.CheckActivate();
+                                }
+
+                                else //Son level ise
+                                {
+                                    movingSword.DOLocalMove(Vector3.zero, resetTime);
+                                    movingSwordGrid.WaitResetInteractable(resetTime);
+                                    movingSword = null;
+                                    movingSwordGrid = null;
+                                }
+                            }
+                          
+
                         }
-                        //Level ayni ise merge olacak
                     }
 
                     else //if temp grid is not filled
@@ -192,6 +207,7 @@ public class MergepanelController : MonoBehaviour
                         movingSword.SetParent(tempGrid.transform);
                         movingSword.DOLocalMove(Vector3.zero, resetTime);
                         tempGrid.level = movingSword.GetComponent<SwordParentController>().level;
+                        tempGrid.SetLevelText();
 
                         tempGrid.WaitResetInteractable(resetTime);
                         tempGrid.isFilled = true;
@@ -199,6 +215,7 @@ public class MergepanelController : MonoBehaviour
                         movingSwordGrid.isFilled = false;
                         movingSwordGrid.isInteractable = true;
                         movingSwordGrid.level = 0;
+                        movingSwordGrid.SetLevelText();
 
                         movingSword = null;
                         movingSwordGrid = null;
