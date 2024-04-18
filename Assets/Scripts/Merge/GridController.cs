@@ -29,7 +29,7 @@ public class GridController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (isFilled)
         {
