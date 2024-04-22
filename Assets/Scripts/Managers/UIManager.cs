@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     #region Variables for General
     public static UIManager Instance;
-    public MergeBuyButton mergeBuyButton;
+    public MergeBuyButton mergeBuyButton,mergeRunButton;
 
     #endregion
 
@@ -76,6 +76,11 @@ public class UIManager : MonoBehaviour
     public void SetMergeImage()
     {
         mergeWeaponImage.sprite = GameManager.Instance.mergepanelController.swordIcons[GameManager.Instance.datas.mergeLevel - 1];
+    }
+
+    public void CloseMergeUI()
+    {
+        mergePanel.SetActive(false);
     }
     #endregion
 

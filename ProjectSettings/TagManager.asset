@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StartMergePos
   - StartRunnerPos
+  - Swords
   layers:
   - Default
   - TransparentFX

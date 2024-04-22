@@ -1572,6 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad38d83fb4aa054d9da2023c7371631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rows: {fileID: 8103398425822231789}
   maxBuyCount: 20
   grids:
   - {fileID: 718632626163976686}

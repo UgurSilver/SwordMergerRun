@@ -6,6 +6,7 @@ using DG.Tweening;
 public class MergepanelController : MonoBehaviour
 {
     #region Variables for Merge
+    public Transform rows;
     public int maxBuyCount;
     public List<GridController> grids = new();
     public List<Sprite> swordIcons = new();
@@ -54,7 +55,7 @@ public class MergepanelController : MonoBehaviour
             DataManager.SaveData(GameManager.Instance.datas);
         }
 
-        CameraManager.Instance.SetOrthographic();
+        //CameraManager.Instance.SetOrthographic();
     }
 
 

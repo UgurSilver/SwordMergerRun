@@ -60,12 +60,12 @@ public class GameManager : MonoBehaviour
         mergePanel.SetActive(true);
         UIManager.Instance.mergePanel.SetActive(true);
     }
-    private void CloseMergeScene()
-    {
-
-    }
     #endregion
 
+    public void EndMerge()
+    {
+        UIManager.Instance.startTutorial.SetActive(true);
+    }
     public void StartGame() //Start game events
     {
         if (!isFirstTouch)

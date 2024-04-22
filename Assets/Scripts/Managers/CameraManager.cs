@@ -42,16 +42,16 @@ public class CameraManager : MonoBehaviour
             FollowTarget();
     }
 
-    public void SetOrthographic()
-    {
-        Camera.main.orthographic = true;
-    }
+    /* public void SetOrthographic()
+     {
+         Camera.main.orthographic = true;
+     }
 
-    public void SetPerspective()
-    {
-        Camera.main.orthographic = false;
+     public void SetPerspective()
+     {
+         Camera.main.orthographic = false;
 
-    }
+     }*/
 
     #region SetPos
 
@@ -63,8 +63,8 @@ public class CameraManager : MonoBehaviour
 
     public void SetRunnerPos(float time)
     {
-        transform.DOMove(startMergePos.position, time);
-        transform.Rotate(startMergePos.eulerAngles, time);
+        transform.DOMove(startRunnerPos.position, time).OnStepComplete(() => GameManager.Instance.EndMerge());
+        transform.DORotate(startRunnerPos.eulerAngles, time);
     }
     #endregion
 

@@ -9,10 +9,14 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     #endregion
 
+    #region Variables for Swords
+    public Transform rows;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
-            Instance = null;
+            Instance = this;
         else
             Destroy(this);
     }
