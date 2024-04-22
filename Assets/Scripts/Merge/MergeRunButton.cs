@@ -7,6 +7,8 @@ public class MergeRunButton : MonoBehaviour
 {
     private Transform tempSword;
     private Transform swords;
+    private bool isRow0Filled, isRow1Filled, isRow2Filled, isRow3Filled, isRow4Filled;
+
 
     private void OnEnable()
     {
@@ -50,11 +52,12 @@ public class MergeRunButton : MonoBehaviour
                 tempSword.GetComponent<Animator>().enabled = false;
                 tempSword.DORotate(new Vector3(-90, 90, 0), 0.5f);
 
-                tempSword.DOLocalMove(new Vector3(0, 0, -0.5f * j), 0.5f);
+                tempSword.DOLocalMove(new Vector3(0, 0, -GameManager.Instance.swordsZDistance * j), 0.5f);
             }
         }
-        SetCam();
+        FillEmptyRows();
         SetLight();
+        SetCam();
     }
 
     private void SetCam()
@@ -66,5 +69,59 @@ public class MergeRunButton : MonoBehaviour
     {
         LightManager.Instance.mergeLight.SetActive(false);
         LightManager.Instance.runnerLight.SetActive(true);
+    }
+
+    private void FillEmptyRows()
+    {
+        int chilCount;
+        for (int k = 0; k < 10; k++)
+        {
+            if (swords.GetChild(0).childCount == 1)
+            {
+                if (swords.GetChild(1).childCount != 1)
+                {
+                    chilCount = swords.GetChild(1).childCount;
+                    for (int i = 1; i < chilCount; i++)
+                    {
+                        swords.GetChild(1).GetChild(1).SetParent(swords.GetChild(0));
+                    }
+                }
+            }
+
+            if (swords.GetChild(0).childCount == 1)
+            {
+                if (swords.GetChild(2).childCount != 1)
+                {
+                    chilCount = swords.GetChild(2).childCount;
+                    for (int i = 1; i < chilCount; i++)
+                    {
+                        swords.GetChild(2).GetChild(1).SetParent(swords.GetChild(1));
+                    }
+                }
+            }
+
+            if (swords.GetChild(1).childCount == 1)
+            {
+                if (swords.GetChild(3).childCount != 1)
+                {
+                    chilCount = swords.GetChild(3).childCount;
+                    for (int i = 1; i < chilCount; i++)
+                    {
+                        swords.GetChild(3).GetChild(1).SetParent(swords.GetChild(1));
+                    }
+                }
+            }
+            if (swords.GetChild(2).childCount == 1)
+            {
+                if (swords.GetChild(4).childCount != 1)
+                {
+                    chilCount = swords.GetChild(4).childCount;
+                    for (int i = 1; i < chilCount; i++)
+                    {
+                        swords.GetChild(4).GetChild(1).SetParent(swords.GetChild(2));
+                    }
+                }
+            }
+        }
     }
 }

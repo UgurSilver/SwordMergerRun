@@ -30,28 +30,12 @@ public class CameraManager : MonoBehaviour
         startMergePos = GameObject.FindGameObjectWithTag("StartMergePos").transform;
         startRunnerPos = GameObject.FindGameObjectWithTag("StartRunnerPos").transform;
     }
-    void Start()
-    {
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
-        //targetDistance = transform.position - target.transform.position;
-    }
 
     void LateUpdate()
     {
         if (isFollow)
             FollowTarget();
     }
-
-    /* public void SetOrthographic()
-     {
-         Camera.main.orthographic = true;
-     }
-
-     public void SetPerspective()
-     {
-         Camera.main.orthographic = false;
-
-     }*/
 
     #region SetPos
 
@@ -69,6 +53,12 @@ public class CameraManager : MonoBehaviour
     #endregion
 
     #region Follow
+
+    public void SetTarget()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetDistance = transform.position - target.transform.position;
+    }
     private void FollowTarget()
     {
         transform.position = targetDistance + target.transform.position + offSet;

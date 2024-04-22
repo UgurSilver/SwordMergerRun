@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     public MergepanelController mergepanelController;
     #endregion
 
+    #region Variables for Swords
+    public float swordsZDistance;
+    public float swordsZfollowSpeed, swordsXFollowSpeed;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
@@ -47,10 +52,10 @@ public class GameManager : MonoBehaviour
             DataManager.ResetData(datas);
         }
 
-        /*  if (Input.GetMouseButtonDown(0) && !isFirstTouch)
-          {
-              StartGame();
-          }*/
+        if (Input.GetMouseButtonDown(0) && !isFirstTouch)
+        {
+            StartGame();
+        }
     }
 
     #region MergeEvents
@@ -65,14 +70,17 @@ public class GameManager : MonoBehaviour
     public void EndMerge()
     {
         UIManager.Instance.startTutorial.SetActive(true);
+        isMergeScene = false;
     }
     public void StartGame() //Start game events
     {
-        if (!isFirstTouch)
+        if (!isMergeScene)
         {
             isGame = true;
             UIManager.Instance?.startTutorial.SetActive(false);
             isFirstTouch = true;
+            CameraManager.Instance.SetTarget();
+            CameraManager.Instance.isFollow = true;
             print("StartGame");
             //SupersonicWisdom.Api.NotifyLevelStarted(datas.level, null);
         }
@@ -80,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     #region Poolings
 
-    public GameObject UseSword(Vector3 pos, Transform parent,Vector3 scale,Quaternion rotation)
+    public GameObject UseSword(Vector3 pos, Transform parent, Vector3 scale, Quaternion rotation)
     {
         GameObject tempSword = PoolingManager.Instance.UseSword();
         tempSword.transform.SetParent(parent);

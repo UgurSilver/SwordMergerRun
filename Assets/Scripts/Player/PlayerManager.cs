@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     [System.Serializable]
     public class Movement
     {
-        public float forwardSpeed;
+        public float forwardSpeed,sideSpeed;
     }
     public Movement movement;
 
