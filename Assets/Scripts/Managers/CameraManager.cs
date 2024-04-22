@@ -28,6 +28,7 @@ public class CameraManager : MonoBehaviour
             Destroy(this);
 
         startMergePos = GameObject.FindGameObjectWithTag("StartMergePos").transform;
+        startRunnerPos = GameObject.FindGameObjectWithTag("StartRunnerPos").transform;
     }
     void Start()
     {
@@ -60,9 +61,10 @@ public class CameraManager : MonoBehaviour
         transform.rotation = startMergePos.rotation;
     }
 
-    public void SetRunnerPos()
+    public void SetRunnerPos(float time)
     {
-
+        transform.DOMove(startMergePos.position, time);
+        transform.Rotate(startMergePos.eulerAngles, time);
     }
     #endregion
 

@@ -56,6 +56,7 @@ public class MergeBuyButton : MonoBehaviour
         {
             GameManager.Instance.datas.mergeCount = 0;
             UIManager.Instance.SetMergeValues();
+            if (GameManager.Instance.datas.mergeLevel<GameManager.Instance.mergepanelController.swordIcons.Count)
             GameManager.Instance.datas.mergeLevel++;
             UIManager.Instance.SetMergeLevel();
             UIManager.Instance.SetMergeImage();

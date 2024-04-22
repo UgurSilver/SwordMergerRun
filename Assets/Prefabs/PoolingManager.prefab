@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 8016446634220158335, guid: 079163eb446f9f54b962bcfed99d94b8, type: 3}
-  swordCount: 50
+  swordCount: 2
 --- !u!1 &6701627478469809949
 GameObject:
   m_ObjectHideFlags: 0

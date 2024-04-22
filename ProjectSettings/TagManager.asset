@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - StartMergePos
+  - StartRunnerPos
   layers:
   - Default
   - TransparentFX

@@ -5,3 +5,8 @@ public enum FxType
 {
     HitFx,
 }
+
+public enum AnimType
+{
+    GridShake
+}
