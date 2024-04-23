@@ -1,25 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SwordParentController : MonoBehaviour
 {
     public int level;
     private Transform followObject;
+    public bool isSmoothPosZ;
 
     public void ReplacePool()
     {
         PoolingManager.Instance.ReplacingSword(this.gameObject);
     }
 
-    private void Update()
+
+
+    private void LateUpdate()
     {
         if (GameManager.Instance.isGame)
         {
-            followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
-            transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.deltaTime),
-             followObject.position.y,
-            Mathf.Lerp(transform.position.z, followObject.position.z-GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.deltaTime));
+            if (!isSmoothPosZ)
+            {
+                followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
+                transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                 followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+                /*   Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));*/
+
+            }
+            else
+            {
+                followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
+                transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                 followObject.position.y, Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
+                if (Mathf.Abs( transform.position.z - (followObject.position.z - GameManager.Instance.swordsZDistance))<0.1f)
+                    isSmoothPosZ = false;
+
+            }
         }
     }
 }

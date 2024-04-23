@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     #region Variables for Swords
     public float swordsZDistance;
     public float swordsZfollowSpeed, swordsXFollowSpeed;
+    public float swordScale;
     #endregion
 
     private void Awake()
@@ -100,6 +101,8 @@ public class GameManager : MonoBehaviour
         {
             tempSword.transform.GetChild(i).gameObject.SetActive(false);
         }
+
+        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
         tempSword.SetActive(true);
         return tempSword;
     }

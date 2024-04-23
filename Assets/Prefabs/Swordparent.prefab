@@ -781,6 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  isSmoothPosZ: 1
 --- !u!95 &7830297269738918514
 Animator:
   serializedVersion: 5

@@ -10,3 +10,8 @@ public enum AnimType
 {
     GridShake
 }
+
+public enum GateType
+{
+    Sum,
+}
