@@ -56,7 +56,8 @@ public class CameraManager : MonoBehaviour
 
     public void SetTarget()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform; //Smooth
+        target = GameObject.FindGameObjectWithTag("Swords").transform.GetChild(0).GetChild(0);
         targetDistance = transform.position - target.transform.position;
     }
     private void FollowTarget()

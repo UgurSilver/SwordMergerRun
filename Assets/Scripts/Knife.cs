@@ -18,6 +18,27 @@ public class Knife : MonoBehaviour
         }
     }
 
+
+    /*private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Sliceable") && isCanSlice)
+        {
+            print("Slice");
+            isCheckSlice = false;
+            isCanSlice = false;
+            other.transform.tag = "Untagged";
+            SlicedHull sliceObj = Slice(other.gameObject, materialSlicedSide);
+            GameObject slicedObjectTop = sliceObj?.CreateUpperHull(other.gameObject, materialSlicedSide);
+            GameObject slicedObjectDown = sliceObj?.CreateLowerHull(other.gameObject, materialSlicedSide);
+            Destroy(other.gameObject);
+
+            SetSlicedObject(slicedObjectTop);
+            SetSlicedObject(slicedObjectDown);
+
+            Invoke(nameof(ResetSliceBool), 0.2f);
+
+        }
+    }*/
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Sliceable") && isCanSlice)
@@ -46,9 +67,21 @@ public class Knife : MonoBehaviour
     {
         if (obj is not null)
         {
-            obj.AddComponent<BoxCollider>();
-            obj.GetComponent<BoxCollider>().isTrigger = true;
+            MeshCollider meshCollider = obj.AddComponent<MeshCollider>();
+            meshCollider.material = GameManager.Instance.bounceMat;
+            meshCollider.convex = true;
+            meshCollider.isTrigger = false;
+
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.isKinematic = false;
+
             obj.tag = "Sliceable";
+
+            int rnd = Random.Range(0, 2);
+            if(rnd==0)
+            rb.AddTorque(Vector3.forward * 100);
+            else
+            rb.AddTorque(-Vector3.forward * 100);
         }
     }
 

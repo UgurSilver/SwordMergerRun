@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2689e0e0d3af52d49b4459fc16f1899a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceMat: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   datas: {fileID: 11400000, guid: 63813a09f46ac0f49a09e0279d470359, type: 2}
   isGame: 0
   isFirstTouch: 0

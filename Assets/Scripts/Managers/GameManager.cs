@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     #region Variables for General
     public static GameManager Instance;
+    public PhysicMaterial bounceMat;
     #endregion
 
     #region Variables for GamePlay

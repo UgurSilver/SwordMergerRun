@@ -6,6 +6,7 @@ using DG.Tweening;
 public class SwordParentController : MonoBehaviour
 {
     public int level;
+    public int hp;
     private Transform followObject;
     public bool isSmoothPosZ;
 

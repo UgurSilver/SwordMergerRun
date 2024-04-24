@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 5
+  hp: 60
 --- !u!54 &8661402219455368555
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 3
+  hp: 40
 --- !u!54 &4013871223720866603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -771,6 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 4
+  hp: 50
 --- !u!54 &1246168362447602931
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -883,6 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 2
+  hp: 30
 --- !u!54 &8682702350767396927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -995,6 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 7
+  hp: 80
 --- !u!54 &6717574186872406392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1111,6 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  hp: 0
   isSmoothPosZ: 1
 --- !u!95 &7830297269738918514
 Animator:
@@ -1182,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 6
+  hp: 70
 --- !u!54 &8707362351138108057
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1294,6 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  hp: 20
 --- !u!65 &8973148408079687848
 BoxCollider:
   m_ObjectHideFlags: 0
