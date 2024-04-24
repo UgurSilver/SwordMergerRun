@@ -463,7 +463,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minLevel: 0
+  swordList: []
   rows: {fileID: 8330322749199580736}
+  initialMaxSwordsNum: 10
+  ishorizontal: 0
   movement:
     forwardSpeed: 3.5
     sideSpeed: 8

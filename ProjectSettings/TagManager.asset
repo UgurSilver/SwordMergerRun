@@ -8,6 +8,7 @@ TagManager:
   - StartRunnerPos
   - Swords
   - Gate
+  - Sliceable
   layers:
   - Default
   - TransparentFX

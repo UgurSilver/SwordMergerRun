@@ -23,9 +23,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Variables for Swords
-    public float swordsZDistance;
-    public float swordsZfollowSpeed, swordsXFollowSpeed;
+    public float swordsZDistance,swordsYDistance;
+    public float swordsZfollowSpeed, swordsXFollowSpeed,swordsYFollowSpeed;
     public float swordScale;
+    public Vector3 swordVerticalRot, swordHorizontalRot;
     #endregion
 
     private void Awake()

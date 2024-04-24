@@ -9,9 +9,18 @@ public class HeadController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!PlayerManager.Instance.ishorizontal)
+        {
         followObject = PlayerManager.Instance.rows.GetChild(transform.parent.GetSiblingIndex());
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
-            followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance
-          /* Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime)*/);
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+        }
+        else
+        {
+            followObject = PlayerManager.Instance.rows.GetChild(0);
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+        Mathf.Lerp(transform.position.y, followObject.position.y + (transform.parent.GetSiblingIndex() * GameManager.Instance.swordsYDistance), GameManager.Instance.swordsYFollowSpeed * Time.smoothDeltaTime),
+        followObject.position.z - GameManager.Instance.swordsZDistance);
+                }
     }
 }

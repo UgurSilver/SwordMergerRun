@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
                 if (swords.GetChild(i).childCount != 1)
                 {
                     openSwordsNum++;
-                    xPos += swords.GetChild(i).position.x;
+                    xPos += swords.GetChild(i).GetChild(1).position.x;
                 }
             }
 
@@ -44,9 +44,13 @@ public class PlayerCollision : MonoBehaviour
             other.transform.parent.GetChild(0).GetComponent<GateController>().CloseCollider();
             other.transform.parent.GetChild(1).GetComponent<GateController>().CloseCollider();
 
-            other.transform.GetComponent<GateController>().CloseMesh();
+            GateController gateSc = other.transform.GetComponent<GateController>();
+            gateSc.CloseMesh();
 
-            PlayerManager.Instance.AddSwords(other.GetComponent<GateController>().value);
+            if (gateSc.gateType.Equals(GateType.Sum))
+                PlayerManager.Instance.AddSwords(other.GetComponent<GateController>().value);
+            if (gateSc.gateType.Equals(GateType.Rotate))
+                PlayerManager.Instance.RotateSwords();
         }
     }
 }

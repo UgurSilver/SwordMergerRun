@@ -55,6 +55,8 @@ public class MergeRunButton : MonoBehaviour
                 tempSword.DOLocalMove(new Vector3(0, 0, -GameManager.Instance.swordsZDistance * j), 0.5f);
                 tempSword.DOScale(Vector3.one * GameManager.Instance.swordScale, 0.3f);
 
+                PlayerManager.Instance.swordList.Add(tempSword);
+
                 if (PlayerManager.Instance.minLevel == 0)
                     PlayerManager.Instance.minLevel = tempSword.GetComponent<SwordParentController>().level;
                 else

@@ -14,4 +14,6 @@ public enum AnimType
 public enum GateType
 {
     Sum,
+    Rotate,
+    Repair
 }

@@ -11,13 +11,14 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Variables for Swords
+    public List<Transform> swordList = new();
     public Transform rows;
     private Transform swords;
     public int initialMaxSwordsNum;
     private int maxSwordsNum;
 
 
-    private bool ishorizontal;
+    public bool ishorizontal;
     #endregion
 
     private void Awake()
@@ -49,17 +50,23 @@ public class PlayerManager : MonoBehaviour
                         Transform tempSword;
                         if (!ishorizontal)
                         {
-                            tempSword = GameManager.Instance.UseSword(swords.GetChild(i).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
+                            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
                         }
                         else
                         {
-                            tempSword = GameManager.Instance.UseSword(swords.GetChild(i).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
+                            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
                         }
-
+                        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
                         tempSword.GetChild(minLevel - 1).gameObject.SetActive(true);
                         tempSword.GetComponent<SwordParentController>().level = minLevel;
                         tempSword.GetComponent<Animator>().enabled = false;
+                        if (!ishorizontal)
+                            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordVerticalRot);
+                        else
+                            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordHorizontalRot);
+                        swordList.Add(tempSword);
                         addSword--;
+
                     }
 
                     else
@@ -71,6 +78,15 @@ public class PlayerManager : MonoBehaviour
 
         }
 
+    }
+
+    public void RotateSwords()
+    {
+        ishorizontal = !ishorizontal;
+        for (int i = 0; i < swordList.Count; i++)
+        {
+            swordList[i].GetComponent<SwordParentController>().SetRot();
+        }
     }
     #endregion
     #region Win&Fail
