@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sliceable : MonoBehaviour
 {
     public int hp;
+    public Material insideMat;
     
     public void SetSliceable()
     {

@@ -37,6 +37,7 @@ public class Knife : MonoBehaviour
 
             Sliceable sliceableSc = other.GetComponent<Sliceable>();
             sliceableHp = sliceableSc.hp;
+            materialSlicedSide = sliceableSc.insideMat;
 
             SlicedHull sliceObj = Slice(other.gameObject, materialSlicedSide);
             GameObject slicedObjectTop = sliceObj?.CreateUpperHull(other.gameObject, materialSlicedSide);
@@ -47,7 +48,7 @@ public class Knife : MonoBehaviour
             SetSlicedObject(slicedObjectDown);
 
             transform.parent.GetComponent<SwordParentController>().SetHp(sliceableHp);
-            Invoke(nameof(ResetSliceBool), 0.5f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
+            Invoke(nameof(ResetSliceBool), 0.3f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
         }
     }
     private SlicedHull Slice(GameObject obj, Material mat = null)
@@ -61,6 +62,7 @@ public class Knife : MonoBehaviour
         {
             Sliceable sliceableSc = obj.AddComponent<Sliceable>();
             sliceableSc.hp = sliceableHp;
+            sliceableSc.insideMat = materialSlicedSide;
             sliceableSc.SetSliceable();
 
             MeshCollider meshCollider = obj.AddComponent<MeshCollider>();
@@ -90,5 +92,7 @@ public class Knife : MonoBehaviour
     private void ResetSliceBool()
     {
         isCheckSlice = true;
+        if (transform.parent.GetSiblingIndex() == 1)
+            isCanSlice = true;
     }
 }
