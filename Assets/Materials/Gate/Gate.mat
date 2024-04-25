@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Gate
-  m_Shader: {fileID: 4800000, guid: eecc3986d1c43554389f5eea2188c3e7, type: 3}
+  m_Shader: {fileID: 4800000, guid: a96d239d892ebda498cffa3c7cb61188, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -17,6 +17,7 @@ Material:
   - TCP2_REFLECTIONS_FRESNEL
   - TCP2_RIM_LIGHTING_LIGHTMASK
   - TCP2_SHADOW_LIGHT_COLOR
+  - TCP2_SPEC
   - TCP2_UV_NORMALS_FULL
   - _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -86,7 +87,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: abc83c21d57d4a74cabe12065fa1a8b2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReflectionTex:
@@ -164,7 +165,7 @@ Material:
     - _RampSmoothAdd: 0.75
     - _RampSmoothOtherLights: 0.5
     - _RampSmoothing: 0.5
-    - _RampSmoothing_snow: 0.5
+    - _RampSmoothing_snow: 0.57
     - _RampThreshold: 0.349
     - _RampThresholdOtherLights: 0.5
     - _RampType: 0
@@ -172,10 +173,13 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 0.85
-    - _RimMin: 0.6
+    - _RimMax: 0
+    - _RimMin: 0.369
     - _RimStrength: 0.5
     - _ShadowColorLightAtten: 1
+    - _Shadow_HSV_H: 0
+    - _Shadow_HSV_S: 0
+    - _Shadow_HSV_V: 0
     - _Shininess: 0.138
     - _SingleIndirectColor: 0
     - _SketchSpeed: 6
@@ -213,8 +217,8 @@ Material:
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _VerticalFogMax: 30
-    - _VerticalFogMin: -30
+    - _VerticalFogMax: 7.3
+    - _VerticalFogMin: -0.52
     - _ZSmooth: -0.5
     - _ZWrite: 0
     - __dummy__: 0
@@ -223,22 +227,22 @@ Material:
     m_Colors:
     - _Albedo_snow: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 0.1332858, g: 0.7349088, b: 0.9811321, a: 1}
-    - _Color: {r: 0.2822534, g: 0.86610436, b: 0.95283014, a: 0.7058824}
+    - _Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0.56078434}
     - _Color1: {r: 0, g: 0.64199066, b: 1, a: 0.15686275}
     - _Color2: {r: 1, g: 0, b: 0, a: 0.24705882}
-    - _DiffTint: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+    - _DiffTint: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
     - _Emission: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.14117648}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 0}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
-    - _SColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _RimColor: {r: 1, g: 0, b: 0, a: 0.34901962}
+    - _SColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0}
     - _SColor_snow: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SketchColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
     - _UpVector: {r: 0, g: 0.81, b: 0, a: 0}
-    - _VerticalFogColor: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 0.24313726}
+    - _VerticalFogColor: {r: 0.28235295, g: 0.8666667, b: 0.9529412, a: 0.5058824}
   m_BuildTextureStacks: []

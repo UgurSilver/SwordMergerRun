@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     #region Variables for General
     public static UIManager Instance;
-    public MergeBuyButton mergeBuyButton,mergeRunButton;
+    public MergeBuyButton mergeBuyButton, mergeRunButton;
 
     #endregion
 
@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
 
     public void SetMoneyText()
     {
-        moneyText.text = "$" + GameManager.Instance.datas.money.ToString();
+        moneyText.text = GameManager.Instance.datas.money.ToString();
     }
 
     private void SetLevelText()
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
 
     public void SetMergeCount()
     {
-        MergeCountText.text = GameManager.Instance.datas.mergeCount.ToString()+"/"+ GameManager.Instance.mergepanelController.maxBuyCount;
+        MergeCountText.text = GameManager.Instance.datas.mergeCount.ToString() + "/" + GameManager.Instance.mergepanelController.maxBuyCount;
     }
 
     public void SetMergeImage()
