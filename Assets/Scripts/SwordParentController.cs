@@ -6,12 +6,28 @@ using DG.Tweening;
 public class SwordParentController : MonoBehaviour
 {
     public int level;
-    public int hp;
+    public int startHp;
+    public int currentHp;
     private Transform followObject;
     public bool isSmoothPosZ;
 
     public void ReplacePool()
     {
+        Knife knifeSc;
+        level = 0;
+        startHp = 0;
+        currentHp = 0;
+        isSmoothPosZ = true;
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+            knifeSc = transform.GetChild(i).GetComponent<Knife>();
+            knifeSc.isCanSlice = true;
+            knifeSc.isCheckSlice = true;
+            knifeSc.sliceableHp = 0;
+        }
+        PlayerManager.Instance.swordList.Remove(transform);
         PoolingManager.Instance.ReplacingSword(this.gameObject);
     }
 
@@ -54,6 +70,13 @@ public class SwordParentController : MonoBehaviour
             transform.DORotate(GameManager.Instance.swordVerticalRot, 0.5f);
         else
             transform.DORotate(GameManager.Instance.swordHorizontalRot, 0.5f);
+    }
+
+    public void SetHp(int damage)
+    {
+        currentHp -= damage;
+        if (currentHp < 0)
+            ReplacePool();
     }
 
 }

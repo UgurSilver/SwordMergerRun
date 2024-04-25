@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class SwordController : MonoBehaviour
 {
+    private SwordParentController swordParentController;
     public int level;
     public int hp;
 
     private void OnEnable()
     {
+        swordParentController = transform.parent.GetComponent<SwordParentController>();
         SetParentLevel();
         SetParentHp();
     }
 
     public void SetParentLevel()
     {
-        transform.parent.GetComponent<SwordParentController>().level = level;
+        swordParentController.level = level;
     }
     public void SetParentHp()
     {
-        transform.parent.GetComponent<SwordParentController>().hp = hp;
+        swordParentController.startHp = hp;
+        swordParentController.currentHp = hp;
     }
 
 }

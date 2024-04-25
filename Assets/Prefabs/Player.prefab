@@ -468,8 +468,8 @@ MonoBehaviour:
   initialMaxSwordsNum: 10
   ishorizontal: 0
   movement:
-    forwardSpeed: 3.5
-    sideSpeed: 8
+    forwardSpeed: 2
+    sideSpeed: 5
   collisionDetection:
     adana: 0
 --- !u!114 &5047895434296914271
