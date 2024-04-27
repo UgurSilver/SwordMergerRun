@@ -2154,10 +2154,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Out_Carrot
       objectReference: {fileID: 0}
-    - target: {fileID: 7775220710923044050, guid: a7ea32a7217f5114ea3a08649405c85f, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2287,10 +2283,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Out_RedApple
       objectReference: {fileID: 0}
-    - target: {fileID: 9054337033348400997, guid: 09fb245baac22e945a9ad545c24137da, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2309,10 +2301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 18342552092687355, guid: a0faa13c16cdceb449a1c4925eb56f4b, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2009641009734113404, guid: a0faa13c16cdceb449a1c4925eb56f4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2410,10 +2398,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134370358944313793, guid: 7f45c44c516efdc4ba33f5292cd9a21f, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5150467482191810252, guid: 7f45c44c516efdc4ba33f5292cd9a21f, type: 3}
       propertyPath: m_Name
       value: Out_GreenApple
@@ -2464,25 +2448,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 1667810957590721092, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3298868920366479381, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
       propertyPath: m_Name
       value: Watermelon
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2523,10 +2491,6 @@ PrefabInstance:
     - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691449051973444755, guid: 786569798710ffd4381fca10e6d9f8fb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2585,10 +2549,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green_Pepper
       objectReference: {fileID: 0}
-    - target: {fileID: 5298307221838004282, guid: b6bfdfec9c4de9a449054c78392431fc, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2607,10 +2567,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 2748532856534248129, guid: 7a163bbbf35b2e84fba7b07e7a30fc06, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5585757599282014775, guid: 7a163bbbf35b2e84fba7b07e7a30fc06, type: 3}
       propertyPath: m_Name
       value: Yellow_Pepper
@@ -2668,10 +2624,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 1680069330935182482, guid: d25fe4d9196048348b70fdb997c62e3c, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2896847054818156288, guid: d25fe4d9196048348b70fdb997c62e3c, type: 3}
       propertyPath: m_Name
       value: Out_Tomato
@@ -2919,10 +2871,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 265209402583212642, guid: 534195eba3f3f1342a1e759cf3ac85db, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1759621296889464081, guid: 534195eba3f3f1342a1e759cf3ac85db, type: 3}
       propertyPath: m_Name
       value: Banana_
@@ -2980,10 +2928,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 2313246886724981412, guid: b0ddbce6c57004c468a1ee69ecc090c1, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 4241076180306688951, guid: b0ddbce6c57004c468a1ee69ecc090c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3465,10 +3409,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7139079946676535148, guid: c4f78c468dacc704e9dd5b6f8c2884cc, type: 3}
-      propertyPath: zoomSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8320298237265638502, guid: c4f78c468dacc704e9dd5b6f8c2884cc, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -3506,10 +3446,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 902448268}
     m_Modifications:
-    - target: {fileID: 926177188289362857, guid: 36f5aeaae293492478ff1a94e938f013, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1637773992649053126, guid: 36f5aeaae293492478ff1a94e938f013, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3621,10 +3557,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3597489506304807001, guid: ab97b4d54e7d8b1479aa19d63319719f, type: 3}
-      propertyPath: hp
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3691,10 +3623,6 @@ PrefabInstance:
     - target: {fileID: 3492601945932178094, guid: 191c28a16418b8840986d0c3bbf4d31c, type: 3}
       propertyPath: m_Name
       value: Eggplant.057
-      objectReference: {fileID: 0}
-    - target: {fileID: 7307473900031625543, guid: 191c28a16418b8840986d0c3bbf4d31c, type: 3}
-      propertyPath: hp
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

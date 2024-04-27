@@ -147,6 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6076dd576f3898647b9bd5bc187edb10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 50
   insideMat: {fileID: 2100000, guid: ec0dafc1ff88a464d8c0b746391e8bb5, type: 2}
   sliceFxColor: {r: 1, g: 1, b: 0.16078432, a: 1}

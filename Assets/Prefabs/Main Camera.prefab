@@ -108,3 +108,4 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   followSpeed: 4
   isFollow: 0
+  zoomSpeed: 1
