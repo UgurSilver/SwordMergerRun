@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1724038519346818817}
   - {fileID: 4047310661441011130}
+  - {fileID: 1724038519346818817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6507407297683999038
@@ -47,7 +47,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6861129888453329730, guid: 88c343d082cd8354296fa77e64ff8419, type: 3}
       propertyPath: m_Name
-      value: Gate (1)
+      value: Gate
       objectReference: {fileID: 0}
     - target: {fileID: 7089822430959170692, guid: 88c343d082cd8354296fa77e64ff8419, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6861129888453329730, guid: 88c343d082cd8354296fa77e64ff8419, type: 3}
       propertyPath: m_Name
-      value: Gate
+      value: Gate_1
       objectReference: {fileID: 0}
     - target: {fileID: 7089822430959170692, guid: 88c343d082cd8354296fa77e64ff8419, type: 3}
       propertyPath: m_LocalPosition.x

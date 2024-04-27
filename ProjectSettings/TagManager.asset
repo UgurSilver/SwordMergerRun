@@ -9,6 +9,7 @@ TagManager:
   - Swords
   - Gate
   - Sliceable
+  - FinishPlane
   layers:
   - Default
   - TransparentFX

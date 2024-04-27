@@ -15,6 +15,20 @@ public class PoolingManager : MonoBehaviour
     public int swordCount;
     #endregion
 
+    #region Variables for SliceMoneyText
+    public GameObject sliceMoneyText;
+    private GameObject tempSliceMoneyText;
+    public Queue<GameObject> sliceMoneyTextQue = new();
+    public int sliceMoneyTextCount;
+    #endregion
+
+    #region Variables for SliceFx
+    public GameObject sliceFx;
+    private GameObject tempSliceFx;
+    public Queue<GameObject> sliceFxQue = new();
+    public int sliceFxCount;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,13 +36,13 @@ public class PoolingManager : MonoBehaviour
         else
             Destroy(this);
     }
-
     private void Start()
     {
         SwordPooling();
+        SliceMoneyTextPooling();
+        SliceFxPooling();
     }
-
-    #region Bullet Pooling Events
+    #region Sword Pooling Events
     private void SwordPooling()
     {
         for (int i = 0; i < swordCount; i++)
@@ -54,6 +68,63 @@ public class PoolingManager : MonoBehaviour
         go.transform.SetParent(transform.GetChild(0)); //Sword Parent
         go.transform.localPosition = Vector3.zero;
         swordQue.Enqueue(go);
+    }
+    #endregion
+    #region Slice Money Text Pooling Events
+    private void SliceMoneyTextPooling()
+    {
+        for (int i = 0; i < sliceMoneyTextCount; i++)
+        {
+            tempSliceMoneyText = Instantiate(sliceMoneyText);
+            tempSliceMoneyText.transform.SetParent(transform.GetChild(1)); //sliceMoneyText Parent
+            tempSliceMoneyText.transform.localPosition = Vector3.zero;
+
+            sliceMoneyTextQue.Enqueue(tempSliceMoneyText);
+        }
+    }
+
+    public GameObject UseSliceMoneyText()
+    {
+        if (sliceMoneyTextQue.Count <= 1)
+            SliceMoneyTextPooling();
+        return sliceMoneyTextQue.Dequeue();
+    }
+
+    public void ReplacingSliceMoneyText(GameObject go)
+    {
+        go.SetActive(false);
+        go.transform.SetParent(transform.GetChild(1)); //sliceMoneyText Parent
+        go.transform.localPosition = Vector3.zero;
+        sliceMoneyTextQue.Enqueue(go);
+    }
+    #endregion
+
+    #region Slice Money Text Pooling Events
+    private void SliceFxPooling()
+    {
+        for (int i = 0; i < sliceFxCount; i++)
+        {
+            tempSliceFx = Instantiate(sliceFx);
+            tempSliceFx.transform.SetParent(transform.GetChild(2)); //sliceFx Parent
+            tempSliceFx.transform.localPosition = Vector3.zero;
+
+            sliceFxQue.Enqueue(tempSliceFx);
+        }
+    }
+
+    public GameObject UseSliceFx()
+    {
+        if (sliceFxQue.Count <= 1)
+            SliceFxPooling();
+        return sliceFxQue.Dequeue();
+    }
+
+    public void ReplacingSliceFx(GameObject go)
+    {
+        go.SetActive(false);
+        go.transform.SetParent(transform.GetChild(2)); //sliceFx Parent
+        go.transform.localPosition = Vector3.zero;
+        sliceFxQue.Enqueue(go);
     }
     #endregion
 }

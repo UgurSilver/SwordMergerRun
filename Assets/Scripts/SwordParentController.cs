@@ -10,10 +10,13 @@ public class SwordParentController : MonoBehaviour
     public int currentHp;
     private Transform followObject;
     public bool isSmoothPosZ;
+    Knife knifeSc;
+    public Transform currentSword;
+    private bool isDead;
 
     public void ReplacePool()
     {
-        Knife knifeSc;
+
         level = 0;
         startHp = 0;
         currentHp = 0;
@@ -27,13 +30,12 @@ public class SwordParentController : MonoBehaviour
             knifeSc.isCheckSlice = true;
             knifeSc.sliceableHp = 0;
         }
-        PlayerManager.Instance.swordList.Remove(transform);
         PoolingManager.Instance.ReplacingSword(this.gameObject);
     }
 
     private void LateUpdate()
     {
-        if (GameManager.Instance.isGame)
+        if (GameManager.Instance.isGame && !isDead)
         {
             if (!PlayerManager.Instance.ishorizontal)
             {
@@ -48,7 +50,7 @@ public class SwordParentController : MonoBehaviour
                 else
                 {
                     followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
-                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed*5 * Time.smoothDeltaTime),
+                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * 5 * Time.smoothDeltaTime),
                      followObject.position.y, Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
                     if (Mathf.Abs(transform.position.z - (followObject.position.z - GameManager.Instance.swordsZDistance)) < 0.1f)
                         isSmoothPosZ = false;
@@ -76,7 +78,52 @@ public class SwordParentController : MonoBehaviour
     {
         currentHp -= damage;
         if (currentHp < 0)
-            ReplacePool();
+            BrokenEvents();
+
+        if (PlayerManager.Instance.swordList.Count == 0)
+        {
+            print("Fail");
+            PlayerManager.Instance.Fail();
+        }
+    }
+
+    public void BrokenEvents()
+    {
+        currentSword = transform.GetChild(level - 1);
+
+        knifeSc = currentSword.GetComponent<Knife>();
+        knifeSc.isCanSlice = false;
+        knifeSc.isCheckSlice = false;
+
+        isDead = true;
+        transform.SetParent(null);
+        currentSword.GetComponent<Collider>().isTrigger = false;
+        Rigidbody rb = currentSword.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+
+        int rnd = Random.Range(0, 2);
+        rb.AddForce(Vector3.up * 400);
+        rb.AddForce(Vector3.forward * 400);
+        if (rnd == 0)
+        {
+            rb.AddForce(Vector3.right * 200);
+            rb.AddTorque(Vector3.right * 200);
+        }
+        else
+        {
+            rb.AddForce(Vector3.left * 200);
+            rb.AddTorque(Vector3.left * 200);
+        }
+        PlayerManager.Instance.swordList.Remove(transform);
+
+        StartCoroutine(WaitForReplacePool());
+
+    }
+
+    IEnumerator WaitForReplacePool()
+    {
+        yield return new WaitForSeconds(2);
+        ReplacePool();
     }
 
 }

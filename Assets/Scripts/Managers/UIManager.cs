@@ -107,6 +107,8 @@ public class UIManager : MonoBehaviour
         winPanel.SetActive(true);
     }
 
+
+
     public void OpenFailPanel()
     {
         StartCoroutine(WaitFailPanel());
@@ -116,9 +118,14 @@ public class UIManager : MonoBehaviour
     IEnumerator WaitFailPanel()
     {
         GameManager.Instance.isGame = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         CloseCanvas();
         failPanel.SetActive(true);
+    }
+
+    public void FailButton()
+    {
+        LevelManager.Instance.RestartLevel();
     }
     #endregion
 }

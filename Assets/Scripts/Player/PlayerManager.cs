@@ -41,30 +41,34 @@ public class PlayerManager : MonoBehaviour
         maxSwordsNum = initialMaxSwordsNum;
         while (addSword > 0)
         {
+            bool isFilled=false;
+            while (!isFilled)
+            {
+                for (int i = 0; i < swords.childCount; i++)
+                {
+                    if (swords.GetChild(i).childCount > 1 && swords.GetChild(i).childCount <= maxSwordsNum)
+                    {
+                        if (addSword > 0)
+                        {
+                            CreateSwords(i);
+                            addSword--;
+                        }
+                        else
+                            isFilled = true;
+                    }
+                    if (swords.GetChild(i).childCount > maxSwordsNum)
+                        isFilled = true;
+                }
+            }
+
+
             for (int i = 0; i < swords.childCount; i++)
             {
                 while (swords.GetChild(i).childCount <= maxSwordsNum)
                 {
                     if (addSword > 0)
                     {
-                        Transform tempSword;
-                        if (!ishorizontal)
-                        {
-                            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
-                        }
-                        else
-                        {
-                            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(i), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
-                        }
-                        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
-                        tempSword.GetChild(minLevel - 1).gameObject.SetActive(true);
-                        tempSword.GetComponent<SwordParentController>().level = minLevel;
-                        tempSword.GetComponent<Animator>().enabled = false;
-                        if (!ishorizontal)
-                            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordVerticalRot);
-                        else
-                            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordHorizontalRot);
-                        swordList.Add(tempSword);
+                        CreateSwords(i);
                         addSword--;
 
                     }
@@ -78,6 +82,28 @@ public class PlayerManager : MonoBehaviour
 
         }
 
+    }
+
+    private void CreateSwords(int index)
+    {
+        Transform tempSword;
+        if (!ishorizontal)
+        {
+            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(index), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
+        }
+        else
+        {
+            tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(index), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
+        }
+        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
+        tempSword.GetChild(minLevel - 1).gameObject.SetActive(true);
+        tempSword.GetComponent<SwordParentController>().level = minLevel;
+        tempSword.GetComponent<Animator>().enabled = false;
+        if (!ishorizontal)
+            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordVerticalRot);
+        else
+            tempSword.rotation = Quaternion.Euler(GameManager.Instance.swordHorizontalRot);
+        swordList.Add(tempSword);
     }
 
     public void RotateSwords()

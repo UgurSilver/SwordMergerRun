@@ -175,6 +175,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &6897964625715817967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460047823553903842}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -288,6 +290,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &4128547040539238535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -295,7 +299,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775993535910216417}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -816,6 +820,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &245698153515951213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -823,7 +829,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6705213992465150259}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -929,6 +935,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &7459420000619059682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -936,7 +944,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6872519260344813166}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1042,6 +1050,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &782537383718771259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1049,7 +1059,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7646960104164881676}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1116,7 +1126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  hp: 0
+  startHp: 0
+  currentHp: 0
   isSmoothPosZ: 1
 --- !u!95 &7830297269738918514
 Animator:
@@ -1231,6 +1242,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!65 &8180093664376663880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1238,7 +1251,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8549193109240719097}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1309,7 +1322,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793651665494450978}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 23ccfa0bedb411c47ba07ebcfa82dee4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1365,6 +1378,8 @@ MonoBehaviour:
   materialSlicedSide: {fileID: 2100000, guid: dcfd0aa39ca69e5478df6b6b66c0c4e5, type: 2}
   isCanSlice: 1
   isCheckSlice: 1
+  sliceableHp: 0
+  isFirstSword: 0
 --- !u!1 &8795534770813157092
 GameObject:
   m_ObjectHideFlags: 0

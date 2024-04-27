@@ -7,6 +7,7 @@ public class Knife : MonoBehaviour
     public bool isCanSlice;
     public bool isCheckSlice;
     public int sliceableHp;
+    public Color sliceFxColor;
     public bool isFirstSword;
 
     private void Update()
@@ -37,7 +38,10 @@ public class Knife : MonoBehaviour
 
             Sliceable sliceableSc = other.GetComponent<Sliceable>();
             sliceableHp = sliceableSc.hp;
+            sliceFxColor = sliceableSc.sliceFxColor;
             materialSlicedSide = sliceableSc.insideMat;
+
+            GameManager.Instance.UseSliceFx(other.transform.position, sliceFxColor);
 
             SlicedHull sliceObj = Slice(other.gameObject, materialSlicedSide);
             GameObject slicedObjectTop = sliceObj?.CreateUpperHull(other.gameObject, materialSlicedSide);
@@ -63,6 +67,7 @@ public class Knife : MonoBehaviour
             Sliceable sliceableSc = obj.AddComponent<Sliceable>();
             sliceableSc.hp = sliceableHp;
             sliceableSc.insideMat = materialSlicedSide;
+            sliceableSc.sliceFxColor = sliceFxColor;
             sliceableSc.SetSliceable();
 
             MeshCollider meshCollider = obj.AddComponent<MeshCollider>();

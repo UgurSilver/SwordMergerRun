@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum FxType
 {
-    HitFx,
+    SliceFx,
 }
 
 public enum AnimType

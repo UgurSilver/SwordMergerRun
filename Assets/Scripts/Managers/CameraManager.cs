@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
 
     #region Variables for General
     public static CameraManager Instance;
+    private Transform swords;
     #endregion
 
     #region Variables for Follow
@@ -16,6 +17,9 @@ public class CameraManager : MonoBehaviour
     public float followSpeed;
     private Transform target;
     public bool isFollow = true;
+
+    private float targetZOffset;
+    public float zoomSpeed;
     #endregion
 
     private Transform startMergePos, startRunnerPos;
@@ -29,12 +33,21 @@ public class CameraManager : MonoBehaviour
 
         startMergePos = GameObject.FindGameObjectWithTag("StartMergePos").transform;
         startRunnerPos = GameObject.FindGameObjectWithTag("StartRunnerPos").transform;
+        swords = GameObject.FindGameObjectWithTag("Swords").transform;
     }
 
     void LateUpdate()
     {
         if (isFollow)
             FollowTarget();
+
+        if (swords.GetChild(0).childCount > 10)
+            targetZOffset = -0.5f;
+        else
+            targetZOffset = 0;
+
+        if (offSet.z != targetZOffset)
+            offSet.z =Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed*Time.deltaTime);
     }
 
     #region SetPos

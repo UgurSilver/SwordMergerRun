@@ -42,6 +42,7 @@ public class DataManager
 
         //Grid
         gameData.gridLevels = new int[15];
+        gameData.gridLevels[7] = 1;
 
         SaveData(gameData);
     }

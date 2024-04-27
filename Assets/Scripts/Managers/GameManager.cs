@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isGame, isFirstTouch;
     public int earnedMoney;
     public int totalMoney;
+    public int sliceMoney;
     #endregion
 
     #region Variables for MergeScene
@@ -43,7 +44,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
         if (isMergeScene)
             openMergeScene();
     }
@@ -109,27 +109,54 @@ public class GameManager : MonoBehaviour
         return tempSword;
     }
 
-    /* public void UseFx(Vector3 pos, Transform parent,Color color) //particle
-     {
-         GameObject tempBullet = PoolingManager.Instance?.UseFx();
-         tempBullet.transform.SetParent(parent);
-         tempBullet.transform.position = pos - Vector3.up * 0.99f;
-         tempBullet.transform.localScale = new Vector3(10, 10, 10);
+    public GameObject UseSliceMoneyText(Vector3 pos,Transform parent)
+    {
+        GameObject tempSliceMoneyText = PoolingManager.Instance.UseSliceMoneyText();
+        tempSliceMoneyText.transform.SetParent(parent);
+        tempSliceMoneyText.transform.localPosition = pos;
+        tempSliceMoneyText.transform.SetParent(null);
+        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + sliceMoney;
+        tempSliceMoneyText.SetActive(true);
+        return tempSliceMoneyText;
+    }
 
-         ParticleSystem.MainModule settings = tempBullet.GetComponent<ParticleSystem>().main;
-         settings.startColor = color;
+    public GameObject UseSliceFx(Vector3 pos,Color color)
+    {
+        GameObject tempSliceFx = PoolingManager.Instance.UseSliceFx();
+        tempSliceFx.transform.SetParent(null);
+        tempSliceFx.transform.position = pos;
+        ParticleSystem.MainModule settings = tempSliceFx.GetComponent<ParticleSystem>().main;
+        ParticleSystem.MainModule settings1 = tempSliceFx.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+        //ParticleSystem.MainModule settings2 = tempSliceFx.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>().main;
+        settings.startColor = color;
+        settings1.startColor = color;
+        //settings2.startColor = color;
 
-         //Close transparentcy
-         *//*
-         ParticleSystem ps = tempBullet.GetComponent<ParticleSystem>();
-         var col = ps.colorOverLifetime;
-         col.enabled = false;
-         *//*
+        tempSliceFx.SetActive(true);
+        return tempSliceFx;
+    }
 
-         tempBullet.transform.rotation = Quaternion.Euler(90, 0, 0);
-         //tempBulletSplash.transform.position -= tempBulletSplash.transform.forward*0.4f;
+    /*public void UseFx(Vector3 pos, Transform parent, Color color) //particle
+    {
+        GameObject tempBullet = PoolingManager.Instance?.UseFx();
+        tempBullet.transform.SetParent(parent);
+        tempBullet.transform.position = pos - Vector3.up * 0.99f;
+        tempBullet.transform.localScale = new Vector3(10, 10, 10);
 
-         tempBullet.SetActive(true);
-     }*/
+        ParticleSystem.MainModule settings = tempBullet.GetComponent<ParticleSystem>().main;
+        settings.startColor = color;
+
+        //Close transparentcy
+
+        ParticleSystem ps = tempBullet.GetComponent<ParticleSystem>();
+        var col = ps.colorOverLifetime;
+        col.enabled = false;
+
+
+        tempBullet.transform.rotation = Quaternion.Euler(90, 0, 0);
+        //tempBulletSplash.transform.position -= tempBulletSplash.transform.forward*0.4f;
+
+        tempBullet.SetActive(true);
+    }*/
     #endregion
 }

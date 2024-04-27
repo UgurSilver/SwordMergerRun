@@ -52,5 +52,11 @@ public class PlayerCollision : MonoBehaviour
             if (gateSc.gateType.Equals(GateType.Rotate))
                 PlayerManager.Instance.RotateSwords();
         }
+
+        if (other.CompareTag("FinishPlane"))
+        {
+            PlayerManager.Instance.ishorizontal = true;
+            PlayerManager.Instance.RotateSwords();
+        }
     }
 }
