@@ -82,8 +82,15 @@ public class SwordParentController : MonoBehaviour
 
         if (PlayerManager.Instance.swordList.Count == 0)
         {
-            print("Fail");
-            PlayerManager.Instance.Fail();
+            if (!GameManager.Instance.isLevelEnd)
+            {
+                PlayerManager.Instance.Fail();
+            }
+
+            else
+            {
+                PlayerManager.Instance.Win();
+            }
         }
     }
 

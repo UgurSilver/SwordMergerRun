@@ -57,6 +57,7 @@ public class PlayerCollision : MonoBehaviour
         {
             PlayerManager.Instance.ishorizontal = true;
             PlayerManager.Instance.RotateSwords();
+            GameManager.Instance.isLevelEnd = true;
         }
     }
 }

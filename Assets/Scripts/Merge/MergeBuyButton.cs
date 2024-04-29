@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MergeBuyButton : MonoBehaviour
 {
     public Button buyButton;
-    public Image weaponImage,moneyIcon;
+    public Image weaponImage, moneyIcon;
     public TMPro.TextMeshProUGUI priceText, levelText;
 
     public Color enableColor, disableColor;
@@ -17,6 +17,7 @@ public class MergeBuyButton : MonoBehaviour
     private void Start()
     {
         CheckActivate();
+        CheckTutorial();
     }
     public void MergeBuy()
     {
@@ -36,15 +37,19 @@ public class MergeBuyButton : MonoBehaviour
         selectedGrid.isFilled = true;
 
         //SwordEvents
-        tempSword = GameManager.Instance.UseSword(selectedGrid.transform.position, selectedGrid.transform, Vector3.one*0.15f, Quaternion.Euler(0,-45,0)).transform;
+        tempSword = GameManager.Instance.UseSword(selectedGrid.transform.position, selectedGrid.transform, Vector3.one * 0.15f, Quaternion.Euler(0, -45, 0)).transform;
         tempSword.GetChild(GameManager.Instance.datas.mergeLevel - 1).gameObject.SetActive(true);
         tempSword.GetComponent<SwordParentController>().level = GameManager.Instance.datas.mergeLevel;
+
+        //Tutorial
+        GameManager.Instance.datas.buyTutorial = true;
 
         SaveGridLevel();
         //Save
         DataManager.SaveData(GameManager.Instance.datas);
 
         CheckActivate();
+        CheckTutorial();
     }
 
     #region Button Activity
@@ -56,8 +61,8 @@ public class MergeBuyButton : MonoBehaviour
         {
             GameManager.Instance.datas.mergeCount = 0;
             UIManager.Instance.SetMergeValues();
-            if (GameManager.Instance.datas.mergeLevel<GameManager.Instance.mergepanelController.swordIcons.Count)
-            GameManager.Instance.datas.mergeLevel++;
+            if (GameManager.Instance.datas.mergeLevel < GameManager.Instance.mergepanelController.swordIcons.Count)
+                GameManager.Instance.datas.mergeLevel++;
             UIManager.Instance.SetMergeLevel();
             UIManager.Instance.SetMergeImage();
 
@@ -69,10 +74,31 @@ public class MergeBuyButton : MonoBehaviour
         if (!GameManager.Instance.mergepanelController.isFilled)
             ActivateButton();
 
-        if(GameManager.Instance.datas.money < GameManager.Instance.datas.mergePrice)
+        if (GameManager.Instance.datas.money < GameManager.Instance.datas.mergePrice)
             DeactivateButton();
         if (GameManager.Instance.mergepanelController.isFilled)
             DeactivateButton();
+
+    }
+
+    public void CheckTutorial()
+    {
+        if (GameManager.Instance.datas.money > GameManager.Instance.datas.mergePrice)
+        {
+            if (!GameManager.Instance.datas.buyTutorial)
+                UIManager.Instance.buyTutorial.SetActive(true);
+            else
+                UIManager.Instance.buyTutorial.SetActive(false);
+
+            if (!GameManager.Instance.datas.mergeTutorial)
+                UIManager.Instance.mergeRunButton.DeactivateButton();
+        }
+
+        if (GameManager.Instance.datas.buyTutorial && !GameManager.Instance.datas.mergeTutorial)
+            UIManager.Instance.mergeTutorial.SetActive(true);
+
+        if (GameManager.Instance.datas.mergeTutorial)
+            UIManager.Instance.mergeRunButton.ActivateButton();
 
     }
 
@@ -93,6 +119,8 @@ public class MergeBuyButton : MonoBehaviour
         moneyIcon.color = disableColor;
 
     }
+
+
     #endregion
 
     public void SaveGridLevel()

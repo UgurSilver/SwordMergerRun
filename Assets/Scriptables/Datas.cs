@@ -16,6 +16,8 @@ public class Datas : ScriptableObject
     public int mergeLevel;
     public int mergeCount;
     public Sprite mergeImage;
+    public bool buyTutorial;
+    public bool mergeTutorial;
 
     [Header("Grid")]
     public int[] gridLevels;

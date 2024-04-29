@@ -8,12 +8,13 @@ public class UIManager : MonoBehaviour
 {
     #region Variables for General
     public static UIManager Instance;
-    public MergeBuyButton mergeBuyButton, mergeRunButton;
-
+    public MergeBuyButton mergeBuyButton;
+    public MergeRunButton mergeRunButton;
+    public GameObject buyTutorial,mergeTutorial;
     #endregion
 
     #region Variables for Game
-    public TMPro.TextMeshProUGUI moneyText, levelText, gameMoneyText;
+    public TMPro.TextMeshProUGUI moneyText, levelText, gameMoneyText, winMoneyText;
     public GameObject startTutorial;
     public GameObject winPanel, failPanel;
     #endregion
@@ -100,14 +101,13 @@ public class UIManager : MonoBehaviour
 
     IEnumerator WaitWinPanel()
     {
+        yield return new WaitForSeconds(0.1f);
         GameManager.Instance.isGame = false;
-        //gameMoneyText.text = "$" + gameManager.gameMoney.ToString();
+        winMoneyText.text =  GameManager.Instance.earnedMoney.ToString();
         yield return new WaitForSeconds(1.5f);
         CloseCanvas();
         winPanel.SetActive(true);
     }
-
-
 
     public void OpenFailPanel()
     {
@@ -126,6 +126,12 @@ public class UIManager : MonoBehaviour
     public void FailButton()
     {
         LevelManager.Instance.RestartLevel();
+    }
+
+    public void WinButton()
+    {
+        LevelManager.Instance.NextLevel();
+
     }
     #endregion
 }

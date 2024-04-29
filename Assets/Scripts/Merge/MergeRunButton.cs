@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class MergeRunButton : MonoBehaviour
 {
@@ -134,5 +135,15 @@ public class MergeRunButton : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DeactivateButton()
+    {
+        GetComponent<Button>().interactable = false;
+    }
+
+    public void ActivateButton()
+    {
+        GetComponent<Button>().interactable = true;
     }
 }

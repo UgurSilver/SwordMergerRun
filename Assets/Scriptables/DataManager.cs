@@ -32,13 +32,15 @@ public class DataManager
         //Level
         gameData.level = 1; //1
         gameData.sceneLevel = 1; //1
-        gameData.money = 5000;
+        gameData.money = 5000; //0
 
         //Merge
         gameData.mergePrice = 20;
         gameData.mergeLevel = 1; //1
         gameData.mergeCount = 0; //0
         gameData.mergeImage = null;
+        gameData.buyTutorial = false;
+        gameData.mergeTutorial = false;
 
         //Grid
         gameData.gridLevels = new int[15];

@@ -40,6 +40,11 @@ public class Knife : MonoBehaviour
             sliceableHp = sliceableSc.hp;
             sliceFxColor = sliceableSc.sliceFxColor;
             materialSlicedSide = sliceableSc.insideMat;
+            if (sliceableSc.isWood)
+            {
+                sliceableSc.transform.GetChild(0).SetParent(null);
+                sliceableSc.transform.GetChild(0).SetParent(null);
+            }
 
             GameManager.Instance.UseSliceFx(other.transform.position, sliceFxColor);
 

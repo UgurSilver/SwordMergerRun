@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
         //loop Level
         else
         {
-            GameManager.Instance.datas.sceneLevel = 3;
+            GameManager.Instance.datas.sceneLevel = 1;
             DataManager.SaveData(GameManager.Instance.datas);
             SceneManager.LoadScene(GameManager.Instance.datas.sceneLevel);
         }

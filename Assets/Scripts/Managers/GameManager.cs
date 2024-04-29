@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     #region Variables for GamePlay
     public Datas datas;
-    [HideInInspector] public bool isGame, isFirstTouch;
+    [HideInInspector] public bool isGame, isFirstTouch, isLevelEnd;
     public int earnedMoney;
     public int totalMoney;
     public int sliceMoney;
@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Variables for Swords
-    public float swordsZDistance,swordsYDistance;
-    public float swordsZfollowSpeed, swordsXFollowSpeed,swordsYFollowSpeed;
+    public float swordsZDistance, swordsYDistance;
+    public float swordsZfollowSpeed, swordsXFollowSpeed, swordsYFollowSpeed;
     public float swordScale;
     public Vector3 swordVerticalRot, swordHorizontalRot;
     #endregion
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         return tempSword;
     }
 
-    public GameObject UseSliceMoneyText(Vector3 pos,Transform parent)
+    public GameObject UseSliceMoneyText(Vector3 pos, Transform parent)
     {
         GameObject tempSliceMoneyText = PoolingManager.Instance.UseSliceMoneyText();
         tempSliceMoneyText.transform.SetParent(parent);
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         return tempSliceMoneyText;
     }
 
-    public GameObject UseSliceFx(Vector3 pos,Color color)
+    public GameObject UseSliceFx(Vector3 pos, Color color)
     {
         GameObject tempSliceFx = PoolingManager.Instance.UseSliceFx();
         tempSliceFx.transform.SetParent(null);

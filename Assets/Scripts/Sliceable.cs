@@ -7,6 +7,7 @@ public class Sliceable : MonoBehaviour
     public int hp;
     public Material insideMat;
     public Color sliceFxColor;
+    public bool isWood;
     
     public void SetSliceable()
     {
