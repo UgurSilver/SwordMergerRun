@@ -9,15 +9,19 @@ public class MergeRunButton : MonoBehaviour
     private Transform tempSword;
     private Transform swords;
     private bool isRow0Filled, isRow1Filled, isRow2Filled, isRow3Filled, isRow4Filled;
+    private Animator animator;
 
 
     private void OnEnable()
     {
+        animator = GetComponent<Animator>();
         swords = GameObject.FindGameObjectWithTag("Swords").transform;
     }
     public void MergeRun()
     {
+        transform.localScale = Vector3.one;
         UIManager.Instance.levelText.gameObject.SetActive(true);
+        animator.SetBool("Blob", false);
         PlaceSword();
         CloseMergePanel();
         SetSwordPos();
@@ -146,5 +150,15 @@ public class MergeRunButton : MonoBehaviour
     public void ActivateButton()
     {
         GetComponent<Button>().interactable = true;
+    }
+
+    public void StartAnim()
+    {
+        if (GameManager.Instance.datas.mergeTutorial && !GameManager.Instance.datas.runTutorial)
+        {
+            print("Blob");
+            animator.SetBool("Blob",true);
+            GameManager.Instance.datas.runTutorial = true;
+        }
     }
 }

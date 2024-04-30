@@ -14,6 +14,8 @@ public class MergeBuyButton : MonoBehaviour
     private GridController selectedGrid;
     private Transform tempSword;
 
+
+   
     private void Start()
     {
         CheckActivate();
@@ -74,11 +76,18 @@ public class MergeBuyButton : MonoBehaviour
         if (!GameManager.Instance.mergepanelController.isFilled)
             ActivateButton();
 
+
+
+
         if (GameManager.Instance.datas.money < GameManager.Instance.datas.mergePrice)
             DeactivateButton();
         if (GameManager.Instance.mergepanelController.isFilled)
             DeactivateButton();
 
+       /* if (isDeactiveButton())
+            DeactivateButton();
+        else
+            ActivateButton();*/
     }
 
     public void CheckTutorial()
@@ -130,4 +139,15 @@ public class MergeBuyButton : MonoBehaviour
             GameManager.Instance.datas.gridLevels[i] = GameManager.Instance.mergepanelController.grids[i].level;
         }
     }
+
+    public bool isDeactiveButton()
+    {
+        if (GameManager.Instance.datas.money < GameManager.Instance.datas.mergePrice || GameManager.Instance.mergepanelController.isFilled)
+            return true;
+        else
+            return false;
+
+    }
+
+    
 }

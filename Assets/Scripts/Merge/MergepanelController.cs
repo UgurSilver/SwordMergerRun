@@ -265,6 +265,7 @@ public class MergepanelController : MonoBehaviour
         GameManager.Instance.datas.mergeTutorial = true;
         UIManager.Instance.mergeTutorial.SetActive(false);
         UIManager.Instance.mergeRunButton.ActivateButton();
+        UIManager.Instance.mergeRunButton.StartAnim();
 
         UIManager.Instance.mergeBuyButton.SaveGridLevel();
         DataManager.SaveData(GameManager.Instance.datas);
