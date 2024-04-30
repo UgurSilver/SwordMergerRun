@@ -153,8 +153,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 500
   insideMat: {fileID: 2100000, guid: 3bb40b85f1febbf4cb040e45c6ee84cd, type: 2}
+  woodInsideMat1: {fileID: 2100000, guid: 3bb40b85f1febbf4cb040e45c6ee84cd, type: 2}
+  woodInsideMat2: {fileID: 2100000, guid: 288d32bc505505041981f91bbf7b9f91, type: 2}
+  woodInsideMat3: {fileID: 2100000, guid: dbfcb9334453e9746a959ac70b4fb466, type: 2}
+  woodInsideMat4: {fileID: 2100000, guid: c73bc0c3a41df314ca2bf4dfe266f14b, type: 2}
+  woodInsideMat5: {fileID: 2100000, guid: 5881bdc14ed67124695962b09988af9e, type: 2}
   sliceFxColor: {r: 0.3301887, g: 0.10286006, b: 0.010590936, a: 1}
+  wood1: {r: 0.87058824, g: 0.67058825, b: 0.47058824, a: 1}
+  wood2: {r: 0.87058824, g: 0.67058825, b: 0.47058824, a: 1}
+  wood3: {r: 0.9843137, g: 0.81960785, b: 0.38431373, a: 1}
+  wood4: {r: 0.72156864, g: 0.74509805, b: 0.7725491, a: 1}
+  wood5: {r: 0.5921569, g: 0.3921569, b: 0.28627452, a: 1}
   isWood: 1
+  woodType: 0
 --- !u!114 &3098009198916609884
 MonoBehaviour:
   m_ObjectHideFlags: 0

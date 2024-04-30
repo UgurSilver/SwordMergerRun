@@ -17,3 +17,13 @@ public enum GateType
     Rotate,
     Repair
 }
+
+public enum WoodType
+{
+    None,
+    Wood1,
+    Wood2,
+    Wood3,
+    Wood4,
+    Wood5
+}
