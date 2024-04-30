@@ -49,6 +49,7 @@ MonoBehaviour:
   datas: {fileID: 11400000, guid: 63813a09f46ac0f49a09e0279d470359, type: 2}
   isGame: 0
   isFirstTouch: 0
+  isLevelEnd: 0
   earnedMoney: 0
   totalMoney: 0
   sliceMoney: 1
@@ -1601,11 +1602,11 @@ MonoBehaviour:
   - {fileID: 1715187370647514877}
   - {fileID: 6980266688188129026}
   swordIcons:
-  - {fileID: 21300000, guid: b57c214063e94fc46a649800d8dd9b87, type: 3}
-  - {fileID: 21300000, guid: cce3a9bf6164d4a4c8f5199a5c478681, type: 3}
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 1a46b5efcadb6b34c9dc650093f92ccc, type: 3}
+  - {fileID: 21300000, guid: 600f1e31a8cec294da826730e9ed0d1f, type: 3}
+  - {fileID: 21300000, guid: d1ce1e2875373b54fa47c9d9955fcf51, type: 3}
+  - {fileID: 21300000, guid: d1ce1e2875373b54fa47c9d9955fcf51, type: 3}
+  - {fileID: 21300000, guid: 48c4b847b8ab3d44d88ede12957849fd, type: 3}
   - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
   - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
   selectedGrid: {fileID: 0}
