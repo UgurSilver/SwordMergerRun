@@ -17,6 +17,7 @@ public class MergeRunButton : MonoBehaviour
     }
     public void MergeRun()
     {
+        UIManager.Instance.levelText.gameObject.SetActive(true);
         PlaceSword();
         CloseMergePanel();
         SetSwordPos();

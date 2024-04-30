@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void SetMergeLevel()
     {
-        mergeLevelText.text = GameManager.Instance.datas.mergeLevel.ToString();
+        mergeLevelText.text ="Lv"+ GameManager.Instance.datas.mergeLevel.ToString();
     }
 
     public void SetMergeCount()
