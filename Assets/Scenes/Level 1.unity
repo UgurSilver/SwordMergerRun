@@ -3198,7 +3198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042839599290972041, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: gateType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6001223204184310219, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: m_Name
@@ -7562,7 +7562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042839599290972041, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: gateType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6001223204184310219, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: m_Name
