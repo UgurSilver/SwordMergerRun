@@ -646,6 +646,8 @@ MonoBehaviour:
   rotateIcon: {fileID: 1224769683698729661}
   repairIcon: {fileID: 4772963458342565161}
   mesh: {fileID: 6903772990212874197}
+  positiveMat: {fileID: 2100000, guid: eee2592cfb513fc4197a7cf71f9afcb0, type: 2}
+  negativeMat: {fileID: 2100000, guid: 2f4e747bbe1917d47aa1e7c704bf8a52, type: 2}
 --- !u!65 &6793228948020061220
 BoxCollider:
   m_ObjectHideFlags: 0

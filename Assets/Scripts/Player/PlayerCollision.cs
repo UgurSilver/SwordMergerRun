@@ -54,6 +54,16 @@ public class PlayerCollision : MonoBehaviour
                 int value = PlayerManager.Instance.swordList.Count * (other.GetComponent<GateController>().value - 1);
                 PlayerManager.Instance.AddSwords(value);
             }
+            if (gateSc.gateType.Equals(GateType.Minus))
+                PlayerManager.Instance.RemoveSwords(other.GetComponent<GateController>().value);
+
+            if (gateSc.gateType.Equals(GateType.Divider))
+            {
+                int value = (int)PlayerManager.Instance.swordList.Count-(PlayerManager.Instance.swordList.Count / (other.GetComponent<GateController>().value));
+                PlayerManager.Instance.RemoveSwords(value);
+            }
+
+
             if (gateSc.gateType.Equals(GateType.Rotate))
                 PlayerManager.Instance.RotateSwords();
         }

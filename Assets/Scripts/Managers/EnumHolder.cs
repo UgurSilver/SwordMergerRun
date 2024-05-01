@@ -15,6 +15,8 @@ public enum GateType
 {
     Sum,
     Multiplier,
+    Minus,
+    Divider,
     Rotate,
     Repair
 }

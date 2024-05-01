@@ -10,6 +10,7 @@ public class GateController : MonoBehaviour
     public TMPro.TextMeshPro valueText,nameText;
     public GameObject rotateIcon,repairIcon;
     public MeshRenderer mesh;
+    public Material positiveMat, negativeMat;
 
     private void Start()
     {
@@ -22,11 +23,27 @@ public class GateController : MonoBehaviour
         {
             valueText.gameObject.SetActive(true);
             valueText.text = "+" + value;
+            SetColor(positiveMat);
         }
         if (gateType.Equals(GateType.Multiplier))
         {
             valueText.gameObject.SetActive(true);
             valueText.text = "x" + value;
+            SetColor(positiveMat);
+        }
+
+        if (gateType.Equals(GateType.Minus))
+        {
+            valueText.gameObject.SetActive(true);
+            valueText.text = "-" + value;
+            SetColor(negativeMat);
+        }
+        if (gateType.Equals(GateType.Divider))
+        {
+            valueText.gameObject.SetActive(true);
+            valueText.text = "÷" + value;
+
+            SetColor(negativeMat);
         }
 
         if (gateType.Equals(GateType.Rotate))
@@ -54,5 +71,10 @@ public class GateController : MonoBehaviour
     public void CloseMesh()
     {
         mesh.transform.DOMoveY(mesh.transform.position.y - 5, 1);
+    }
+
+    public void SetColor(Material _material)
+    {
+        mesh.material = _material;
     }
 }

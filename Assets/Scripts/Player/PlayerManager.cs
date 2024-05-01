@@ -61,7 +61,6 @@ public class PlayerManager : MonoBehaviour
                 }
             }
 
-
             for (int i = 0; i < swords.childCount; i++)
             {
                 while (swords.GetChild(i).childCount <= maxSwordsNum)
@@ -70,18 +69,35 @@ public class PlayerManager : MonoBehaviour
                     {
                         CreateSwords(i);
                         addSword--;
-
                     }
-
                     else
                         break;
                 }
             }
             if (addSword > 0)
                 maxSwordsNum += initialMaxSwordsNum;
-
         }
+    }
 
+    public void RemoveSwords(int num)
+    {
+        int removeSword = num;
+        while (removeSword > 0)
+        {
+            for (int i = 0; i < swords.childCount; i++)
+            {
+                if (swords.GetChild(i).childCount > 1)
+                {
+                    if (removeSword > 0)
+                    {
+                        swords.GetChild(i).GetChild(1).GetComponent<SwordParentController>().BrokenEvents();
+                        //Remove swords
+                        //removeSwrods from list
+                        removeSword--;
+                    }
+                }
+            }
+        }
     }
 
     private void CreateSwords(int index)
