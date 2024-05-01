@@ -75,7 +75,9 @@ public class CameraManager : MonoBehaviour
     }
     private void FollowTarget()
     {
-        transform.position = targetDistance + target.transform.position + offSet;
+        Vector3 posTarget;
+        posTarget = targetDistance + target.transform.position + offSet;
+        transform.position =new Vector3 (Mathf.MoveTowards(transform.position.x,posTarget.x,followSpeed*Time.deltaTime),posTarget.y,posTarget.z);
     }
     #endregion
 
