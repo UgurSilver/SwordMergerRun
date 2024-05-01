@@ -9,6 +9,9 @@ public class Knife : MonoBehaviour
     public int sliceableHp;
     public Color sliceFxColor;
     public bool isFirstSword;
+    private bool isWood;
+    private WoodType woodType;
+    private int sliceForce;
 
     private void Update()
     {
@@ -40,10 +43,15 @@ public class Knife : MonoBehaviour
             sliceableHp = sliceableSc.hp;
             sliceFxColor = sliceableSc.sliceFxColor;
             materialSlicedSide = sliceableSc.insideMat;
+            isWood = sliceableSc.isWood;
+            woodType = sliceableSc.woodType;
             if (sliceableSc.isWood)
             {
-                sliceableSc.transform.GetChild(0).SetParent(null);
-                sliceableSc.transform.GetChild(0).SetParent(null);
+                if (sliceableSc.transform.childCount > 0)
+                {
+                    sliceableSc.transform.GetChild(0)?.SetParent(null);
+                    sliceableSc.transform.GetChild(0)?.SetParent(null);
+                }
             }
 
             GameManager.Instance.UseSliceFx(other.transform.position, sliceFxColor);
@@ -73,6 +81,8 @@ public class Knife : MonoBehaviour
             sliceableSc.hp = sliceableHp;
             sliceableSc.insideMat = materialSlicedSide;
             sliceableSc.sliceFxColor = sliceFxColor;
+            sliceableSc.isWood = isWood;
+            sliceableSc.woodType = woodType;
             sliceableSc.SetSliceable();
 
             MeshCollider meshCollider = obj.AddComponent<MeshCollider>();
@@ -86,10 +96,17 @@ public class Knife : MonoBehaviour
             obj.tag = "Sliceable";
 
             int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-                rb.AddTorque(Vector3.forward * 100);
+
+            if (sliceableSc.isWood)
+                sliceForce = 0;
             else
-                rb.AddTorque(-Vector3.forward * 100);
+                sliceForce = 100;
+
+            print(sliceForce);
+            if (rnd == 0)
+                rb.AddTorque(Vector3.forward * sliceForce);
+            else
+                rb.AddTorque(-Vector3.forward * sliceForce);
         }
     }
 

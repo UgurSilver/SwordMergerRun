@@ -23,6 +23,11 @@ public class GateController : MonoBehaviour
             valueText.gameObject.SetActive(true);
             valueText.text = "+" + value;
         }
+        if (gateType.Equals(GateType.Multiplier))
+        {
+            valueText.gameObject.SetActive(true);
+            valueText.text = "x" + value;
+        }
 
         if (gateType.Equals(GateType.Rotate))
         {

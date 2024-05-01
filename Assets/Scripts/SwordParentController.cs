@@ -109,17 +109,17 @@ public class SwordParentController : MonoBehaviour
         rb.isKinematic = false;
 
         int rnd = Random.Range(0, 2);
-        rb.AddForce(Vector3.up * 400);
-        rb.AddForce(Vector3.forward * 400);
+        rb.AddForce(Vector3.up * 200);
+        rb.AddForce(Vector3.forward * 200);
         if (rnd == 0)
         {
-            rb.AddForce(Vector3.right * 200);
-            rb.AddTorque(Vector3.right * 200);
+            rb.AddForce(Vector3.right * 100);
+            rb.AddTorque(Vector3.right * 100);
         }
         else
         {
-            rb.AddForce(Vector3.left * 200);
-            rb.AddTorque(Vector3.left * 200);
+            rb.AddForce(Vector3.left * 100);
+            rb.AddTorque(Vector3.left * 100);
         }
         PlayerManager.Instance.swordList.Remove(transform);
 

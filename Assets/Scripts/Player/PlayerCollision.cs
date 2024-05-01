@@ -49,6 +49,11 @@ public class PlayerCollision : MonoBehaviour
 
             if (gateSc.gateType.Equals(GateType.Sum))
                 PlayerManager.Instance.AddSwords(other.GetComponent<GateController>().value);
+            if (gateSc.gateType.Equals(GateType.Multiplier))
+            {
+                int value = PlayerManager.Instance.swordList.Count * (other.GetComponent<GateController>().value - 1);
+                PlayerManager.Instance.AddSwords(value);
+            }
             if (gateSc.gateType.Equals(GateType.Rotate))
                 PlayerManager.Instance.RotateSwords();
         }
