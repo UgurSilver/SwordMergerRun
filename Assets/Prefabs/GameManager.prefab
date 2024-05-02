@@ -64,6 +64,7 @@ MonoBehaviour:
   swordScale: 0.4
   swordVerticalRot: {x: -90, y: 0, z: 90}
   swordHorizontalRot: {x: 0, y: -90, z: 0}
+  verticalSwordHeight: 0.2
 --- !u!1 &1461642048571780034
 GameObject:
   m_ObjectHideFlags: 0

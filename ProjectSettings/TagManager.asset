@@ -10,6 +10,7 @@ TagManager:
   - Gate
   - Sliceable
   - FinishPlane
+  - EndCollider
   layers:
   - Default
   - TransparentFX

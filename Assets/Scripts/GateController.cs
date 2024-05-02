@@ -10,7 +10,7 @@ public class GateController : MonoBehaviour
     public TMPro.TextMeshPro valueText,nameText;
     public GameObject rotateIcon,repairIcon;
     public MeshRenderer mesh;
-    public Material positiveMat, negativeMat;
+    public Material positiveMat, negativeMat,rotateMat;
 
     private void Start()
     {
@@ -50,6 +50,7 @@ public class GateController : MonoBehaviour
         {
             nameText.gameObject.SetActive(true);
             nameText.text = "Rotate";
+            SetColor(rotateMat);
 
             rotateIcon.SetActive(true);
         }

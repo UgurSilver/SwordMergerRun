@@ -149,5 +149,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   insideMat: {fileID: 2100000, guid: 829ce23f4ce428b43b76084ddfa49b07, type: 2}
-  sliceFxColor: {r: 0.20784315, g: 0.46274513, b: 0.09411766, a: 1}
+  woodInsideMat1: {fileID: 0}
+  woodInsideMat2: {fileID: 0}
+  woodInsideMat3: {fileID: 0}
+  woodInsideMat4: {fileID: 0}
+  woodInsideMat5: {fileID: 0}
+  sliceFxColor: {r: 0.44128674, g: 0.9056604, b: 0.2341046, a: 1}
+  wood1: {r: 0, g: 0, b: 0, a: 0}
+  wood2: {r: 0, g: 0, b: 0, a: 0}
+  wood3: {r: 0, g: 0, b: 0, a: 0}
+  wood4: {r: 0, g: 0, b: 0, a: 0}
+  wood5: {r: 0, g: 0, b: 0, a: 0}
   isWood: 0
+  woodType: 0
+  rotateSpeed: 0
+  moveUpPos: 1.5
+  moveDownPos: 1
+  moveSpeed: 0.5

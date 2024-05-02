@@ -16,9 +16,12 @@ public class PlayerManager : MonoBehaviour
     private Transform swords;
     public int initialMaxSwordsNum;
     private int maxSwordsNum;
-
-
     public bool ishorizontal;
+    #endregion
+
+    #region Variables for Sounds
+    private AudioSource audioSource;
+    public AudioClip fruitSound, woodSound;
     #endregion
 
     private void Awake()
@@ -31,6 +34,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         swords = GameObject.FindGameObjectWithTag("Swords").transform;
     }
 
@@ -141,6 +145,20 @@ public class PlayerManager : MonoBehaviour
     public void Fail()
     {
         UIManager.Instance?.OpenFailPanel();
+    }
+    #endregion
+
+    #region Sounds
+    public void PlayFruitSound()
+    {
+        audioSource.clip = fruitSound;
+        audioSource.Play();
+    }
+
+    public void PlayWoodSound()
+    {
+        audioSource.clip = woodSound;
+        audioSource.Play();
     }
     #endregion
 

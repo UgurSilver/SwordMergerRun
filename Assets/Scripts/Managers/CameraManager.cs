@@ -22,6 +22,8 @@ public class CameraManager : MonoBehaviour
     public float zoomSpeed;
     #endregion
 
+    public float negativeXBorder, positiveXBorder;
+
     private Transform startMergePos, startRunnerPos;
 
     private void Awake()
@@ -41,13 +43,15 @@ public class CameraManager : MonoBehaviour
         if (isFollow)
             FollowTarget();
 
-        if (swords.GetChild(0).childCount > 10)
+        if (swords.GetChild(0).childCount > 15)
             targetZOffset = -0.5f;
         else
             targetZOffset = 0;
 
         if (offSet.z != targetZOffset)
             offSet.z =Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed*Time.deltaTime);
+
+        Border();
     }
 
     #region SetPos
@@ -80,6 +84,14 @@ public class CameraManager : MonoBehaviour
         transform.position =new Vector3 (Mathf.MoveTowards(transform.position.x,posTarget.x,followSpeed*Time.deltaTime),posTarget.y,posTarget.z);
     }
     #endregion
+
+private void Border()
+    {
+        if (transform.position.x < negativeXBorder)
+            transform.position = new Vector3(negativeXBorder, transform.position.y, transform.position.z);
+        if (transform.position.x > positiveXBorder)
+            transform.position = new Vector3(positiveXBorder, transform.position.y, transform.position.z);
+    }
 
     #region Shake
     public void Shake()

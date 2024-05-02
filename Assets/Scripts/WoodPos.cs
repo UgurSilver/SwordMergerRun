@@ -8,6 +8,6 @@ public class WoodPos : MonoBehaviour
 {
     private void OnEnable()
     {
-        transform.localPosition = new Vector3(0, 1.2f, transform.GetSiblingIndex() * 2);
+        transform.localPosition = new Vector3(0, 1.2f, transform.GetSiblingIndex() * 1);
     }
 }

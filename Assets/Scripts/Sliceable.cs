@@ -11,6 +11,10 @@ public class Sliceable : MonoBehaviour
     public Color wood1, wood2, wood3, wood4, wood5;
     public bool isWood;
     public WoodType woodType;
+    public float rotateSpeed;
+    private bool isMoveDown;
+    public float moveUpPos, moveDownPos;
+    public float moveSpeed;
 
     private void OnEnable()
     {
@@ -41,8 +45,21 @@ public class Sliceable : MonoBehaviour
                 sliceFxColor = wood5;
                 insideMat = woodInsideMat5;
             }
-
         }
+
+        //RandomRot
+       /* else
+        {
+            float rndRot = Random.Range(0, 180);
+            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, rndRot, transform.eulerAngles.z));
+        }*/
+    }
+
+    private void Update()
+    {
+        //RotateAnim();
+        CheckMovePos();
+        MoveUpDown();
     }
     public void SetSliceable()
     {
@@ -58,4 +75,28 @@ public class Sliceable : MonoBehaviour
         print("Add Money");
         transform.tag = "Untagged";
     }
+
+    public void RotateAnim()
+    {
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime,Space.World);
+    }
+
+    public void MoveUpDown()
+    {
+        if (isMoveDown)
+            transform.position = new Vector3(transform.position.x, Mathf.MoveTowards(transform.position.y, moveDownPos, moveSpeed * Time.deltaTime), transform.position.z);
+        else
+            transform.position = new Vector3(transform.position.x, Mathf.MoveTowards(transform.position.y, moveUpPos, moveSpeed * Time.deltaTime), transform.position.z);
+    }
+
+   
+
+    public void CheckMovePos()
+    {
+        if (transform.position.y == moveUpPos)
+            isMoveDown = true;
+        if (transform.position.y == moveDownPos)
+            isMoveDown = false;
+    }
+
 }

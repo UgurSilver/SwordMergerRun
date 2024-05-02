@@ -52,7 +52,10 @@ public class Knife : MonoBehaviour
                     sliceableSc.transform.GetChild(0)?.SetParent(null);
                     sliceableSc.transform.GetChild(0)?.SetParent(null);
                 }
+                PlayerManager.Instance.PlayWoodSound();
             }
+            else
+                PlayerManager.Instance.PlayFruitSound();
 
             GameManager.Instance.UseSliceFx(other.transform.position, sliceFxColor);
 

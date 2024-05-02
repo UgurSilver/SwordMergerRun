@@ -74,5 +74,10 @@ public class PlayerCollision : MonoBehaviour
             PlayerManager.Instance.RotateSwords();
             GameManager.Instance.isLevelEnd = true;
         }
+
+        if (other.CompareTag("EndCollider"))
+        {
+            PlayerManager.Instance.Win();
+        }
     }
 }

@@ -67,7 +67,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 1.9
   m_Depth: -1
@@ -109,3 +109,5 @@ MonoBehaviour:
   followSpeed: 4
   isFollow: 0
   zoomSpeed: 1
+  negativeXBorder: -0.5
+  positiveXBorder: 0.5

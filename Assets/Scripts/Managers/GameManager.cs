@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float swordsZfollowSpeed, swordsXFollowSpeed, swordsYFollowSpeed;
     public float swordScale;
     public Vector3 swordVerticalRot, swordHorizontalRot;
+    public float verticalSwordHeight;
     #endregion
 
     private void Awake()

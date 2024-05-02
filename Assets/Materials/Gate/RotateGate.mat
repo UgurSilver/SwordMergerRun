@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PositiveGateGate
+  m_Name: RotateGate
   m_Shader: {fileID: 4800000, guid: a96d239d892ebda498cffa3c7cb61188, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -217,8 +217,8 @@ Material:
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _VerticalFogMax: 4
-    - _VerticalFogMin: -0.6
+    - _VerticalFogMax: 7.3
+    - _VerticalFogMin: -0.52
     - _ZSmooth: -0.5
     - _ZWrite: 0
     - __dummy__: 0
@@ -244,5 +244,5 @@ Material:
     - _SpecColor: {r: 1, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
     - _UpVector: {r: 0, g: 0.81, b: 0, a: 0}
-    - _VerticalFogColor: {r: 0.042292565, g: 0.8301887, b: 0.12566844, a: 0.5058824}
+    - _VerticalFogColor: {r: 0.28235295, g: 0.8666667, b: 0.9529412, a: 0.5058824}
   m_BuildTextureStacks: []
