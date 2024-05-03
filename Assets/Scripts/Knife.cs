@@ -68,7 +68,7 @@ public class Knife : MonoBehaviour
             SetSlicedObject(slicedObjectDown);
 
             transform.parent.GetComponent<SwordParentController>().SetHp(sliceableHp);
-            Invoke(nameof(ResetSliceBool), 0.3f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
+            Invoke(nameof(ResetSliceBool), 0.15f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
         }
     }
     private SlicedHull Slice(GameObject obj, Material mat = null)
