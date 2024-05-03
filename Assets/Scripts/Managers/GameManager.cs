@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
             tempSword.transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
+        //tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
         tempSword.SetActive(true);
         return tempSword;
     }

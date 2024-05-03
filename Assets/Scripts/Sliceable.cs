@@ -99,4 +99,15 @@ public class Sliceable : MonoBehaviour
             isMoveDown = false;
     }
 
+
+    public void CloseObject()
+    {
+        StartCoroutine(WaitClsoeObject());
+    }
+
+  IEnumerator WaitClsoeObject()
+    {
+        yield return new WaitForSeconds(2);
+        gameObject.SetActive(false);
+    }
 }

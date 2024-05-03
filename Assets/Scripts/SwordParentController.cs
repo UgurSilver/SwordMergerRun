@@ -20,7 +20,7 @@ public class SwordParentController : MonoBehaviour
         level = 0;
         startHp = 0;
         currentHp = 0;
-        isSmoothPosZ = true;
+        //isSmoothPosZ = true;
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -37,11 +37,17 @@ public class SwordParentController : MonoBehaviour
     {
         if (GameManager.Instance.isGame && !isDead)
         {
+            followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
+            if (Mathf.Abs(transform.position.z - (followObject.position.z - GameManager.Instance.swordsZDistance)) <= 0.01f)
+                isSmoothPosZ = false;
+            else
+                isSmoothPosZ = true;
+
+
             if (!PlayerManager.Instance.ishorizontal)
             {
                 if (!isSmoothPosZ)
                 {
-                    followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
                     transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
                      followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
                     /*   Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));*/
@@ -49,16 +55,12 @@ public class SwordParentController : MonoBehaviour
                 }
                 else
                 {
-                    followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
-                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * 5 * Time.smoothDeltaTime),
+                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed  * Time.smoothDeltaTime),
                      followObject.position.y, Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
-                    if (Mathf.Abs(transform.position.z - (followObject.position.z - GameManager.Instance.swordsZDistance)) < 0.1f)
-                        isSmoothPosZ = false;
                 }
             }
             else
             {
-                followObject = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
                 transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
                  Mathf.Lerp(transform.position.y, followObject.position.y, GameManager.Instance.swordsYFollowSpeed * Time.smoothDeltaTime),
                   followObject.position.z - GameManager.Instance.swordsZDistance);
@@ -78,23 +80,12 @@ public class SwordParentController : MonoBehaviour
     {
         currentHp -= damage;
         if (currentHp < 0)
-            BrokenEvents();
+            BrokenEvents(false);
 
-        if (PlayerManager.Instance.swordList.Count == 0)
-        {
-            if (!GameManager.Instance.isLevelEnd)
-            {
-                PlayerManager.Instance.Fail();
-            }
-
-            else
-            {
-                PlayerManager.Instance.Win();
-            }
-        }
+       
     }
 
-    public void BrokenEvents()
+    public void BrokenEvents(bool isObstacle)
     {
         currentSword = transform.GetChild(level - 1);
 
@@ -123,8 +114,28 @@ public class SwordParentController : MonoBehaviour
         }
         PlayerManager.Instance.swordList.Remove(transform);
 
+        CheckFail();
         StartCoroutine(WaitForReplacePool());
 
+        if (isObstacle)
+            PlayerManager.Instance.PlaceSwords();
+
+    }
+
+    private void CheckFail()
+    {
+        if (PlayerManager.Instance.swordList.Count == 0)
+        {
+            if (!GameManager.Instance.isLevelEnd)
+            {
+                PlayerManager.Instance.Fail();
+            }
+
+            else
+            {
+                PlayerManager.Instance.Win();
+            }
+        }
     }
 
     IEnumerator WaitForReplacePool()

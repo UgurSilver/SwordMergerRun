@@ -45,7 +45,7 @@ public class PlayerManager : MonoBehaviour
         maxSwordsNum = initialMaxSwordsNum;
         while (addSword > 0)
         {
-            bool isFilled=false;
+            bool isFilled = false;
             while (!isFilled)
             {
                 for (int i = 0; i < swords.childCount; i++)
@@ -94,7 +94,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     if (removeSword > 0)
                     {
-                        swords.GetChild(i).GetChild(1).GetComponent<SwordParentController>().BrokenEvents();
+                        swords.GetChild(i).GetChild(1).GetComponent<SwordParentController>().BrokenEvents(false);
                         //Remove swords
                         //removeSwrods from list
                         removeSword--;
@@ -115,7 +115,7 @@ public class PlayerManager : MonoBehaviour
         {
             tempSword = GameManager.Instance.UseSword(swords.GetChild(0).GetChild(0).position, swords.GetChild(index), Vector3.one * GameManager.Instance.swordScale, Quaternion.Euler(-90, 0, 90)).transform;
         }
-        tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
+        //tempSword.GetComponent<SwordParentController>().isSmoothPosZ = true;
         tempSword.GetChild(minLevel - 1).gameObject.SetActive(true);
         tempSword.GetComponent<SwordParentController>().level = minLevel;
         tempSword.GetComponent<Animator>().enabled = false;
@@ -133,6 +133,29 @@ public class PlayerManager : MonoBehaviour
         {
             swordList[i].GetComponent<SwordParentController>().SetRot();
         }
+    }
+
+    public void PlaceSwords()
+    {
+        int swordCount;
+        for (int k = 0; k < swords.childCount-1; k++)
+        {
+            for (int i = 0; i < swords.childCount-1; i++)
+            {
+                if (swords.GetChild(i).childCount == 1)
+                {
+                    swordCount = swords.GetChild(i + 1).childCount - 1;
+                    for (int j = 0; j < swordCount; j++)
+                    {
+                        swords.GetChild(i + 1).GetChild(1).SetParent(swords.GetChild(i));
+                    }
+                }
+            }
+        }
+
+
+
+
     }
     #endregion
     #region Win&Fail

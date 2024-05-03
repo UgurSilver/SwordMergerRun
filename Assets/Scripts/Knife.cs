@@ -33,7 +33,7 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Sliceable") && isCanSlice)
+        if (other.gameObject.CompareTag("Sliceable") && isCanSlice&&!GetComponent<SwordController>().isdead)
         {
             isCheckSlice = false;
             isCanSlice = false;
@@ -87,6 +87,7 @@ public class Knife : MonoBehaviour
             sliceableSc.isWood = isWood;
             sliceableSc.woodType = woodType;
             sliceableSc.SetSliceable();
+            sliceableSc.CloseObject();
 
             MeshCollider meshCollider = obj.AddComponent<MeshCollider>();
             meshCollider.material = GameManager.Instance.bounceMat;
@@ -105,7 +106,6 @@ public class Knife : MonoBehaviour
             else
                 sliceForce = 100;
 
-            print(sliceForce);
             if (rnd == 0)
                 rb.AddTorque(Vector3.forward * sliceForce);
             else

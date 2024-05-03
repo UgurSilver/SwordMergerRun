@@ -14,12 +14,14 @@ public class SliceablePosEditor : Editor
     {
         SliceablePosManager sliceablePosManager = (SliceablePosManager)target;
         sliceablePosManager.initialPos = EditorGUILayout.Vector3Field("IntialPos", sliceablePosManager.initialPos);
+        sliceablePosManager.initialRot = EditorGUILayout.Vector3Field("IntialRot", sliceablePosManager.initialRot);
         sliceablePosManager.xDistance = EditorGUILayout.FloatField("xDistance", sliceablePosManager.xDistance);
         sliceablePosManager.zDistance = EditorGUILayout.FloatField("zDistance", sliceablePosManager.zDistance);
         sliceablePosManager.isXMove = EditorGUILayout.IntField("isXMove", sliceablePosManager.isXMove);
         if (GUILayout.Button("Set Pos"))
         {
             sliceablePosManager.initialPos = EditorGUILayout.Vector3Field("IntialPos", sliceablePosManager.initialPos);
+            sliceablePosManager.initialRot = EditorGUILayout.Vector3Field("IntialRot", sliceablePosManager.initialRot);
             sliceablePosManager.xDistance = EditorGUILayout.FloatField("xDistance", sliceablePosManager.xDistance);
             sliceablePosManager.zDistance = EditorGUILayout.FloatField("zDistance", sliceablePosManager.zDistance);
             sliceablePosManager.isXMove = EditorGUILayout.IntField("isXMove", sliceablePosManager.isXMove);

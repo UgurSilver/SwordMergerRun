@@ -58,7 +58,7 @@ MonoBehaviour:
   mergepanelController: {fileID: 2364239851033237624}
   swordsZDistance: 0.2
   swordsYDistance: 0.1
-  swordsZfollowSpeed: 0.0001
+  swordsZfollowSpeed: 3.5
   swordsXFollowSpeed: 10
   swordsYFollowSpeed: 10
   swordScale: 0.55
