@@ -163,6 +163,6 @@ MonoBehaviour:
   isWood: 0
   woodType: 0
   rotateSpeed: 0
-  moveUpPos: 1.5
+  moveUpPos: 1.1
   moveDownPos: 1
-  moveSpeed: 0.5
+  moveSpeed: 0.03

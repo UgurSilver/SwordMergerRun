@@ -26,6 +26,7 @@ public class CameraManager : MonoBehaviour
 
     private Transform startMergePos, startRunnerPos;
 
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,7 +50,7 @@ public class CameraManager : MonoBehaviour
             targetZOffset = 0;
 
         if (offSet.z != targetZOffset)
-            offSet.z =Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed*Time.deltaTime);
+            offSet.z = Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed * Time.deltaTime);
 
         Border();
     }
@@ -81,11 +82,11 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 posTarget;
         posTarget = targetDistance + target.transform.position + offSet;
-        transform.position =new Vector3 (Mathf.MoveTowards(transform.position.x,posTarget.x,followSpeed*Time.deltaTime),posTarget.y,posTarget.z);
+        transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
     }
     #endregion
 
-private void Border()
+    private void Border()
     {
         if (transform.position.x < negativeXBorder)
             transform.position = new Vector3(negativeXBorder, transform.position.y, transform.position.z);

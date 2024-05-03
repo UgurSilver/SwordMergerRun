@@ -14,8 +14,9 @@ public class SliceMoneyText : MonoBehaviour
 
     private void MoveUp()
     {
-        transform.DOMoveY(transform.position.y + 1.25f, 1.5f).OnStepComplete(()=>ReplacePool());
-        transform.GetComponent<TMPro.TextMeshPro>().DOColor(endColor, 1.2f);
+        transform.DOMoveY(transform.position.y + 2, 3).OnStepComplete(()=>ReplacePool());
+        transform.DOMoveZ(transform.position.z + 3, 1.3f);
+        transform.GetComponent<TMPro.TextMeshPro>().DOColor(endColor, 2.9f);
             
     }
     void Update()
