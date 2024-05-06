@@ -22,7 +22,7 @@ public class SwordParentController : MonoBehaviour
         currentHp = 0;
         //isSmoothPosZ = true;
 
-        for (int i = 0; i < transform.childCount-1; i++)
+        for (int i = 0; i < transform.childCount - 1; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
             knifeSc = transform.GetChild(i).GetComponent<Knife>();
@@ -55,7 +55,7 @@ public class SwordParentController : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed  * Time.smoothDeltaTime),
+                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
                      followObject.position.y, Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
                 }
             }
@@ -78,11 +78,14 @@ public class SwordParentController : MonoBehaviour
 
     public void SetHp(int damage)
     {
-        currentHp -= damage;
-        if (currentHp < 0)
-            BrokenEvents(false);
+        if (!GameManager.Instance.isFire)
+        {
+            currentHp -= damage;
+            if (currentHp < 0)
+                BrokenEvents(false);
+        }
 
-       
+
     }
 
     public void BrokenEvents(bool isObstacle)

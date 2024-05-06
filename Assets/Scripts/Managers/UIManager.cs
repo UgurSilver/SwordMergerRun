@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 //using SupersonicWisdomSDK;
 
 public class UIManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI moneyText, levelText, gameMoneyText, winMoneyText;
     public GameObject startTutorial;
     public GameObject winPanel, failPanel;
+    public Image fireFilledBar;
     #endregion
 
     #region Variables for merge
@@ -48,6 +50,24 @@ public class UIManager : MonoBehaviour
     private void SetLevelText()
     {
         levelText.text = "Level " + GameManager.Instance.datas.level.ToString();
+    }
+
+    public void OpenFireBar(float time)
+    {
+        DOTween.Kill(this);
+        print("Fire");
+        fireFilledBar.fillAmount = 1;
+        fireFilledBar.transform.parent.GetComponent<Animator>().enabled = true;
+        fireFilledBar.transform.parent.parent.gameObject.SetActive(true);
+        DOTween.To(/*x sabit kalacak*/x => /*Degisecek deger*/ fireFilledBar.fillAmount = x,/*start*/ 1, /*end*/0,/*time*/ time).SetEase(Ease.Linear).OnStepComplete(()=> CloseFireBar());
+    }
+
+    public void CloseFireBar()
+    {
+        print("CloseFireBar");
+        fireFilledBar.transform.parent.GetComponent<Animator>().enabled = false;
+        fireFilledBar.transform.parent.DOScale(Vector3.zero, 0.2f).OnStepComplete(() => fireFilledBar.transform.parent.parent.gameObject.SetActive(false));
+
     }
 
     #region Merge

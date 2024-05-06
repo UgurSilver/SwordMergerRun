@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 871150969712033047}
   - component: {fileID: 1931059963892089396}
   - component: {fileID: 7525712957987797139}
-  - component: {fileID: 603091338291489469}
   - component: {fileID: 1497369090883986794}
   - component: {fileID: 5443447252109031137}
+  - component: {fileID: 6641497473188267148}
   m_Layer: 0
   m_Name: vertical round grinder
   m_TagString: Sliceable
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891511104451152051}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.76, y: 0.39, z: 0}
   m_LocalScale: {x: 0.5, y: 0.7, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -88,29 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &603091338291489469
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891511104451152051}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6763232
-  m_Height: 2.0099998
-  m_Direction: 1
-  m_Center: {x: -0.000000029802322, y: 1.0049999, z: 0}
 --- !u!114 &1497369090883986794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +135,25 @@ MonoBehaviour:
   moveUpPos: 0
   moveDownPos: 0
   moveSpeed: 0
+--- !u!64 &6641497473188267148
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891511104451152051}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6131796762118227218, guid: c441fd3f0fa0ee64d8f0cf6af37518bc, type: 3}

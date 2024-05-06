@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int totalMoney;
     public int sliceMoney;
     public bool isFire;
-    public int fireTime;
+    public float fireTime;
     public int fireMultiplier;
     #endregion
 
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public Vector3 swordVerticalRot, swordHorizontalRot;
     public float horizontalSwordHeight;
     #endregion
+
 
     private void Awake()
     {
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void Fire()
     {
+        StopCoroutine(WaitFireEnd());
         StartCoroutine(WaitFireEnd());
     }
     public void SetFire()
@@ -103,7 +105,6 @@ public class GameManager : MonoBehaviour
         {
             item.GetChild(item.childCount - 1).gameObject.SetActive(isFire);
         }
-
     }
 
 
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
     {
         isFire = true;
         SetFire();
+        UIManager.Instance.OpenFireBar(fireTime);
         yield return new WaitForSeconds(fireTime);
         isFire = false;
         SetFire();
