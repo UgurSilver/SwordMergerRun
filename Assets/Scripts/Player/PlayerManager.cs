@@ -81,7 +81,10 @@ public class PlayerManager : MonoBehaviour
             if (addSword > 0)
                 maxSwordsNum += initialMaxSwordsNum;
 
-            GameManager.Instance.SetFire();
+            if (GameManager.Instance.isFire)
+                GameManager.Instance.OpenFire();
+            else
+                GameManager.Instance.CloseFire();
         }
     }
 
@@ -140,9 +143,9 @@ public class PlayerManager : MonoBehaviour
     public void PlaceSwords()
     {
         int swordCount;
-        for (int k = 0; k < swords.childCount-1; k++)
+        for (int k = 0; k < swords.childCount - 1; k++)
         {
-            for (int i = 0; i < swords.childCount-1; i++)
+            for (int i = 0; i < swords.childCount - 1; i++)
             {
                 if (swords.GetChild(i).childCount == 1)
                 {

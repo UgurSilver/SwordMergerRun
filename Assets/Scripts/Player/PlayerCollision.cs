@@ -67,7 +67,7 @@ public class PlayerCollision : MonoBehaviour
                 PlayerManager.Instance.RotateSwords();
 
             if (gateSc.gateType.Equals(GateType.Fire))
-                GameManager.Instance.Fire();
+                GameManager.Instance.StartFireSystem();
         }
 
         if (other.CompareTag("FinishPlane"))

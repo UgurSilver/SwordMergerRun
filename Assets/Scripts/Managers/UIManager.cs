@@ -54,12 +54,11 @@ public class UIManager : MonoBehaviour
 
     public void OpenFireBar(float time)
     {
-        DOTween.Kill(this);
-        print("Fire");
+        DOTween.Kill(25);
         fireFilledBar.fillAmount = 1;
         fireFilledBar.transform.parent.GetComponent<Animator>().enabled = true;
         fireFilledBar.transform.parent.parent.gameObject.SetActive(true);
-        DOTween.To(/*x sabit kalacak*/x => /*Degisecek deger*/ fireFilledBar.fillAmount = x,/*start*/ 1, /*end*/0,/*time*/ time).SetEase(Ease.Linear).OnStepComplete(()=> CloseFireBar());
+        DOTween.To(/*x sabit kalacak*/x => /*Degisecek deger*/ fireFilledBar.fillAmount = x,/*start*/ 1, /*end*/0,/*time*/ time).SetId(25).SetEase(Ease.Linear).OnStepComplete(()=> CloseFireBar());
     }
 
     public void CloseFireBar()

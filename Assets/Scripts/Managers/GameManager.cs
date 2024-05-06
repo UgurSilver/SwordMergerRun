@@ -16,9 +16,14 @@ public class GameManager : MonoBehaviour
     public int earnedMoney;
     public int totalMoney;
     public int sliceMoney;
+    #endregion
+
+    #region Variables for Fire
     public bool isFire;
     public float fireTime;
+    private float fireTimer;
     public int fireMultiplier;
+    private IEnumerator fireCoroutine;
     #endregion
 
     #region Variables for MergeScene
@@ -51,6 +56,10 @@ public class GameManager : MonoBehaviour
     {
         if (isMergeScene)
             openMergeScene();
+        fireCoroutine = WaitFireEnd();
+
+
+
     }
 
     void Update()
@@ -64,6 +73,8 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
+
+        FireTimeEvents();
     }
 
     #region MergeEvents
@@ -94,30 +105,52 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Fire()
+    public void StartFireSystem()
     {
-        StopCoroutine(WaitFireEnd());
-        StartCoroutine(WaitFireEnd());
-    }
-    public void SetFire()
-    {
-        foreach (var item in PlayerManager.Instance.swordList)
-        {
-            item.GetChild(item.childCount - 1).gameObject.SetActive(isFire);
-        }
+        fireTimer=0;
+        isFire = true;
+        OpenFire();
+        print("Fire");
+        UIManager.Instance.OpenFireBar(fireTime);
     }
 
+    private void FireTimeEvents()
+    {
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= fireTime)
+        {
+            CloseFire();
+            fireTimer = 0;
+            isFire = false;
+        }
+    }
+    
 
     IEnumerator WaitFireEnd()
     {
-        isFire = true;
-        SetFire();
-        UIManager.Instance.OpenFireBar(fireTime);
+      
+      
+       
+       
         yield return new WaitForSeconds(fireTime);
-        isFire = false;
-        SetFire();
+       
     }
 
+    public void OpenFire()
+    {
+        foreach (var item in PlayerManager.Instance.swordList)
+        {
+            item.GetChild(item.childCount - 1).gameObject.SetActive(true);
+        }
+    }
+
+    public void CloseFire()
+    {
+        foreach (var item in PlayerManager.Instance.swordList)
+        {
+            item.GetChild(item.childCount - 1).gameObject.SetActive(false);
+        }
+    }
     #region Poolings
 
     public GameObject UseSword(Vector3 pos, Transform parent, Vector3 scale, Quaternion rotation)
