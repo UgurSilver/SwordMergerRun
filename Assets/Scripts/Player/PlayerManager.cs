@@ -80,6 +80,8 @@ public class PlayerManager : MonoBehaviour
             }
             if (addSword > 0)
                 maxSwordsNum += initialMaxSwordsNum;
+
+            GameManager.Instance.SetFire();
         }
     }
 

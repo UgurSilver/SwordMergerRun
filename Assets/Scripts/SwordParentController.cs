@@ -22,7 +22,7 @@ public class SwordParentController : MonoBehaviour
         currentHp = 0;
         //isSmoothPosZ = true;
 
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount-1; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
             knifeSc = transform.GetChild(i).GetComponent<Knife>();

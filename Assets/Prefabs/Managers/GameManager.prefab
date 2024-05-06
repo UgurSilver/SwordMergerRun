@@ -53,6 +53,9 @@ MonoBehaviour:
   earnedMoney: 0
   totalMoney: 0
   sliceMoney: 1
+  isFire: 0
+  fireTime: 10
+  fireMultiplier: 2
   isMergeScene: 1
   mergePanel: {fileID: 7583900819694661642}
   mergepanelController: {fileID: 2364239851033237624}

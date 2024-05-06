@@ -8,7 +8,7 @@ public class GateController : MonoBehaviour
     public GateType gateType;
     public int value;
     public TMPro.TextMeshPro valueText,nameText;
-    public GameObject rotateIcon,repairIcon;
+    public GameObject rotateIcon,repairIcon,FireIcon;
     public MeshRenderer mesh;
     public Material positiveMat, negativeMat,rotateMat;
 
@@ -61,6 +61,14 @@ public class GateController : MonoBehaviour
             nameText.text = "Repair";
 
             repairIcon.SetActive(true);
+        }
+
+        if (gateType.Equals(GateType.Fire))
+        {
+            nameText.gameObject.SetActive(true);
+            nameText.text = "Fire";
+
+            FireIcon.SetActive(true);
         }
     }
 

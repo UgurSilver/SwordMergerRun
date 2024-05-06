@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int earnedMoney;
     public int totalMoney;
     public int sliceMoney;
+    public bool isFire;
+    public int fireTime;
+    public int fireMultiplier;
     #endregion
 
     #region Variables for MergeScene
@@ -90,6 +93,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Fire()
+    {
+        StartCoroutine(WaitFireEnd());
+    }
+    public void SetFire()
+    {
+        foreach (var item in PlayerManager.Instance.swordList)
+        {
+            item.GetChild(item.childCount - 1).gameObject.SetActive(isFire);
+        }
+
+    }
+
+
+    IEnumerator WaitFireEnd()
+    {
+        isFire = true;
+        SetFire();
+        yield return new WaitForSeconds(fireTime);
+        isFire = false;
+        SetFire();
+    }
+
     #region Poolings
 
     public GameObject UseSword(Vector3 pos, Transform parent, Vector3 scale, Quaternion rotation)
@@ -116,7 +142,10 @@ public class GameManager : MonoBehaviour
         tempSliceMoneyText.transform.SetParent(parent);
         tempSliceMoneyText.transform.localPosition = pos;
         tempSliceMoneyText.transform.SetParent(null);
-        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + sliceMoney;
+        if (!GameManager.Instance.isFire)
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + sliceMoney;
+        else
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + (sliceMoney * GameManager.Instance.fireMultiplier);
         tempSliceMoneyText.SetActive(true);
         return tempSliceMoneyText;
     }

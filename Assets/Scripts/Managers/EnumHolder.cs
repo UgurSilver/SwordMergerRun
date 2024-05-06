@@ -18,7 +18,8 @@ public enum GateType
     Minus,
     Divider,
     Rotate,
-    Repair
+    Repair,
+    Fire
 }
 
 public enum WoodType

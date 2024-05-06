@@ -8,6 +8,7 @@ public class SwordController : MonoBehaviour
     public int level;
     public int hp;
     public bool isdead;
+    private Sliceable sliceable;
 
     private void OnEnable()
     {
@@ -29,9 +30,10 @@ public class SwordController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Sliceable"))
         {
-            if (!isdead)
+            sliceable = other.GetComponent<Sliceable>();
+            if (!isdead && sliceable.isObstacle && !GameManager.Instance.isFire)
             {
                 isdead = true;
                 other.GetComponent<Obstacle>().SetSwordNum();

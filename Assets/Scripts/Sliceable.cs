@@ -9,7 +9,7 @@ public class Sliceable : MonoBehaviour
     public Material woodInsideMat1, woodInsideMat2, woodInsideMat3, woodInsideMat4, woodInsideMat5;
     public Color sliceFxColor;
     public Color wood1, wood2, wood3, wood4, wood5;
-    public bool isWood;
+    public bool isWood,isObstacle;
     public WoodType woodType;
     public float rotateSpeed;
     private bool isMoveDown;
@@ -69,8 +69,17 @@ public class Sliceable : MonoBehaviour
     private void CloseSliceable()
     {
         GameManager.Instance.UseSliceMoneyText(transform.GetComponent<Rigidbody>().centerOfMass, transform);
+
+        if (!GameManager.Instance.isFire)
+        {
         GameManager.Instance.earnedMoney += GameManager.Instance.sliceMoney;
         GameManager.Instance.datas.money += GameManager.Instance.sliceMoney;
+        }
+        else
+        {
+        GameManager.Instance.earnedMoney += (GameManager.Instance.sliceMoney*GameManager.Instance.fireMultiplier);
+        GameManager.Instance.datas.money += (GameManager.Instance.sliceMoney* GameManager.Instance.fireMultiplier);
+        }
         UIManager.Instance.SetMoneyText();
         print("Add Money");
         transform.tag = "Untagged";
