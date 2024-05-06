@@ -18,6 +18,7 @@ public class SliceablePosEditor : Editor
         sliceablePosManager.xDistance = EditorGUILayout.FloatField("xDistance", sliceablePosManager.xDistance);
         sliceablePosManager.zDistance = EditorGUILayout.FloatField("zDistance", sliceablePosManager.zDistance);
         sliceablePosManager.isXMove = EditorGUILayout.IntField("isXMove", sliceablePosManager.isXMove);
+        sliceablePosManager.maxXPos = EditorGUILayout.FloatField("MaxXPos", sliceablePosManager.maxXPos);
         if (GUILayout.Button("Set Pos"))
         {
             sliceablePosManager.initialPos = EditorGUILayout.Vector3Field("IntialPos", sliceablePosManager.initialPos);
@@ -25,6 +26,7 @@ public class SliceablePosEditor : Editor
             sliceablePosManager.xDistance = EditorGUILayout.FloatField("xDistance", sliceablePosManager.xDistance);
             sliceablePosManager.zDistance = EditorGUILayout.FloatField("zDistance", sliceablePosManager.zDistance);
             sliceablePosManager.isXMove = EditorGUILayout.IntField("isXMove", sliceablePosManager.isXMove);
+            sliceablePosManager.maxXPos = EditorGUILayout.FloatField("MaxXPos", sliceablePosManager.maxXPos);
             sliceablePosManager.SetPos();
         }
     }

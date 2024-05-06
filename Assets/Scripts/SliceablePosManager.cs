@@ -9,6 +9,7 @@ public class SliceablePosManager : MonoBehaviour
     public float xDistance;
     public float zDistance;
     public int isXMove;
+    public float maxXPos;
 
 
     public void SetPos()
@@ -21,9 +22,9 @@ public class SliceablePosManager : MonoBehaviour
             {
                 transform.GetChild(i).position = transform.GetChild(i - 1).position + new Vector3(xDistance, 0, zDistance);
                 transform.GetChild(i).rotation = Quaternion.Euler(initialRot);
-                if (transform.GetChild(i).position.x == 1)
+                if (transform.GetChild(i).position.x == maxXPos)
                     xDistance = -xDistance;
-                if (transform.GetChild(i).position.x == -1)
+                if (transform.GetChild(i).position.x == -maxXPos)
                     xDistance = -xDistance;
             }
             else
