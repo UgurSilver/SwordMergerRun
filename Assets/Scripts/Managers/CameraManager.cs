@@ -82,7 +82,8 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 posTarget;
         posTarget = targetDistance + target.transform.position + offSet;
-        transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
+        //transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
+        transform.position = posTarget;
     }
     #endregion
 

@@ -20,7 +20,6 @@ public class MergepanelController : MonoBehaviour
     public GridController movingSwordGrid;
     private GridController tempGrid;
     public float resetTime;
-    private bool isCanMerge;
     #endregion
 
     #region Variables for Ray
@@ -151,6 +150,7 @@ public class MergepanelController : MonoBehaviour
                 }
                 else //Hedef grid ise
                 {
+
                     if (tempGrid.isFilled) //Hedef grid dolu ise
                     {
 
@@ -175,13 +175,21 @@ public class MergepanelController : MonoBehaviour
                             {
                                 if (movingSwordGrid.level < swordIcons.Count)//Son Level degil ise Merge
                                 {
-                                    SetMerge(movingSword, tempGrid.transform.GetChild(tempGrid.transform.childCount - 1),movingSwordGrid, tempGrid);
+                                    if (tempGrid.isInteractable)
+                                    {
+                                        SetMerge(movingSword, tempGrid.transform.GetChild(tempGrid.transform.childCount - 1), movingSwordGrid, tempGrid);
+                                        movingSwordGrid = null;
+                                        movingSword = null;
+                                    }
+                                    else
+                                    {
+                                        Nonmerge(true, tempGrid.transform.GetChild(tempGrid.transform.childCount - 1));
+                                        movingSword.DOLocalMove(Vector3.zero, resetTime);
+                                        movingSwordGrid.WaitResetInteractable(resetTime);
+                                        movingSword = null;
+                                        movingSwordGrid = null;
+                                    }
 
-                                  
-                                    
-                                    movingSwordGrid = null;
-
-                                    movingSword = null;
                                 }
 
                                 else //Son level ise
@@ -223,7 +231,7 @@ public class MergepanelController : MonoBehaviour
     }
 
     #region Merge
-    public void SetMerge(Transform sword1, Transform sword2, GridController grid1,GridController grid2)
+    public void SetMerge(Transform sword1, Transform sword2, GridController grid1, GridController grid2)
     {
         sword1.GetComponent<Animator>().enabled = false;
         sword2.GetComponent<Animator>().enabled = false;
@@ -273,7 +281,7 @@ public class MergepanelController : MonoBehaviour
     }
     #endregion
 
-    public void Nonmerge(bool isTwoSword,Transform secondSword)
+    public void Nonmerge(bool isTwoSword, Transform secondSword)
     {
         movingSword.GetComponent<Animator>().enabled = true;
         movingSword.GetComponent<Animator>().SetTrigger(AnimType.GridShake.ToString());
