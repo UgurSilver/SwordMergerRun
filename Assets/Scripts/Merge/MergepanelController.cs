@@ -20,6 +20,7 @@ public class MergepanelController : MonoBehaviour
     public GridController movingSwordGrid;
     private GridController tempGrid;
     public float resetTime;
+    private bool isCanMerge;
     #endregion
 
     #region Variables for Ray
