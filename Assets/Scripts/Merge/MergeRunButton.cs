@@ -10,7 +10,7 @@ public class MergeRunButton : MonoBehaviour
     private Transform swords;
     private bool isRow0Filled, isRow1Filled, isRow2Filled, isRow3Filled, isRow4Filled;
     private Animator animator;
-
+    public Material swordMat;
 
     private void OnEnable()
     {
@@ -25,6 +25,7 @@ public class MergeRunButton : MonoBehaviour
         PlaceSword();
         CloseMergePanel();
         SetSwordPos();
+        CloseSwordOutline();
     }
 
     private void PlaceSword()
@@ -160,5 +161,10 @@ public class MergeRunButton : MonoBehaviour
             animator.SetBool("Blob",true);
             GameManager.Instance.datas.runTutorial = true;
         }
+    }
+
+    private void CloseSwordOutline()
+    {
+        swordMat.SetFloat("_Outline", 0.5f);
     }
 }

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   sceneLevel: 1
-  money: 5000
-  mergePrice: 20
+  money: 4960
+  mergePrice: 50
   mergeLevel: 1
-  mergeCount: 0
+  mergeCount: 2
   mergeImage: {fileID: 0}
-  buyTutorial: 0
-  mergeTutorial: 0
-  runTutorial: 0
-  gridLevels: 000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000
+  buyTutorial: 1
+  mergeTutorial: 1
+  runTutorial: 1
+  gridLevels: 000000000000000000000000000000000000000000000000010000000200000000000000000000000000000000000000000000000000000000000000

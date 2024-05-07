@@ -92,6 +92,7 @@ public class CameraManager : MonoBehaviour
     public void SetLevelEndCam()
     {
         DOTween.To(() => offSet, x => offSet = x, new Vector3(0, 1, -1.5f), 0.5f);
+        transform.DORotate(new Vector3(30, -12.5f, 0), 0.5f);
     }
     #endregion
 

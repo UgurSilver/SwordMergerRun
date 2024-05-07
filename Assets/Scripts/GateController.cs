@@ -59,7 +59,7 @@ public class GateController : MonoBehaviour
         {
             nameText.gameObject.SetActive(true);
             nameText.text = "Repair";
-
+            SetColor(rotateMat);
             repairIcon.SetActive(true);
         }
 
@@ -67,7 +67,7 @@ public class GateController : MonoBehaviour
         {
             nameText.gameObject.SetActive(true);
             nameText.text = "Fire";
-
+            SetColor(rotateMat);
             FireIcon.SetActive(true);
         }
     }

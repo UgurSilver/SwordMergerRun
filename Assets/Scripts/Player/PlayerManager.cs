@@ -106,6 +106,8 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
             }
+            if (!GameManager.Instance.isGame)
+                removeSword = 0;
         }
     }
 

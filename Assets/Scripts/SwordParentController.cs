@@ -96,6 +96,8 @@ public class SwordParentController : MonoBehaviour
         knifeSc.isCanSlice = false;
         knifeSc.isCheckSlice = false;
 
+        transform.GetChild(transform.childCount - 1).SetParent(currentSword);
+
         isDead = true;
         transform.SetParent(null);
         currentSword.GetComponent<Collider>().isTrigger = false;

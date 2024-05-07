@@ -1758,7 +1758,7 @@ PrefabInstance:
     - target: {fileID: -5754084199372789682, guid: 8ee7554048a442f47abc58f8f9be5a36, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -6103157367535870360, guid: 9b677f9a76e496f4ea2613aaa3745f56, type: 3}
+      objectReference: {fileID: -6103157367535870360, guid: 8aaa9487b0e6fcd4e97e9671042b77dd, type: 3}
     - target: {fileID: 919132149155446097, guid: 8ee7554048a442f47abc58f8f9be5a36, type: 3}
       propertyPath: m_Name
       value: MergePanel
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rows: {fileID: 8103398425822231789}
-  maxBuyCount: 20
+  maxBuyCount: 50
   grids:
   - {fileID: 718632626163976686}
   - {fileID: 568098225238000582}
@@ -1824,13 +1824,13 @@ MonoBehaviour:
   - {fileID: 1715187370647514877}
   - {fileID: 6980266688188129026}
   swordIcons:
-  - {fileID: 21300000, guid: 1a46b5efcadb6b34c9dc650093f92ccc, type: 3}
-  - {fileID: 21300000, guid: 600f1e31a8cec294da826730e9ed0d1f, type: 3}
-  - {fileID: 21300000, guid: d1ce1e2875373b54fa47c9d9955fcf51, type: 3}
-  - {fileID: 21300000, guid: 48c4b847b8ab3d44d88ede12957849fd, type: 3}
-  - {fileID: 21300000, guid: 48c4b847b8ab3d44d88ede12957849fd, type: 3}
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
-  - {fileID: 21300000, guid: 169d45648e00348038299fc345aa6b4f, type: 3}
+  - {fileID: 21300000, guid: 25ed4b83213bb69428b867d51ff01248, type: 3}
+  - {fileID: 21300000, guid: 095b57950636e5640834b263d75ccf54, type: 3}
+  - {fileID: 21300000, guid: edec20a1690b99a42a2863eeddb0cea3, type: 3}
+  - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
+  - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
+  - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
+  - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
   selectedGrid: {fileID: 0}
   isFilled: 0
   isMoving: 0

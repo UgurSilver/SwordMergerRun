@@ -7,15 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sword
-  m_Shader: {fileID: 4800000, guid: 80412fe88398cd147be3aacebe2c3fe3, type: 3}
+  m_Name: LevelEndSword
+  m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - TCP2_DISABLE_WRAPPED_LIGHT
-  - TCP2_UV_NORMALS_FULL
+  m_ValidKeywords: []
   m_InvalidKeywords:
-  - OUTLINES
+  - TCP2_DISABLE_WRAPPED_LIGHT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -106,12 +104,10 @@ Material:
     - _HSV_V: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalsSource: 0
-    - _NormalsUVType: 0
     - _OcclusionStrength: 1
     - _Offset1: 0
     - _Offset2: 0
-    - _Outline: 0.5
+    - _Outline: 1
     - _Parallax: 0.02
     - _RampSmooth: 0.2
     - _RampSmoothAdd: 0.75
@@ -136,12 +132,9 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendOutline: 0
     - _TCP2_DISABLE_WRAPPED_LIGHT: 1
-    - _TCP2_OUTLINE_CONST_SIZE: 0
-    - _TCP2_OUTLINE_TEXTURED: 0
     - _TCP2_RAMPTEXT: 0
     - _TCP2_SPEC_TOON: 0
     - _TCP2_STYLIZED_FRESNEL: 0
-    - _TCP2_ZSMOOTH_ON: 0
     - _TexLod: 5
     - _UVSec: 0
     - _ZSmooth: -0.5
@@ -152,7 +145,7 @@ Material:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
     - _SColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SketchColor: {r: 0, g: 0, b: 0, a: 1}
