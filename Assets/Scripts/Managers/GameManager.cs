@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public float fireTime;
     private float fireTimer;
     public int fireMultiplier;
-    private IEnumerator fireCoroutine;
     #endregion
 
     #region Variables for MergeScene
@@ -56,10 +55,6 @@ public class GameManager : MonoBehaviour
     {
         if (isMergeScene)
             openMergeScene();
-        fireCoroutine = WaitFireEnd();
-
-
-
     }
 
     void Update()
@@ -126,15 +121,7 @@ public class GameManager : MonoBehaviour
     }
     
 
-    IEnumerator WaitFireEnd()
-    {
-      
-      
-       
-       
-        yield return new WaitForSeconds(fireTime);
-       
-    }
+   
 
     public void OpenFire()
     {
@@ -199,6 +186,15 @@ public class GameManager : MonoBehaviour
 
         tempSliceFx.SetActive(true);
         return tempSliceFx;
+    }
+
+    public GameObject UseSmokeFx(Transform parent)
+    {
+        GameObject tempSmokeFx = PoolingManager.Instance.UseSmokeFx();
+        tempSmokeFx.transform.SetParent(parent);
+        tempSmokeFx.transform.localPosition = Vector3.zero;
+        tempSmokeFx.SetActive(true);
+        return tempSmokeFx;
     }
 
     /*public void UseFx(Vector3 pos, Transform parent, Color color) //particle

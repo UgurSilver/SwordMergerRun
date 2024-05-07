@@ -33,6 +33,7 @@ Transform:
   - {fileID: 8112507968989306957}
   - {fileID: 8625039711251475103}
   - {fileID: 8663751896875792102}
+  - {fileID: 6767472078721651702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2957788762939167816
@@ -53,6 +54,8 @@ MonoBehaviour:
   sliceMoneyTextCount: 20
   sliceFx: {fileID: 5455580219856296815, guid: 36c121ab4e37cdf4f8a3852f82bbab5b, type: 3}
   sliceFxCount: 20
+  smokeFx: {fileID: 4543259494202604478, guid: 78260c90acdf8fc4fb4e2f660b904b1d, type: 3}
+  smokeFxCount: 80
 --- !u!1 &3026716050071669407
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +79,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026716050071669407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6467691101756563472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3744919376913047480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6767472078721651702}
+  m_Layer: 0
+  m_Name: SmokeFxs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6767472078721651702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744919376913047480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

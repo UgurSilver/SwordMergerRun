@@ -33,7 +33,7 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Sliceable") && isCanSlice&&!GetComponent<SwordController>().isdead)
+        if (other.gameObject.CompareTag("Sliceable") && isCanSlice && !GetComponent<SwordController>().isdead)
         {
             isCheckSlice = false;
             isCanSlice = false;
@@ -62,6 +62,11 @@ public class Knife : MonoBehaviour
             SlicedHull sliceObj = Slice(other.gameObject, materialSlicedSide);
             GameObject slicedObjectTop = sliceObj?.CreateUpperHull(other.gameObject, materialSlicedSide);
             GameObject slicedObjectDown = sliceObj?.CreateLowerHull(other.gameObject, materialSlicedSide);
+            if (GameManager.Instance.isFire)
+            {
+                GameManager.Instance.UseSmokeFx(slicedObjectTop?.transform);
+                GameManager.Instance.UseSmokeFx(slicedObjectDown?.transform);
+            }
             Destroy(other.gameObject);
 
             SetSlicedObject(slicedObjectTop);

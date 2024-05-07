@@ -217,7 +217,7 @@ Material:
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _VerticalFogMax: 4
+    - _VerticalFogMax: 6.15
     - _VerticalFogMin: -0.6
     - _ZSmooth: -0.5
     - _ZWrite: 0

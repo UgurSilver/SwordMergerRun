@@ -29,6 +29,13 @@ public class PoolingManager : MonoBehaviour
     public int sliceFxCount;
     #endregion
 
+    #region Variables for SmokeFx
+    public GameObject smokeFx;
+    private GameObject tempSmokeFx;
+    public Queue<GameObject> smokeFxQue = new();
+    public int smokeFxCount;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
@@ -41,6 +48,7 @@ public class PoolingManager : MonoBehaviour
         SwordPooling();
         SliceMoneyTextPooling();
         SliceFxPooling();
+        SmokeFxPooling();
     }
     #region Sword Pooling Events
     private void SwordPooling()
@@ -125,6 +133,35 @@ public class PoolingManager : MonoBehaviour
         go.transform.SetParent(transform.GetChild(2)); //sliceFx Parent
         go.transform.localPosition = Vector3.zero;
         sliceFxQue.Enqueue(go);
+    }
+    #endregion
+
+    #region Smoke Pooling Events
+    private void SmokeFxPooling()
+    {
+        for (int i = 0; i < smokeFxCount; i++)
+        {
+            tempSmokeFx = Instantiate(smokeFx);
+            tempSmokeFx.transform.SetParent(transform.GetChild(3)); //SmokeFx Parent
+            tempSmokeFx.transform.localPosition = Vector3.zero;
+
+            smokeFxQue.Enqueue(tempSmokeFx);
+        }
+    }
+
+    public GameObject UseSmokeFx()
+    {
+        if (smokeFxQue.Count <= 1)
+            SmokeFxPooling();
+        return smokeFxQue.Dequeue();
+    }
+
+    public void ReplacingSmokeFx(GameObject go)
+    {
+        go.SetActive(false);
+        go.transform.SetParent(transform.GetChild(3)); //SmokeFx Parent
+        go.transform.localPosition = Vector3.zero;
+        smokeFxQue.Enqueue(go);
     }
     #endregion
 }

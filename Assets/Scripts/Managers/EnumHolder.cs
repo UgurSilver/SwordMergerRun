@@ -4,6 +4,7 @@ using UnityEngine;
 public enum FxType
 {
     SliceFx,
+    SmokeFx
 }
 
 public enum AnimType

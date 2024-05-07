@@ -59,7 +59,7 @@ public class PlayerCollision : MonoBehaviour
 
             if (gateSc.gateType.Equals(GateType.Divider))
             {
-                int value = (int)PlayerManager.Instance.swordList.Count-(PlayerManager.Instance.swordList.Count / (other.GetComponent<GateController>().value));
+                int value = (int)PlayerManager.Instance.swordList.Count - (PlayerManager.Instance.swordList.Count / (other.GetComponent<GateController>().value));
                 PlayerManager.Instance.RemoveSwords(value);
             }
 
@@ -75,6 +75,7 @@ public class PlayerCollision : MonoBehaviour
             PlayerManager.Instance.ishorizontal = true;
             PlayerManager.Instance.RotateSwords();
             GameManager.Instance.isLevelEnd = true;
+            CameraManager.Instance.SetLevelEndCam();
         }
 
         if (other.CompareTag("EndCollider"))

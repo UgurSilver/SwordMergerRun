@@ -49,8 +49,11 @@ public class CameraManager : MonoBehaviour
         else
             targetZOffset = 0;
 
-        if (offSet.z != targetZOffset)
-            offSet.z = Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed * Time.deltaTime);
+        if (!GameManager.Instance.isLevelEnd)
+        {
+            if (offSet.z != targetZOffset)
+                offSet.z = Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed * Time.deltaTime);
+        }
 
         Border();
     }
@@ -84,6 +87,11 @@ public class CameraManager : MonoBehaviour
         posTarget = targetDistance + target.transform.position + offSet;
         //transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
         transform.position = posTarget;
+    }
+
+    public void SetLevelEndCam()
+    {
+        DOTween.To(() => offSet, x => offSet = x, new Vector3(0, 1, -1.5f), 0.5f);
     }
     #endregion
 
