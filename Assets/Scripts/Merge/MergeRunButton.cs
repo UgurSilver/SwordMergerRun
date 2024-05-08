@@ -16,6 +16,7 @@ public class MergeRunButton : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         swords = GameObject.FindGameObjectWithTag("Swords").transform;
+        OpenSwordOutline();
     }
     public void MergeRun()
     {
@@ -166,5 +167,10 @@ public class MergeRunButton : MonoBehaviour
     private void CloseSwordOutline()
     {
         swordMat.SetFloat("_Outline", 0.5f);
+    }
+
+    private void OpenSwordOutline()
+    {
+        swordMat.SetFloat("_Outline", 5);
     }
 }
