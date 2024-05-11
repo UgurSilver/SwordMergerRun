@@ -164,6 +164,14 @@ public class PlayerManager : MonoBehaviour
 
 
     }
+
+    public void PowerGateEvents(int value)
+    {
+        foreach (var item in swordList)
+        {
+            item.GetComponent<SwordParentController>().AddPower(value);
+        }
+    }
     #endregion
     #region Win&Fail
 

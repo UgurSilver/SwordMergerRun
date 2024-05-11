@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(SliceablePosManager))]
+/*[CustomEditor(typeof(SliceablePosManager))]
 public class SliceablePosEditor : Editor
 {
 
@@ -32,4 +32,4 @@ public class SliceablePosEditor : Editor
     }
 
 
-}
+}*/

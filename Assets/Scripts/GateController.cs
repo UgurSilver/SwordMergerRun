@@ -8,7 +8,7 @@ public class GateController : MonoBehaviour
     public GateType gateType;
     public int value;
     public TMPro.TextMeshPro valueText,nameText;
-    public GameObject rotateIcon,repairIcon,FireIcon;
+    public GameObject rotateIcon,repairIcon,FireIcon,powerIcon;
     public MeshRenderer mesh;
     public Material positiveMat, negativeMat,rotateMat;
 
@@ -69,6 +69,16 @@ public class GateController : MonoBehaviour
             nameText.text = "Fire";
             SetColor(rotateMat);
             FireIcon.SetActive(true);
+        }
+        if (gateType.Equals(GateType.Power))
+        {
+            nameText.gameObject.SetActive(true);
+            nameText.text = "Evolve";
+            valueText.gameObject.SetActive(true);
+            valueText.text = "+" + value;
+            SetColor(rotateMat);
+            //powerIcon.SetActive(true);
+
         }
     }
 

@@ -47,7 +47,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808909630520797159}
-  m_Mesh: {fileID: -1736622283181914040, guid: 915735eaa06c72e4ea1e13ce81a13f86, type: 3}
+  m_Mesh: {fileID: -1736622283181914040, guid: 35765f458e3d2e048b34b5cee43d4a70, type: 3}
 --- !u!23 &9108519498940126615
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68,7 +68,15 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a77f98d4fdd02944fae7f93ea37e8089, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
+  - {fileID: 2100000, guid: 4bc4b837350493e48ab6383f33d57fc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,7 +173,12 @@ MonoBehaviour:
   wood4: {r: 0.72156864, g: 0.74509805, b: 0.7725491, a: 1}
   wood5: {r: 0.5921569, g: 0.3921569, b: 0.28627452, a: 1}
   isWood: 1
-  woodType: 0
+  isObstacle: 0
+  woodType: 1
+  rotateSpeed: 0
+  moveUpPos: 0
+  moveDownPos: 0
+  moveSpeed: 0
 --- !u!114 &3098009198916609884
 MonoBehaviour:
   m_ObjectHideFlags: 0

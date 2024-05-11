@@ -68,6 +68,10 @@ public class PlayerCollision : MonoBehaviour
 
             if (gateSc.gateType.Equals(GateType.Fire))
                 GameManager.Instance.StartFireSystem();
+
+            if (gateSc.gateType.Equals(GateType.Power))
+                PlayerManager.Instance.PowerGateEvents(other.GetComponent<GateController>().value);
+
         }
 
         if (other.CompareTag("FinishPlane"))

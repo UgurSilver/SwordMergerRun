@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WoodController : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        transform.SetParent(null);
-    }
+    public GameObject bonusFx;
+
+   
 }

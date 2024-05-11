@@ -30,13 +30,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Exponent: 0.5
-    - _Intensity: 1.11
+    - _Intensity: 1.44
     - _Power: 5
     - _UpVectorPitch: 377.1
     - _UpVectorYaw: 81.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 0.2682805, g: 0.8325351, b: 0.9056604, a: 1}
+    - _Color1: {r: 0.4901961, g: 0.97414434, b: 0.99215686, a: 1}
+    - _Color2: {r: 0, g: 0.3441987, b: 1, a: 1}
     - _UpVector: {r: 0.2909603, g: 0.9557931, b: 0.042446528, a: 0}
   m_BuildTextureStacks: []

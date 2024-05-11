@@ -14,10 +14,16 @@ public class SwordController : MonoBehaviour
     {
         swordParentController = transform.parent.GetComponent<SwordParentController>();
         isdead = false;
+        SetparentSword();
         SetParentLevel();
         SetParentHp();
+        SetParentPower();
     }
 
+    public void SetparentSword()
+    {
+        swordParentController.currentSword = transform;
+    }
     public void SetParentLevel()
     {
         swordParentController.level = level;
@@ -26,6 +32,15 @@ public class SwordController : MonoBehaviour
     {
         swordParentController.startHp = hp;
         swordParentController.currentHp = hp;
+    }
+
+    public void SetParentPower()
+    {
+        if (!swordParentController.isGetPower)
+        {
+        swordParentController.power = GameManager.Instance.swordPower[transform.GetSiblingIndex()];
+            swordParentController.isGetPower = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +54,12 @@ public class SwordController : MonoBehaviour
                 other.GetComponent<Obstacle>().SetSwordNum();
                 GetComponentInParent<SwordParentController>().BrokenEvents(true);
             }
+        }
+
+        if (other.CompareTag("BonusObject"))
+        {
+            GameManager.Instance.SetBonusBool();
+            other.transform.parent.GetComponent<BonusObjectController>().CloseObject();
         }
     }
 

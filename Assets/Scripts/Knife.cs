@@ -22,7 +22,7 @@ public class Knife : MonoBehaviour
                 if (!isFirstSword)
                 {
                     isFirstSword = true;
-                    Invoke(nameof(SetFirstSword), 0.2f);
+                    Invoke(nameof(SetFirstSword), 0.1f);
 
                 }
             }
@@ -47,6 +47,13 @@ public class Knife : MonoBehaviour
             woodType = sliceableSc.woodType;
             if (sliceableSc.isWood)
             {
+                if (!GameManager.Instance.isBonus)
+                {
+                    if(sliceableSc.GetComponent<WoodController>()?.bonusFx != null)
+                    {
+                        sliceableSc.GetComponent<WoodController>().bonusFx.SetActive(false);
+                    }
+                }
                 if (sliceableSc.transform.childCount > 0)
                 {
                     sliceableSc.transform.GetChild(0)?.SetParent(null);
@@ -73,7 +80,7 @@ public class Knife : MonoBehaviour
             SetSlicedObject(slicedObjectDown);
 
             transform.parent.GetComponent<SwordParentController>().SetHp(sliceableHp);
-            Invoke(nameof(ResetSliceBool), 0.15f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
+            Invoke(nameof(ResetSliceBool), 0.1f); //En genis objeyi kestikten sonra can 1 kere azalacak sekilde zamani ayarla
         }
     }
     private SlicedHull Slice(GameObject obj, Material mat = null)

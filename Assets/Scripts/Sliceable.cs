@@ -68,18 +68,11 @@ public class Sliceable : MonoBehaviour
 
     private void CloseSliceable()
     {
+
         GameManager.Instance.UseSliceMoneyText(transform.GetComponent<Rigidbody>().centerOfMass, transform);
 
-        if (!GameManager.Instance.isFire)
-        {
-        GameManager.Instance.earnedMoney += GameManager.Instance.sliceMoney;
-        GameManager.Instance.datas.money += GameManager.Instance.sliceMoney;
-        }
-        else
-        {
-        GameManager.Instance.earnedMoney += (GameManager.Instance.sliceMoney*GameManager.Instance.fireMultiplier);
-        GameManager.Instance.datas.money += (GameManager.Instance.sliceMoney* GameManager.Instance.fireMultiplier);
-        }
+        GameManager.Instance.earnedMoney += GameManager.Instance.GetEarnedMoney();
+        GameManager.Instance.datas.money += GameManager.Instance.GetEarnedMoney();
         UIManager.Instance.SetMoneyText();
         print("Add Money");
         transform.tag = "Untagged";
@@ -97,8 +90,6 @@ public class Sliceable : MonoBehaviour
         else
             transform.position = new Vector3(transform.position.x, Mathf.MoveTowards(transform.position.y, moveUpPos, moveSpeed * Time.deltaTime), transform.position.z);
     }
-
-   
 
     public void CheckMovePos()
     {

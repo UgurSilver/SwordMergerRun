@@ -166,7 +166,7 @@ public class MergeRunButton : MonoBehaviour
 
     private void CloseSwordOutline()
     {
-        swordMat.SetFloat("_Outline", 0.5f);
+        swordMat.SetFloat("_Outline", 0);
     }
 
     private void OpenSwordOutline()

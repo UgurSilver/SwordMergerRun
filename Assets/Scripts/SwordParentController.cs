@@ -8,11 +8,13 @@ public class SwordParentController : MonoBehaviour
     public int level;
     public int startHp;
     public int currentHp;
+    public int power;
     private Transform followObject;
     public bool isSmoothPosZ;
     Knife knifeSc;
     public Transform currentSword;
     private bool isDead;
+    public bool isGetPower;
 
     public void ReplacePool()
     {
@@ -80,7 +82,10 @@ public class SwordParentController : MonoBehaviour
     {
         if (!GameManager.Instance.isFire)
         {
-            currentHp -= damage;
+            if (!GameManager.Instance.isBonus)
+                currentHp -= damage;
+            else
+                currentHp -= (int)(damage * 0.5f);
             if (currentHp < 0)
                 BrokenEvents(false);
         }
@@ -149,4 +154,43 @@ public class SwordParentController : MonoBehaviour
         ReplacePool();
     }
 
+    public void AddPower(int value)
+    {
+        power += value;
+        print("Power efekt");
+        if (CheckEvolve())
+        {
+            for (int i = GameManager.Instance.swordPower.Count-1; i >=0 ; i--)
+            {
+                if(power >= GameManager.Instance.swordPower[i])
+                {
+                    currentSword = transform.GetChild(i);
+                    for (int j = 0; j < transform.childCount-1; j++)
+                    {
+                        transform.GetChild(j).gameObject.SetActive(false);
+                    }
+                    currentSword.gameObject.SetActive(true);
+                    SwordController  swordSc= currentSword.GetComponent<SwordController>();
+                    swordSc.SetParentHp();
+                    swordSc.SetParentLevel();
+                    break;
+                }
+            }
+        }
+    }
+
+
+    private bool CheckEvolve()
+    {
+        if (currentSword.GetSiblingIndex() != GameManager.Instance.swordPower.Count)
+        {
+            if (power >= GameManager.Instance.swordPower[currentSword.GetSiblingIndex()+1])
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+
+    }
 }

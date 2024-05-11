@@ -11,6 +11,8 @@ TagManager:
   - Sliceable
   - FinishPlane
   - EndCollider
+  - Obstacle
+  - BonusObject
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Grid
   - MergePanelCollider
   - Ground
-  - 
+  - PP
   - 
   - 
   - 

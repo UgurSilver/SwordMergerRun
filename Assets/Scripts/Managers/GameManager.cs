@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public int earnedMoney;
     public int totalMoney;
     public int sliceMoney;
+    public bool isBonus;
+    public int bonusMultiplier;
     #endregion
 
     #region Variables for Fire
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     public float swordScale;
     public Vector3 swordVerticalRot, swordHorizontalRot;
     public float horizontalSwordHeight;
+    public List<int> swordPower;
     #endregion
 
 
@@ -102,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public void StartFireSystem()
     {
-        fireTimer=0;
+        fireTimer = 0;
         isFire = true;
         OpenFire();
         print("Fire");
@@ -119,9 +122,23 @@ public class GameManager : MonoBehaviour
             isFire = false;
         }
     }
-    
 
-   
+
+    public void SetBonusBool()
+    {
+        if (!isBonus)
+        {
+            isBonus = true;
+            StartCoroutine(ResetBonus());
+        }
+    }
+
+
+    IEnumerator ResetBonus()
+    {
+        yield return new WaitForSeconds(0.15f);
+        isBonus = false;
+    }
 
     public void OpenFire()
     {
@@ -137,6 +154,23 @@ public class GameManager : MonoBehaviour
         {
             item.GetChild(item.childCount - 1).gameObject.SetActive(false);
         }
+    }
+
+    public int GetEarnedMoney()
+    {
+        int _earnedMoney;
+        if (!isFire && !isBonus)
+            _earnedMoney = sliceMoney;
+        else if (isFire && !isBonus)
+            _earnedMoney = (sliceMoney * fireMultiplier);
+        else if (!isFire && isBonus)
+            _earnedMoney = (sliceMoney * bonusMultiplier);
+        else if (isFire && isBonus)
+            _earnedMoney = (sliceMoney * bonusMultiplier * fireMultiplier);
+        else
+            _earnedMoney = 1;
+
+        return _earnedMoney;
     }
     #region Poolings
 
@@ -164,10 +198,12 @@ public class GameManager : MonoBehaviour
         tempSliceMoneyText.transform.SetParent(parent);
         tempSliceMoneyText.transform.localPosition = pos;
         tempSliceMoneyText.transform.SetParent(null);
-        if (!GameManager.Instance.isFire)
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + sliceMoney;
-        else
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + (sliceMoney * GameManager.Instance.fireMultiplier);
+
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+
         tempSliceMoneyText.SetActive(true);
         return tempSliceMoneyText;
     }

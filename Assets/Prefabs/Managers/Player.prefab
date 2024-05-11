@@ -471,7 +471,7 @@ MonoBehaviour:
   fruitSound: {fileID: 8300000, guid: 469ff7a61a68ce243a80746b263092ca, type: 3}
   woodSound: {fileID: 8300000, guid: f70d075075fd21f4f981e73f9fb0bfcc, type: 3}
   movement:
-    forwardSpeed: 2.5
+    forwardSpeed: 3
     sideSpeed: 5
   collisionDetection:
     adana: 0
