@@ -44,10 +44,12 @@ public class CameraManager : MonoBehaviour
         if (isFollow)
             FollowTarget();
 
-        if (swords.GetChild(0).childCount > 15)
-            targetZOffset = -0.5f;
-        else
-            targetZOffset = 0;
+        /*  if (swords.GetChild(0).childCount > 15)
+              targetZOffset = -0.5f;
+          else
+              targetZOffset = 0;*/
+
+        targetZOffset = -(swords.GetChild(0).childCount - 1) * 0.1f;
 
         if (!GameManager.Instance.isLevelEnd)
         {
@@ -85,8 +87,8 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 posTarget;
         posTarget = targetDistance + target.transform.position + offSet;
-        //transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
-        transform.position = posTarget;
+        transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, posTarget.x, followSpeed * Time.deltaTime), posTarget.y, posTarget.z);
+        //transform.position = posTarget;
     }
 
     public void SetLevelEndCam()

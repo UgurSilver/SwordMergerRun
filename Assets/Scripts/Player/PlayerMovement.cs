@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Variables for Movement
-    private bool isTouch;
-    private float xDifference;
+    [HideInInspector] public bool isTouch;
+    [HideInInspector] public float xDifference;
     private Vector3 currentTouch, firstTouch;
     public float border;
     private float negativeBorderClamp, positiveBorderClamp;
@@ -40,9 +40,10 @@ public class PlayerMovement : MonoBehaviour
             currentTouch = Input.mousePosition;
             xDifference = (currentTouch.x - firstTouch.x) * 100f / Screen.width;
             xDifference = Mathf.Clamp(xDifference, -1, 1); //Clamp Side acceleration
+            print(xDifference);
             Vector3 newPos = transform.position + new Vector3(xDifference, 0, 0);
             transform.position = Vector3.Lerp(transform.position, new Vector3(newPos.x, transform.position.y, transform.position.z), movement.sideSpeed * Time.deltaTime);// MoveSpeed = 11
-           
+
             //Border Control
             SetBorder();
             if (transform.position.x <= negativeBorderClamp)
@@ -64,12 +65,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetBorder()
     {
+        positiveBorderClamp = 0;
+        negativeBorderClamp = 0;
+
         for (int i = 0; i < swords.childCount; i++)
         {
             if (swords.GetChild(i).childCount != 1)
             {
-                positiveBorderClamp = border - Mathf.Abs(swords.GetChild(i).position.x);
-                negativeBorderClamp = -positiveBorderClamp;
+                if (i == 0)
+                {
+                    positiveBorderClamp = border - Mathf.Abs(swords.GetChild(i).position.x);
+                    negativeBorderClamp = -positiveBorderClamp;
+                }
+                else if (i == 1)
+                    negativeBorderClamp = -(border - Mathf.Abs(swords.GetChild(i).position.x));
+                else if (i % 2 == 0)
+                    positiveBorderClamp = border - Mathf.Abs(swords.GetChild(i).position.x);
+                else if (i % 2 != 0)
+                    negativeBorderClamp = -(border - Mathf.Abs(swords.GetChild(i).position.x));
             }
 
         }

@@ -36,6 +36,13 @@ public class PoolingManager : MonoBehaviour
     public int smokeFxCount;
     #endregion
 
+    #region Variables for PowerFx
+    public GameObject powerFx;
+    private GameObject tempPowerFx;
+    public Queue<GameObject> powerFxQue = new();
+    public int powerFxCount;
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,6 +56,7 @@ public class PoolingManager : MonoBehaviour
         SliceMoneyTextPooling();
         SliceFxPooling();
         SmokeFxPooling();
+        PowerFxPooling();
     }
     #region Sword Pooling Events
     private void SwordPooling()
@@ -107,7 +115,7 @@ public class PoolingManager : MonoBehaviour
     }
     #endregion
 
-    #region Slice Money Text Pooling Events
+    #region Slice Fx Pooling Events
     private void SliceFxPooling()
     {
         for (int i = 0; i < sliceFxCount; i++)
@@ -136,7 +144,7 @@ public class PoolingManager : MonoBehaviour
     }
     #endregion
 
-    #region Smoke Pooling Events
+    #region Smoke Fx Pooling Events
     private void SmokeFxPooling()
     {
         for (int i = 0; i < smokeFxCount; i++)
@@ -162,6 +170,35 @@ public class PoolingManager : MonoBehaviour
         go.transform.SetParent(transform.GetChild(3)); //SmokeFx Parent
         go.transform.localPosition = Vector3.zero;
         smokeFxQue.Enqueue(go);
+    }
+    #endregion
+
+    #region Power Fx Pooling Events
+    private void PowerFxPooling()
+    {
+        for (int i = 0; i < powerFxCount; i++)
+        {
+            tempPowerFx = Instantiate(powerFx);
+            tempPowerFx.transform.SetParent(transform.GetChild(4)); //PowerFx Parent
+            tempPowerFx.transform.localPosition = Vector3.zero;
+
+            powerFxQue.Enqueue(tempPowerFx);
+        }
+    }
+
+    public GameObject UsePowerFx()
+    {
+        if (powerFxQue.Count <= 1)
+            PowerFxPooling();
+        return powerFxQue.Dequeue();
+    }
+
+    public void ReplacingPowerFx(GameObject go)
+    {
+        go.SetActive(false);
+        go.transform.SetParent(transform.GetChild(4)); //PowerFx Parent
+        go.transform.localPosition = Vector3.zero;
+        powerFxQue.Enqueue(go);
     }
     #endregion
 }

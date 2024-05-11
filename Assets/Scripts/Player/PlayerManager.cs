@@ -38,6 +38,16 @@ public class PlayerManager : MonoBehaviour
         swords = GameObject.FindGameObjectWithTag("Swords").transform;
     }
 
+    public void SetMinLevel()
+    {
+        minLevel = 500;
+        for (int i = 0; i < swordList.Count; i++)
+        {
+                if (swordList[i].GetComponent<SwordParentController>().level < minLevel)
+                    minLevel = swordList[i].GetComponent<SwordParentController>().level;
+        }
+    }
+
     #region gateEvents
     public void AddSwords(int num)
     {

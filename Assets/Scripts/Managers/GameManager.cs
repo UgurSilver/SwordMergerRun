@@ -233,6 +233,15 @@ public class GameManager : MonoBehaviour
         return tempSmokeFx;
     }
 
+    public GameObject UsePowerFx(Transform parent)
+    {
+        GameObject tempPowerFx = PoolingManager.Instance.UsePowerFx();
+        tempPowerFx.transform.SetParent(parent);
+        tempPowerFx.transform.localPosition = Vector3.zero+new Vector3(0,0,-1);
+        tempPowerFx.SetActive(true);
+        return tempPowerFx;
+    }
+
     /*public void UseFx(Vector3 pos, Transform parent, Color color) //particle
     {
         GameObject tempBullet = PoolingManager.Instance?.UseFx();

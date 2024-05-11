@@ -50,22 +50,46 @@ public class SwordParentController : MonoBehaviour
             {
                 if (!isSmoothPosZ)
                 {
-                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
-                     followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+                    //ilk kilic ise Smooth gitmeyeecek 
+                    if (transform.GetSiblingIndex() == 0)
+                        transform.position = new Vector3(followObject.position.x, followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+
+                    else
+                    {
+                        transform.position = new Vector3(
+                            Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                         followObject.position.y,
+                         followObject.position.z - GameManager.Instance.swordsZDistance);
+                    }
                     /*   Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));*/
 
                 }
                 else
                 {
-                    transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
-                     followObject.position.y, Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
+                    if (transform.GetSiblingIndex() == 0)
+                        transform.position = new Vector3(followObject.position.x, followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+
+                    else
+                    {
+                        transform.position = new Vector3(
+                                      Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                               followObject.position.y,
+                               Mathf.MoveTowards(transform.position.z, followObject.position.z - GameManager.Instance.swordsZDistance, GameManager.Instance.swordsZfollowSpeed * Time.smoothDeltaTime));
+                    }
                 }
             }
             else
             {
-                transform.position = new Vector3(Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
-                 Mathf.Lerp(transform.position.y, followObject.position.y, GameManager.Instance.swordsYFollowSpeed * Time.smoothDeltaTime),
-                  followObject.position.z - GameManager.Instance.swordsZDistance);
+                if (transform.GetSiblingIndex() == 0)
+                    transform.position = new Vector3(followObject.position.x, followObject.position.y, followObject.position.z - GameManager.Instance.swordsZDistance);
+
+                else
+                {
+                    transform.position = new Vector3(
+                          Mathf.Lerp(transform.position.x, followObject.position.x, GameManager.Instance.swordsXFollowSpeed * Time.smoothDeltaTime),
+                       Mathf.Lerp(transform.position.y, followObject.position.y, GameManager.Instance.swordsYFollowSpeed * Time.smoothDeltaTime),
+                        followObject.position.z - GameManager.Instance.swordsZDistance);
+                }
             }
         }
     }
@@ -160,31 +184,34 @@ public class SwordParentController : MonoBehaviour
         print("Power efekt");
         if (CheckEvolve())
         {
-            for (int i = GameManager.Instance.swordPower.Count-1; i >=0 ; i--)
+            for (int i = GameManager.Instance.swordPower.Count - 1; i >= 0; i--)
             {
-                if(power >= GameManager.Instance.swordPower[i])
+                if (power >= GameManager.Instance.swordPower[i])
                 {
                     currentSword = transform.GetChild(i);
-                    for (int j = 0; j < transform.childCount-1; j++)
+                    for (int j = 0; j < transform.childCount - 1; j++)
                     {
                         transform.GetChild(j).gameObject.SetActive(false);
                     }
                     currentSword.gameObject.SetActive(true);
-                    SwordController  swordSc= currentSword.GetComponent<SwordController>();
+                    SwordController swordSc = currentSword.GetComponent<SwordController>();
                     swordSc.SetParentHp();
                     swordSc.SetParentLevel();
+
                     break;
                 }
             }
         }
+        PlayerManager.Instance.SetMinLevel();
+        GameManager.Instance.UsePowerFx(currentSword);
     }
 
 
     private bool CheckEvolve()
     {
-        if (currentSword.GetSiblingIndex() != GameManager.Instance.swordPower.Count)
+        if (currentSword.GetSiblingIndex() != GameManager.Instance.swordPower.Count - 1)
         {
-            if (power >= GameManager.Instance.swordPower[currentSword.GetSiblingIndex()+1])
+            if (power >= GameManager.Instance.swordPower[currentSword.GetSiblingIndex() + 1])
                 return true;
             else
                 return false;

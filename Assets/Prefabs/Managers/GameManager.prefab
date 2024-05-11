@@ -70,7 +70,7 @@ MonoBehaviour:
   swordVerticalRot: {x: -90, y: 0, z: 90}
   swordHorizontalRot: {x: 0, y: -90, z: 0}
   horizontalSwordHeight: 0
-  swordPower: 0a000000140000001e00000028000000320000003c0000004600000050000000
+  swordPower: 0a000000140000001e00000028000000320000003c00000046000000
 --- !u!1 &1461642048571780034
 GameObject:
   m_ObjectHideFlags: 0

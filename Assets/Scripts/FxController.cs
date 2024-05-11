@@ -21,6 +21,8 @@ public class FxController : MonoBehaviour
             PoolingManager.Instance?.ReplacingSliceFx(this.gameObject);
         if(fxType.Equals(FxType.SmokeFx))
             PoolingManager.Instance?.ReplacingSmokeFx(this.gameObject);
+        if(fxType.Equals(FxType.PowerFx))
+            PoolingManager.Instance?.ReplacingPowerFx(this.gameObject);
 
     }
 

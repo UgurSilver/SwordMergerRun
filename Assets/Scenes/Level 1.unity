@@ -1081,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5042839599290972041, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: gateType
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6001223204184310219, guid: df40a422f0adfd743a94dedc9ce4ffef, type: 3}
       propertyPath: m_Name
@@ -21465,10 +21465,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3632284299134424529, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
-      propertyPath: swordPower.Array.size
-      value: 7
-      objectReference: {fileID: 0}
+    - target: {fileID: 2364239851033237624, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
+      propertyPath: swordIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: edec20a1690b99a42a2863eeddb0cea3, type: 3}
+    - target: {fileID: 2364239851033237624, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
+      propertyPath: swordIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 25ed4b83213bb69428b867d51ff01248, type: 3}
+    - target: {fileID: 2364239851033237624, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
+      propertyPath: swordIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 25ed4b83213bb69428b867d51ff01248, type: 3}
+    - target: {fileID: 2364239851033237624, guid: 9752aaf6d51800748a2332fbe8fd934f, type: 3}
+      propertyPath: swordIcons.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 095b57950636e5640834b263d75ccf54, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
