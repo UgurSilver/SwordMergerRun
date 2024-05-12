@@ -1831,10 +1831,10 @@ MonoBehaviour:
   - {fileID: 1715187370647514877}
   - {fileID: 6980266688188129026}
   swordIcons:
-  - {fileID: 21300000, guid: 25ed4b83213bb69428b867d51ff01248, type: 3}
-  - {fileID: 21300000, guid: 095b57950636e5640834b263d75ccf54, type: 3}
   - {fileID: 21300000, guid: edec20a1690b99a42a2863eeddb0cea3, type: 3}
-  - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
+  - {fileID: 21300000, guid: 25ed4b83213bb69428b867d51ff01248, type: 3}
+  - {fileID: 21300000, guid: 35647e65a2d05ec4ebfb55474ef53452, type: 3}
+  - {fileID: 21300000, guid: 095b57950636e5640834b263d75ccf54, type: 3}
   - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
   - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}
   - {fileID: 21300000, guid: 6b08b687bb45e154997aa146b1db341f, type: 3}

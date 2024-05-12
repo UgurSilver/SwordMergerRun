@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
             currentTouch = Input.mousePosition;
             xDifference = (currentTouch.x - firstTouch.x) * 100f / Screen.width;
             xDifference = Mathf.Clamp(xDifference, -1, 1); //Clamp Side acceleration
-            print(xDifference);
             Vector3 newPos = transform.position + new Vector3(xDifference, 0, 0);
             transform.position = Vector3.Lerp(transform.position, new Vector3(newPos.x, transform.position.y, transform.position.z), movement.sideSpeed * Time.deltaTime);// MoveSpeed = 11
 

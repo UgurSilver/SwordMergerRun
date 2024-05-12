@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7465231512553538251}
   - component: {fileID: 6059170581562863940}
   - component: {fileID: 3098009198916609884}
-  - component: {fileID: 1026334797581458698}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Sliceable
@@ -191,18 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9227b0d8248564f4e8ab2ac71646cea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1026334797581458698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808909630520797159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b608b3295ae6d41b02925cf36701d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  bonusFx: {fileID: 0}
 --- !u!1 &2808771221105019426
 GameObject:
   m_ObjectHideFlags: 0

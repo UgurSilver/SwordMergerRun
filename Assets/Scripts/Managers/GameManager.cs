@@ -199,10 +199,10 @@ public class GameManager : MonoBehaviour
         tempSliceMoneyText.transform.localPosition = pos;
         tempSliceMoneyText.transform.SetParent(null);
 
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
-            tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
+        tempSliceMoneyText.GetComponent<TMPro.TextMeshPro>().text = "+" + GetEarnedMoney();
 
         tempSliceMoneyText.SetActive(true);
         return tempSliceMoneyText;
@@ -237,7 +237,11 @@ public class GameManager : MonoBehaviour
     {
         GameObject tempPowerFx = PoolingManager.Instance.UsePowerFx();
         tempPowerFx.transform.SetParent(parent);
-        tempPowerFx.transform.localPosition = Vector3.zero+new Vector3(0,0,-1);
+        tempPowerFx.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1);
+        if (!PlayerManager.Instance.ishorizontal)
+            tempPowerFx.transform.localRotation = Quaternion.Euler(new Vector3(90, 180, 180));
+        else
+            tempPowerFx.transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 90));
         tempPowerFx.SetActive(true);
         return tempPowerFx;
     }

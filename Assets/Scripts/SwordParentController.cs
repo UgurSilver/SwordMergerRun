@@ -129,23 +129,28 @@ public class SwordParentController : MonoBehaviour
 
         isDead = true;
         transform.SetParent(null);
-        currentSword.GetComponent<Collider>().isTrigger = false;
+        currentSword.GetComponent<Collider>().enabled = false;
+
         Rigidbody rb = currentSword.GetComponent<Rigidbody>();
         rb.isKinematic = false;
+        currentSword.GetChild(0).gameObject.SetActive(false);
+        currentSword.GetChild(1).gameObject.SetActive(true);
 
+        print("SwordDead");
         int rnd = Random.Range(0, 2);
-        rb.AddForce(Vector3.up * 200);
-        rb.AddForce(Vector3.forward * 200);
+        rb.AddForce(Vector3.up * 150);
+        rb.AddForce(Vector3.forward * 150);
         if (rnd == 0)
         {
-            rb.AddForce(Vector3.right * 100);
-            rb.AddTorque(Vector3.right * 100);
+            rb.AddForce(Vector3.right * 70);
+            rb.AddTorque(Vector3.right * 70);
         }
         else
         {
-            rb.AddForce(Vector3.left * 100);
-            rb.AddTorque(Vector3.left * 100);
+            rb.AddForce(Vector3.left * 70);
+            rb.AddTorque(Vector3.left * 70);
         }
+
         PlayerManager.Instance.swordList.Remove(transform);
 
         CheckFail();
@@ -174,7 +179,7 @@ public class SwordParentController : MonoBehaviour
 
     IEnumerator WaitForReplacePool()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         ReplacePool();
     }
 
