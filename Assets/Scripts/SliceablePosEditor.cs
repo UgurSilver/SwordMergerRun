@@ -7,9 +7,6 @@ using UnityEditor;
 [CustomEditor(typeof(SliceablePosManager))]
 public class SliceablePosEditor : Editor
 {
-
-
-
     public override void OnInspectorGUI()
     {
         SliceablePosManager sliceablePosManager = (SliceablePosManager)target;

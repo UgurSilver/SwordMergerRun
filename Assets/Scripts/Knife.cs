@@ -49,16 +49,15 @@ public class Knife : MonoBehaviour
             {
                 if (!GameManager.Instance.isBonus)
                 {
-                    if(sliceableSc.GetComponent<WoodController>()?.bonusFx != null)
+                    if (sliceableSc.GetComponent<WoodController>()?.bonusFx != null)
                     {
                         sliceableSc.GetComponent<WoodController>().bonusFx.SetActive(false);
                     }
                 }
                 if (sliceableSc.transform.childCount > 0)
-                {
                     sliceableSc.transform.GetChild(0)?.SetParent(null);
+                if (sliceableSc.transform.childCount > 0)
                     sliceableSc.transform.GetChild(0)?.SetParent(null);
-                }
                 PlayerManager.Instance.PlayWoodSound();
             }
             else
