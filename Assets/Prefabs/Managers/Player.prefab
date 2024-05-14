@@ -472,7 +472,7 @@ MonoBehaviour:
   woodSound: {fileID: 8300000, guid: f70d075075fd21f4f981e73f9fb0bfcc, type: 3}
   movement:
     forwardSpeed: 2.5
-    sideSpeed: 2.5
+    sideSpeed: 3
   collisionDetection:
     adana: 0
 --- !u!114 &5047895434296914271

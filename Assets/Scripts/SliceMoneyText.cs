@@ -16,17 +16,16 @@ public class SliceMoneyText : MonoBehaviour
 
     private void MoveUp()
     {
-        transform.DOMoveY(transform.position.y + 1.2f, 1.5f).OnStepComplete(()=>ReplacePool());
+        transform.DOMoveY(transform.position.y + 1.2f, 1.5f).OnStepComplete(() => ReplacePool());
         transform.DOMoveZ(transform.position.z + 3, 1.3f);
         transform.GetComponent<TMPro.TextMeshPro>().DOColor(endColor, 2.9f);
-            
     }
     void Update()
     {
         transform.LookAt(transform.position + Camera.main.transform.forward);
     }
 
-   private void ReplacePool()
+    private void ReplacePool()
     {
         DOTween.Kill(this);
         PoolingManager.Instance.ReplacingSliceMoneyText(this.gameObject);

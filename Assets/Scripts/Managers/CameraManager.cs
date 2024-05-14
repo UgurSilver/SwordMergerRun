@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
     #region Variables for Follow
     private Vector3 targetDistance;
     public Vector3 offSet;
+    public float zOffsetClamp;
     public float followSpeed;
     private Transform target;
     public bool isFollow = true;
@@ -49,7 +50,9 @@ public class CameraManager : MonoBehaviour
           else
               targetZOffset = 0;*/
 
-        targetZOffset = -(swords.GetChild(0).childCount - 1) * 0.1f;
+        targetZOffset = -(swords.GetChild(0).childCount - 1) * 0.03f;
+        if (targetZOffset < zOffsetClamp)
+            targetZOffset = zOffsetClamp;
 
         if (!GameManager.Instance.isLevelEnd)
         {

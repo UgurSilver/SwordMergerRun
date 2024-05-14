@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(SliceablePosManager))]
+/*[CustomEditor(typeof(SliceablePosManager))]
 public class SliceablePosEditor : Editor
 {
     public override void OnInspectorGUI()
@@ -30,3 +30,4 @@ public class SliceablePosEditor : Editor
 
 
 }
+*/

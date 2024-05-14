@@ -9,12 +9,13 @@ public class Sliceable : MonoBehaviour
     public Material woodInsideMat1, woodInsideMat2, woodInsideMat3, woodInsideMat4, woodInsideMat5;
     public Color sliceFxColor;
     public Color wood1, wood2, wood3, wood4, wood5;
-    public bool isWood,isObstacle;
+    public bool isWood, isObstacle;
     public WoodType woodType;
     public float rotateSpeed;
     private bool isMoveDown;
     public float moveUpPos, moveDownPos;
     public float moveSpeed;
+    private bool isStartMoveAnim;
 
     private void OnEnable()
     {
@@ -47,19 +48,32 @@ public class Sliceable : MonoBehaviour
             }
         }
 
+        StartCoroutine(WaitStartMoveAnim());
+
         //RandomRot
-       /* else
-        {
-            float rndRot = Random.Range(0, 180);
-            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, rndRot, transform.eulerAngles.z));
-        }*/
+        /* else
+         {
+             float rndRot = Random.Range(0, 180);
+             transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, rndRot, transform.eulerAngles.z));
+         }*/
+    }
+
+
+    IEnumerator WaitStartMoveAnim()
+    {
+        float rnd = Random.Range(0, 2f);
+        yield return new WaitForSeconds(rnd);
+        isStartMoveAnim = true;
     }
 
     private void Update()
     {
         //RotateAnim();
-        CheckMovePos();
-        MoveUpDown();
+        if (isStartMoveAnim)
+        {
+            CheckMovePos();
+            MoveUpDown();
+        }
     }
     public void SetSliceable()
     {
@@ -80,7 +94,7 @@ public class Sliceable : MonoBehaviour
 
     public void RotateAnim()
     {
-        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime,Space.World);
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.World);
     }
 
     public void MoveUpDown()
@@ -105,7 +119,7 @@ public class Sliceable : MonoBehaviour
         StartCoroutine(WaitClsoeObject());
     }
 
-  IEnumerator WaitClsoeObject()
+    IEnumerator WaitClsoeObject()
     {
         yield return new WaitForSeconds(2);
         gameObject.SetActive(false);
