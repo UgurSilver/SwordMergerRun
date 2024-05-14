@@ -150,6 +150,7 @@ public class PlayerManager : MonoBehaviour
         for (int i = 0; i < swordList.Count; i++)
         {
             swordList[i].GetComponent<SwordParentController>().SetRot();
+            swordList[i].GetComponent<SwordParentController>().currentSword.localRotation = Quaternion.Euler(Vector3.zero);
         }
     }
 
