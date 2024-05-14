@@ -470,6 +470,7 @@ MonoBehaviour:
   ishorizontal: 0
   fruitSound: {fileID: 8300000, guid: 469ff7a61a68ce243a80746b263092ca, type: 3}
   woodSound: {fileID: 8300000, guid: f70d075075fd21f4f981e73f9fb0bfcc, type: 3}
+  bonusSound: {fileID: 8300000, guid: 959c57607404b0348a641f863c09566b, type: 3}
   movement:
     forwardSpeed: 2.5
     sideSpeed: 3

@@ -94,6 +94,7 @@ public class SwordController : MonoBehaviour
         {
             GameManager.Instance.SetBonusBool();
             other.transform.parent.GetComponent<BonusObjectController>().CloseObject();
+            PlayerManager.Instance.PlayBonusSound();
         }
     }
 

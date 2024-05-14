@@ -50,7 +50,7 @@ public class CameraManager : MonoBehaviour
           else
               targetZOffset = 0;*/
 
-        targetZOffset = -(swords.GetChild(0).childCount - 1) * 0.03f;
+        targetZOffset = -(swords.GetChild(0).childCount - 2) * 0.03f;
         if (targetZOffset < zOffsetClamp)
             targetZOffset = zOffsetClamp;
 

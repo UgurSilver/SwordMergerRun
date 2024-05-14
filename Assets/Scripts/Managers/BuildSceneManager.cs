@@ -32,7 +32,7 @@ public class BuildSceneManager : MonoBehaviour
             SceneManager.LoadScene(datas.sceneLevel);
         else
         {
-            datas.sceneLevel = 1;
+            datas.sceneLevel = 2;
             DataManager.SaveData(datas);
             SceneManager.LoadScene(datas.sceneLevel);
         }

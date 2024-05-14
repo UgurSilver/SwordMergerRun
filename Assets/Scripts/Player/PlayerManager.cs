@@ -17,11 +17,12 @@ public class PlayerManager : MonoBehaviour
     public int initialMaxSwordsNum;
     private int maxSwordsNum;
     public bool ishorizontal;
+    private bool isBonusSound;
     #endregion
 
     #region Variables for Sounds
     private AudioSource audioSource;
-    public AudioClip fruitSound, woodSound;
+    public AudioClip fruitSound, woodSound, bonusSound;
     #endregion
 
     private void Awake()
@@ -43,8 +44,8 @@ public class PlayerManager : MonoBehaviour
         minLevel = 500;
         for (int i = 0; i < swordList.Count; i++)
         {
-                if (swordList[i].GetComponent<SwordParentController>().level < minLevel)
-                    minLevel = swordList[i].GetComponent<SwordParentController>().level;
+            if (swordList[i].GetComponent<SwordParentController>().level < minLevel)
+                minLevel = swordList[i].GetComponent<SwordParentController>().level;
         }
     }
 
@@ -205,8 +206,25 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayWoodSound()
     {
-        audioSource.clip = woodSound;
+        if (!isBonusSound)
+        {
+            audioSource.clip = woodSound;
+            audioSource.Play();
+        }
+    }
+
+    public void PlayBonusSound()
+    {
+        isBonusSound = true;
+        audioSource.clip = bonusSound;
         audioSource.Play();
+        StartCoroutine(WaitResetBonusSound());
+    }
+
+    IEnumerator WaitResetBonusSound()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isBonusSound = false;
     }
     #endregion
 

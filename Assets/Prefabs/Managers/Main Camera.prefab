@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offSet: {x: 0, y: 0, z: 0}
+  zOffsetClamp: -0.3
   followSpeed: 5
   isFollow: 0
   zoomSpeed: 0.5
