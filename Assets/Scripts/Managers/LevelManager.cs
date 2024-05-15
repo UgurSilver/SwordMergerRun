@@ -46,7 +46,7 @@ public class LevelManager : MonoBehaviour
     {
         DOTween.KillAll();
         print("Fail");
-
+        DataManager.SaveData(GameManager.Instance.datas);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
