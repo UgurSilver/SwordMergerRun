@@ -45,7 +45,7 @@ public class MergeBuyButton : MonoBehaviour
 
         //Tutorial
         GameManager.Instance.datas.buyTutorial = true;
-
+        UIManager.Instance.buyTutorial.SetActive(false);
         SaveGridLevel();
         //Save
         DataManager.SaveData(GameManager.Instance.datas);
@@ -96,8 +96,8 @@ public class MergeBuyButton : MonoBehaviour
         {
             if (!GameManager.Instance.datas.buyTutorial)
                 UIManager.Instance.buyTutorial.SetActive(true);
-            else
-                UIManager.Instance.buyTutorial.SetActive(false);
+            //else
+            //    UIManager.Instance.buyTutorial.SetActive(false);
 
             if (!GameManager.Instance.datas.mergeTutorial)
                 UIManager.Instance.mergeRunButton.DeactivateButton();

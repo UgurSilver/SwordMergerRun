@@ -35,7 +35,7 @@ public class DataManager
         gameData.money = 0; //0
 
         //Merge
-        gameData.mergePrice = 50; //50
+        gameData.mergePrice = 250; //50
         gameData.mergeLevel = 1; //1
         gameData.mergeCount = 0; //0
         gameData.mergeImage = null;
