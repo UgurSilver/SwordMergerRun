@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6caf0b2053de4fb24b7d77a267ed2, type: 3}
   m_Name: GameDatas
   m_EditorClassIdentifier: 
-  level: 1
-  sceneLevel: 1
-  money: 0
+  level: 2
+  sceneLevel: 2
+  money: 834
   mergePrice: 50
   mergeLevel: 1
-  mergeCount: 0
+  mergeCount: 3
   mergeImage: {fileID: 0}
-  buyTutorial: 0
-  mergeTutorial: 0
-  runTutorial: 0
-  gridLevels: 000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000
+  buyTutorial: 1
+  mergeTutorial: 1
+  runTutorial: 1
+  gridLevels: 000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000
