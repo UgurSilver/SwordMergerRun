@@ -73,7 +73,9 @@ public class Knife : MonoBehaviour
                 GameManager.Instance.UseSmokeFx(slicedObjectTop?.transform);
                 GameManager.Instance.UseSmokeFx(slicedObjectDown?.transform);
             }
-            Destroy(other.gameObject);
+
+            //Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
 
             SetSlicedObject(slicedObjectTop);
             SetSlicedObject(slicedObjectDown);
