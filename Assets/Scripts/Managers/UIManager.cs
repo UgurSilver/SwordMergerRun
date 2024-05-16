@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-//using SupersonicWisdomSDK;
+using SupersonicWisdomSDK;
 
 public class UIManager : MonoBehaviour
 {
@@ -115,7 +115,7 @@ public class UIManager : MonoBehaviour
     public void OpenWinpanel()
     {
         StartCoroutine(WaitWinPanel());
-        //SupersonicWisdom.Api.NotifyLevelCompleted(gameManager.datas.level, null);
+        SupersonicWisdom.Api.NotifyLevelCompleted(GameManager.Instance.datas.level, null);
     }
 
     IEnumerator WaitWinPanel()
@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
     public void OpenFailPanel()
     {
         StartCoroutine(WaitFailPanel());
-        //SupersonicWisdom.Api.NotifyLevelFailed(gameManager.datas.level, null);
+        SupersonicWisdom.Api.NotifyLevelFailed(GameManager.Instance.datas.level, null);
     }
 
     IEnumerator WaitFailPanel()

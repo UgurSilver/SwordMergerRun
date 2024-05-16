@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
-//using SupersonicWisdomSDK;
+using SupersonicWisdomSDK;
 
 public class BuildSceneManager : MonoBehaviour
 {
@@ -17,8 +17,8 @@ public class BuildSceneManager : MonoBehaviour
     private void Awake()
     {
         DataManager.LoadData(datas);
-        //SupersonicWisdom.Api.AddOnReadyListener(SDKLevel);
-        //SupersonicWisdom.Api.Initialize();
+        SupersonicWisdom.Api.AddOnReadyListener(SDKLevel);
+        SupersonicWisdom.Api.Initialize();
         SDKLevel();
     }
     private void Update()

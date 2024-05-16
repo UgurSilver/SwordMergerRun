@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using SupersonicWisdomSDK;
+using SupersonicWisdomSDK;
 
 public class GameManager : MonoBehaviour
 {
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             CameraManager.Instance.SetTarget();
             CameraManager.Instance.isFollow = true;
             print("StartGame");
-            //SupersonicWisdom.Api.NotifyLevelStarted(datas.level, null);
+            SupersonicWisdom.Api.NotifyLevelStarted(datas.level, null);
         }
     }
 
