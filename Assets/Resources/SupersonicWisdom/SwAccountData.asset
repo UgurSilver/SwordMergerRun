@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bde5b51eef6a4560b2a2442b047a9a7, type: 3}
+  m_Name: SwAccountData
+  m_EditorClassIdentifier: 
+  titlesList:
+  - games: []
+    id: 
+    name: --- select ---
+  - games:
+    - adMobId: 
+      bundleId: com.Silverzen.BallUpPop
+      facebookAppId: 1111704666651092
+      facebookToken: 9133f5e520da0d1d51ef5f8204d9094f
+      gameAnalyticsKey: e52cc023b81411221aa04dc36e962508
+      gameAnalyticsSecret: a8df35cf80df3fc947a5cdd5b028994e47eca33b
+      id: 079c0ed1-1bf5-4070-8ea3-1577d0acb3be
+      isAppKey: 
+      os: android
+      platform: google_play
+      storeId: com.Silverzen.BallUpPop
+    id: 6e85bb80-dee2-4018-a252-440ed58deae6
+    name: BallUpPop
+  - games:
+    - adMobId: 
+      bundleId: com.Silverzen.RunnerNinja
+      facebookAppId: 420755174148786
+      facebookToken: 94b4827d1e24374239b9e7687dcd3393
+      gameAnalyticsKey: 49419b25141b1867c8626423a642dde4
+      gameAnalyticsSecret: 5b971c7f30aa1b404e36c387402a250ade23fd8a
+      id: a0b210fb-113d-4dba-8ce7-ed662068b737
+      isAppKey: 
+      os: android
+      platform: google_play
+      storeId: com.Silverzen.RunnerNinja
+    id: ab99f04b-2c1a-4821-ba49-52a17ca67a26
+    name: Runner Ninja
+  - games:
+    - adMobId: 
+      bundleId: 
+      facebookAppId: 
+      facebookToken: 
+      gameAnalyticsKey: 5e48655e3a162331f3e73fb4bca39efe
+      gameAnalyticsSecret: 1a165a85274da77e3804d3524607f8ec6d6cbad5
+      id: 8a5d8bcc-f18d-4bee-a814-2d46d7fee784
+      isAppKey: 
+      os: android
+      platform: google_play
+      storeId: 
+    id: 525da1ee-05c3-432f-8f6c-9959910b3117
+    name: Sword Merger Run
+  integrationGuideUrl: 

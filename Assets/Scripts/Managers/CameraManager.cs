@@ -50,7 +50,8 @@ public class CameraManager : MonoBehaviour
           else
               targetZOffset = 0;*/
 
-        targetZOffset = -(swords.GetChild(0).childCount - 2) * 0.03f;
+        targetZOffset = -(swords.GetChild(0).childCount - 2) * 0.075f;
+
         if (targetZOffset < zOffsetClamp)
             targetZOffset = zOffsetClamp;
 
@@ -58,6 +59,7 @@ public class CameraManager : MonoBehaviour
         {
             if (offSet.z != targetZOffset)
                 offSet.z = Mathf.MoveTowards(offSet.z, targetZOffset, zoomSpeed * Time.deltaTime);
+            offSet.y = -offSet.z * 0.75f;
         }
 
         Border();
