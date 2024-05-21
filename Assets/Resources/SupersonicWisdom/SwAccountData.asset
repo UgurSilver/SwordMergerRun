@@ -47,8 +47,8 @@ MonoBehaviour:
   - games:
     - adMobId: 
       bundleId: 
-      facebookAppId: 
-      facebookToken: 
+      facebookAppId: 472767511843848
+      facebookToken: aebd9e93748764094708d4e602394124
       gameAnalyticsKey: 5e48655e3a162331f3e73fb4bca39efe
       gameAnalyticsSecret: 1a165a85274da77e3804d3524607f8ec6d6cbad5
       id: 8a5d8bcc-f18d-4bee-a814-2d46d7fee784

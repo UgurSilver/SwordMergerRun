@@ -29,9 +29,34 @@ public class MergepanelController : MonoBehaviour
     #endregion
 
 
+    private void OnEnable()
+    {
+
+    }
+
+    public void ResetOldSwords()
+    {
+        for (int i = 0; i < grids.Count; i++)
+        {
+            if (grids[i].isFilled)
+            {
+                if (grids[i].level < GameManager.Instance.datas.mergeLevel)
+                {
+                    grids[i].isFilled = false;
+                    grids[i].isInteractable = true;
+                    grids[i].level = 0;
+                    grids[i].SetLevelText();
+                    Destroy(grids[i].transform.GetChild(2).gameObject);
+
+                }
+            }
+        }
+    }
+
     private void Start()
     {
         SetGridStartSwords();
+        ResetOldSwords();
     }
 
     private void SetGridStartSwords()

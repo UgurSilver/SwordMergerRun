@@ -52,6 +52,7 @@ public class PlayerManager : MonoBehaviour
     #region gateEvents
     public void AddSwords(int num)
     {
+        SetMinLevel();
         int addSword = num;
         maxSwordsNum = initialMaxSwordsNum;
         while (addSword > 0)

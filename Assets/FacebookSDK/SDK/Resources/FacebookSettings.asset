@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - aebd9e93748764094708d4e602394124
   appIds:
-  - 
+  - 472767511843848
   appLabels:
   - SwordMergeRun
   cookie: 1
